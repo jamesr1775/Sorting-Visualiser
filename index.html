@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Home page for Donut Disturb Donut Shop">
+    <meta name="keywords" content="Donuts, doughnuts, pastries, desert, dublin, icecream, store, shop, vanilla, chocolate, fudge, icing, cakes, catering">
+	<meta name="author" content="James Rooney">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.1/css/hover-min.css" integrity="sha512-SJw7jzjMYJhsEnN/BuxTWXkezA2cRanuB8TdCNMXFJjxG9ZGSKOX5P3j03H6kdMxalKHZ7vlBMB4CagFP/de0A==" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Donut Disturb | Home</title>
+</head>
+
+<body>
+    
+    <!-- Header Nav Bar and Company Logo -->
+    <header class="header-nav-menu-bg-color">
+        <nav id="header-nav-bar" class="navbar navbar-light navbar-expand-sm">
+            <a href="index.html" class="company-logo"></a>
+            <button class="nav-bar-button navbar-toggler" type="button" data-toggle="collapse" data-target="#navBarDropDown" aria-controls="navBarDropDown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navBarDropDown">
+                <ul class="menu-bar-list navbar-nav">
+                    <li class="active nav-item">
+                        <a href="index.html" class="hvr-sweep-to-bottom nav-link"><i class="fa fa-home" aria-hidden="true"></i><span>Home</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="sort-comparison.html" class="hvr-sweep-to-bottom nav-link"><i class="fa fa-life-ring" aria-hidden="true"></i><span>Sort Comparison</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Container -->
+    <main>
+        <div class="row">
+            <div class="col-3"><button id="generateBars" type="button" class="dashboard-btn btn btn-success" aria-label="Generate Bars Button">Generate Bars</button></div>
+            <div class="col-3"></div>
+            <div class="col-3"></div>
+            <div class="col-3"></div>
+        </div>
+        <div id="bars-container" class="row">
+        </div>
+    </main>
+
+    <!-- Footer Social Links & Copyright -->
+    <footer class="container-fluid footer-menu-bg-color">
+        <div class="row">
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="assets/js/bars-charting.js"></script>
+
+</body>
+
+</html>
