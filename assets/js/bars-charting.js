@@ -25,6 +25,22 @@ function generateBarChart(){
     }
 }
 
+function sortBars(){
+    let numBars = document.getElementsByClassName("single-bar").length;
+    console.log('setting new heights: called')
+    for(let i=0; i<numBars - 1; i++){
+        for(let j=0; j<numBars - i - 1; j++){
+            let barX =  $('#bar-' + j)
+            let barY =  $('#bar-' + j + 1)
+            console.log("barX.height :" +barX.height())
+            if (barX.height()>barY.height()){
+                let tempHeight = barX.height()
+                barX.height()= barY.height()
+                barY.height() = tempHeight
+            }
+        }
+    }
+}
 
 $('#generateBars').click(function() {
     console.log('generateBars click: called')
