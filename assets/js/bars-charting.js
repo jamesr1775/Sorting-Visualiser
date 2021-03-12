@@ -34,9 +34,11 @@ function sortBars(){
             let barY =  $('#bar-' + j + 1)
             console.log("barX.height :" +barX.height())
             if (barX.height()>barY.height()){
-                let tempHeight = barX.height()
-                barX.height()= barY.height()
-                barY.height() = tempHeight
+                setTimeout(function() {
+                    let tempHeight = barX.height()
+                    barX.css("height", barY.height() + "px")
+                    barY.css("height", tempHeight +"px")
+                }, 1*i)
             }
         }
     }
