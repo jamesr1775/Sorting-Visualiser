@@ -82,3 +82,11 @@ I followed the steps below to deploy my project:
 ### Acknowledgements
 
 ### Bugs/Issues Resolved
+- 
+- First few versions of bubble sort and trying to change the bar charts heights to perform sorting was difficult. The animation happened 
+  all at once at the end of the function, or with the set timeout function the heights were not updated fast enough for the sorting algorithm and maybe only one or two 
+  bars swapped back and forth. I found some information that helped me from [stackoverflow](https://stackoverflow.com/questions/48184493/update-element-with-ajax-dont-affect-until-for-loop-end/48184577). 
+  The divs were not updating till end of the loop and if I updated them with a timeout function it bugged out because the sort order was messed up so I decided to group animations in to an array.
+- Struggled to change the colors to show the two current bars currently be getting compared in the algorithm. Initially tried to change the colors with set time out delays before the 
+  the heights of the bars were swapped during the same loop iteration, but this caused delay/ asynchronous issues were multiple bar colors were being changed. My solution was to instead have the color change animations happen as part of the animation 
+  array which would be in its own loop iteration. This solved that issue.
