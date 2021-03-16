@@ -7,7 +7,7 @@ function generateBarChart(){
     let spacerContainer = '<div class="col-1"></div>'
     let allBars = ""
     /*Need to remove these magic numbers for screen size adjusting but working for now*/
-    for(let i=0; i<(7/10)*(screen.width/30); i++){
+    for(let i=0; i<(5/10)*(screen.width/10); i++){
         let singleBar = '<div id="bar-' + i + '" class="single-bar"></div>'
         console.log(singleBar)
         allBars += singleBar
@@ -25,7 +25,7 @@ function generateBarChart(){
     }
 }
 
-function sortBars(){
+function bubbleSortAlgorithm(){
     let numBars = document.getElementsByClassName("single-bar").length;
     console.log('setting new heights: called')
     barsStructure = []
@@ -62,15 +62,77 @@ function sortBars(){
             }
         }
     }
-        swapAnimations.push(['#bar-' + 0, null, false, false, true])
-        swapAnimations.push(['#bar-' + 1, null, false, false, true])
+    swapAnimations.push(['#bar-' + 0, null, false, false, true])
+    swapAnimations.push(['#bar-' + 1, null, false, false, true])
     console.log('swapAnimations: ' + swapAnimations)
+    return swapAnimations
+}
+
+
+function mergeSortAlgorithmHelper(array, leftIdx, rightIdx, auxilaryArray, animations){
+    if (leftIdx === rightIdx){
+        return
+    }
+    let midIdx = Math.floor((leftIdx + rightIdx)/2)
+    mergeSortAlgorithmHelper(auxilaryArray, leftIdx, midIdx, array, animations)
+    mergeSortAlgorithmHelper(auxilaryArray, midIdx + 1, rightIdx, array, animations)
+    doMerge(array, leftIdx, midIdx, rightIdx, auxilaryArray, animations)
+}
+function doMerge(array, leftIdx, midIdx, rightIdx, auxilaryArray, animations){
+    let i = leftIdx
+    let k = leftIdx
+    let j = midIdx + 1
+    while(i <= midIdx && j <= rightIdx){
+        if (auxilaryArray[i][1] <= auxilaryArray[j][1]){
+            animations.push(['#bar-' + k, auxilaryArray[i][1], true, false, false])
+            array[k][1] = auxilaryArray[i][1]
+            i++
+        }
+        else{
+            animations.push(['#bar-' + k, auxilaryArray[j][1], true, false, false])
+            array[k][1] = auxilaryArray[j][1]
+            j++
+        }
+        k++
+    }
+    while(i <= midIdx){
+        animations.push(['#bar-' + k, auxilaryArray[i][1], true, false, false])
+        array[k][1] = auxilaryArray[i][1]
+        i++
+        k++
+    }
+    while(j <= rightIdx){
+        animations.push(['#bar-' + k, auxilaryArray[j][1], true, false, false])
+        array[k][1] = auxilaryArray[j][1]
+        j++
+        k++
+    }
+}
+function mergeSortAlgorithm(){
+    // if (array.length <=1){
+    //     return array
+    // }
+    let leftIdx = 0
+    let rightIdx = document.getElementsByClassName("single-bar").length - 1;
+    console.log('setting new heights: called')
+    let barsStructure = []
+    let swapAnimations = []
+    let auxilaryArray = []
+    for(let i=0; i<=rightIdx; i++){
+        let bar =  $('#bar-' + i)
+        barsStructure.push(['#bar-' + i, bar.height()])
+        auxilaryArray.push(['#bar-' + i, bar.height()])
+    }
+    // bug this arrray needed to be a constant
+    // bug , took copy of array of objects but its not a deep copy
+    mergeSortAlgorithmHelper(barsStructure, leftIdx, rightIdx, auxilaryArray, swapAnimations)
+    console.log(swapAnimations)
     return swapAnimations
 }
 
 function playAnimations(animations){
     let flipColor = false
-    for(let i=0; i<animations.length - 1; i+=1){
+    for(let i=0; i<animations.length; i+=1){
         let currentAnimation = animations[i]
         let currentBar = currentAnimation[0]
         let currentBarNewHeight = currentAnimation[1]
@@ -86,22 +148,22 @@ function playAnimations(animations){
                     setColor(currentBar, "yellow")
                 }
                 flipColor = !flipColor
-            },5*i);
+            },20*i);
         }
         else if(swapBar){
             setTimeout(function() {
                 setHeight(currentBar, currentBarNewHeight)
-            }, 5*i);
+            }, 20*i);
         }
         else if(barInFinalPosition){
             setTimeout(function() {
                 setColor(currentBar, "royalblue")
-            },5*i);
+            },20*i);
         }
         else{
             setTimeout(function() {
                 setColor(currentBar, "#198754")
-            },5*i);
+            },20*i);
         }
     }
 }
@@ -122,7 +184,7 @@ $('#generateBars').click(function() {
     generateBarChart();
 });
 $('#sortBars').click(function() {
-    console.log('sortBars click: called')
-    let swapAnimations = sortBars();
+    console.log('bubbleSortAlgorithm click: called')
+    let swapAnimations = mergeSortAlgorithm();
     playAnimations(swapAnimations)
 })
