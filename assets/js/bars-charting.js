@@ -1,133 +1,42 @@
+import {bubbleSortAlgorithm} from './sortingAlgorithms/bubble-sort.js'
+import {mergeSortAlgorithm} from './sortingAlgorithms/merge-sort.js'
+
+let currentSortAlgorithm = "None"
+
 function generateBarChart(){
     console.log("screen:")
     console.log(screen.width)
     console.log(screen.height)
     console.log('generateBarChart: called')
     let barContainer = document.getElementById('bars-container')
+    let barPixelSize = $('#arraySize').val()
     let spacerContainer = '<div class="col-1"></div>'
     let allBars = ""
+    console.log('generateBarChart: barPixelSize' + barPixelSize)
     /*Need to remove these magic numbers for screen size adjusting but working for now*/
-    for(let i=0; i<(5/10)*(screen.width/10); i++){
+    for(let i=0; i<(1/2)*(screen.width/barPixelSize); i++){
         let singleBar = '<div id="bar-' + i + '" class="single-bar"></div>'
         console.log(singleBar)
         allBars += singleBar
     }
     let barsContainerInnerHtml = `${spacerContainer}
-                                <div class="col-10">${allBars}</div>
+                                <div  id="bar-chart" class="col-10">${allBars}</div>
                                 ${spacerContainer}`
     barContainer.innerHTML = barsContainerInnerHtml
     let bars = document.getElementsByClassName("single-bar");
     console.log('setting new heights: called')
+    let maxHeight = 0
     for(let bar of bars){
         /*Need to remove these magic numbers for screen size adjusting but working for now*/
         let newHeight = Math.ceil(Math.random() * screen.height*0.5)
+        if (newHeight > maxHeight){
+            maxHeight = newHeight
+        }
         bar.setAttribute("style", "height: " + newHeight + "px")
+        bar.style.width = barPixelSize + "px"
     }
-}
-
-function bubbleSortAlgorithm(){
-    let numBars = document.getElementsByClassName("single-bar").length;
-    console.log('setting new heights: called')
-    barsStructure = []
-    swapAnimations = []
-    for(let i=0; i<numBars; i++){
-        let bar =  $('#bar-' + i)
-        barsStructure.push(['#bar-' + i, bar.height()])
-    }
-    for(let i=0; i<barsStructure.length - 1; i++){
-        let innerLoopEnd = barsStructure.length - i - 1
-        for(let j=0; j<innerLoopEnd; j++){
-            let barOne =  barsStructure[j][0]
-            let barTwo =  barsStructure[j+1][0]
-            let barOneHeight =  barsStructure[j][1]
-            let barTwoHeight =  barsStructure[j+1][1]
-            console.log("barOne.height :" +barOneHeight)
-            swapAnimations.push(['#bar-' + j, barOneHeight, false, true, false])
-            swapAnimations.push(['#bar-' + (j + 1), barTwoHeight, false, true, false])
-            if (barOneHeight>barTwoHeight){
-                swapAnimations.push(['#bar-' + j, barTwoHeight, true, false, false])
-                swapAnimations.push(['#bar-' + (j + 1), barOneHeight, true, false, false])
-                let tempHeight = barOneHeight
-                barsStructure[j][1] = barTwoHeight
-                barsStructure[j+1][1] = tempHeight
-            }
-            else{
-                swapAnimations.push(['#bar-' + j, barOneHeight, false, false])
-                swapAnimations.push(['#bar-' + (j + 1), barTwoHeight, false, false])
-            }
-            swapAnimations.push(['#bar-' + j, barOneHeight, false, false, false])
-            swapAnimations.push(['#bar-' + (j + 1), barTwoHeight, false, false])
-            if(j === innerLoopEnd - 1){
-                swapAnimations.push(['#bar-' + (j+1), barTwoHeight, false, false, true])
-            }
-        }
-    }
-    swapAnimations.push(['#bar-' + 0, null, false, false, true])
-    swapAnimations.push(['#bar-' + 1, null, false, false, true])
-    console.log('swapAnimations: ' + swapAnimations)
-    return swapAnimations
-}
-
-
-function mergeSortAlgorithmHelper(array, leftIdx, rightIdx, auxilaryArray, animations){
-    if (leftIdx === rightIdx){
-        return
-    }
-    let midIdx = Math.floor((leftIdx + rightIdx)/2)
-    mergeSortAlgorithmHelper(auxilaryArray, leftIdx, midIdx, array, animations)
-    mergeSortAlgorithmHelper(auxilaryArray, midIdx + 1, rightIdx, array, animations)
-    doMerge(array, leftIdx, midIdx, rightIdx, auxilaryArray, animations)
-}
-function doMerge(array, leftIdx, midIdx, rightIdx, auxilaryArray, animations){
-    let i = leftIdx
-    let k = leftIdx
-    let j = midIdx + 1
-    while(i <= midIdx && j <= rightIdx){
-        if (auxilaryArray[i][1] <= auxilaryArray[j][1]){
-            animations.push(['#bar-' + k, auxilaryArray[i][1], true, false, false])
-            array[k][1] = auxilaryArray[i][1]
-            i++
-        }
-        else{
-            animations.push(['#bar-' + k, auxilaryArray[j][1], true, false, false])
-            array[k][1] = auxilaryArray[j][1]
-            j++
-        }
-        k++
-    }
-    while(i <= midIdx){
-        animations.push(['#bar-' + k, auxilaryArray[i][1], true, false, false])
-        array[k][1] = auxilaryArray[i][1]
-        i++
-        k++
-    }
-    while(j <= rightIdx){
-        animations.push(['#bar-' + k, auxilaryArray[j][1], true, false, false])
-        array[k][1] = auxilaryArray[j][1]
-        j++
-        k++
-    }
-}
-function mergeSortAlgorithm(){
-    // if (array.length <=1){
-    //     return array
-    // }
-    let leftIdx = 0
-    let rightIdx = document.getElementsByClassName("single-bar").length - 1;
-    console.log('setting new heights: called')
-    let barsStructure = []
-    let swapAnimations = []
-    let auxilaryArray = []
-    for(let i=0; i<=rightIdx; i++){
-        let bar =  $('#bar-' + i)
-        barsStructure.push(['#bar-' + i, bar.height()])
-        auxilaryArray.push(['#bar-' + i, bar.height()])
-    }
-    // bug this arrray needed to be a constant
-    // bug , took copy of array of objects but its not a deep copy
-    mergeSortAlgorithmHelper(barsStructure, leftIdx, rightIdx, auxilaryArray, swapAnimations)
-    console.log(swapAnimations)
-    return swapAnimations
+    let barChart = document.getElementById('bar-chart') 
+    // barChart.style.minHeight = maxHeight + "px"
 }
 
 function playAnimations(animations){
@@ -184,7 +93,33 @@ $('#generateBars').click(function() {
     generateBarChart();
 });
 $('#sortBars').click(function() {
-    console.log('bubbleSortAlgorithm click: called')
-    let swapAnimations = mergeSortAlgorithm();
+    let swapAnimations = []
+    if(currentSortAlgorithm === "bubbleSort"){
+        swapAnimations = bubbleSortAlgorithm();
+    }
+    else if(currentSortAlgorithm === "mergeSort"){
+        swapAnimations = mergeSortAlgorithm();
+    }
+    else{
+        event.preventDefault();
+        $('#select-algorithm').modal('show');
+    }
+    
     playAnimations(swapAnimations)
+})
+
+$('#bubbleSortSelect').click(function() {
+    let selectAlgorithm = document.getElementById('selectAlgorithm')
+    selectAlgorithm.innerHTML = "Bubble Sort"
+    currentSortAlgorithm = "bubbleSort"
+})
+$('#mergeSortSelect').click(function() {
+    let selectAlgorithm = document.getElementById('selectAlgorithm')
+    selectAlgorithm.innerHTML = "Merge Sort"
+    currentSortAlgorithm = "mergeSort"
+})
+$('#quickSortSelect').click(function() {
+    let selectAlgorithm = document.getElementById('selectAlgorithm')
+    selectAlgorithm.innerHTML = "Quick Sort"
+    currentSortAlgorithm = "quickSort"
 })

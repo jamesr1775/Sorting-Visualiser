@@ -55,13 +55,13 @@ The Technologies used in this project are the following:
 
 ### Manual Testing
 #### Home Page 
-#### Our Donuts Page
+#### Sort Comparison
 
 #### Further Testing
 
 #### Known Bugs
-Currently no known bugs.
-
+1. When the algorithm is moving the largest bar to its sorted position all the bars jump up and down because the largest div is removed and added in the animation causing the 
+   inline-blocks to change position.
 ## Deployment
 ### GitHub Pages
 I followed the steps below to deploy my project:
@@ -90,3 +90,5 @@ I followed the steps below to deploy my project:
 - Struggled to change the colors to show the two current bars currently be getting compared in the algorithm. Initially tried to change the colors with set time out delays before the 
   the heights of the bars were swapped during the same loop iteration, but this caused delay/ asynchronous issues were multiple bar colors were being changed. My solution was to instead have the color change animations happen as part of the animation 
   array which would be in its own loop iteration. This solved that issue.
+- For the merge sort algorithm, the auxilary array was a copy of the barsArray but it was not a deep copy and had all references to the objects inside the barsArray which 
+  broke the algorithm. I tried to fix this by making the array a const but it did not work so instead I generated the auxilary with the bars array in the same loop.
