@@ -62,6 +62,8 @@ The Technologies used in this project are the following:
 #### Known Bugs
 1. When the algorithm is moving the largest bar to its sorted position all the bars jump up and down because the largest div is removed and added in the animation causing the 
    inline-blocks to change position.
+2. Can click sort button more than once causing odd behaviour since we are not in a for loop anymore.
+
 ## Deployment
 ### GitHub Pages
 I followed the steps below to deploy my project:
@@ -92,3 +94,7 @@ I followed the steps below to deploy my project:
   array which would be in its own loop iteration. This solved that issue.
 - For the merge sort algorithm, the auxilary array was a copy of the barsArray but it was not a deep copy and had all references to the objects inside the barsArray which 
   broke the algorithm. I tried to fix this by making the array a const but it did not work so instead I generated the auxilary with the bars array in the same loop.
+- The pause feature required reseting all timeouts which required the playAnimations function to be remade. I got some help with changing the playanimations function to a recursive loop so the pause feature could be implemented. [stackoverflow](https://stackoverflow.com/questions/29173956/start-and-stop-loop-in-javascript-with-start-and-stop-button)
+- Pushing the timeouts to an array did not seem to work when clearing them, but the window.clearTimeouts does seem to work which I found from [stackoverflow](https://stackoverflow.com/questions/8860188/javascript-clear-all-timeouts) 
+- Initially I tried to just shift the swapAnimations array and pass the animation to play, but with timeouts some animations might have got lost. I made an animationsPlayed array instead to find out which animation has been played last 
+  so when unpaused we go back to the correct animation.
