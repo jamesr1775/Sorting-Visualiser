@@ -4,19 +4,13 @@ import {mergeSortAlgorithm} from './sortingAlgorithms/merge-sort.js'
 let currentSortAlgorithm = "None"
 
 function generateBarChart(){
-    console.log("screen:")
-    console.log(screen.width)
-    console.log(screen.height)
-    console.log('generateBarChart: called')
     let barContainer = document.getElementById('bars-container')
     let barPixelSize = $('#arraySize').val()
     let spacerContainer = '<div class="col-1"></div>'
     let allBars = ""
-    console.log('generateBarChart: barPixelSize' + barPixelSize)
     /*Need to remove these magic numbers for screen size adjusting but working for now*/
     for(let i=0; i<(1/2)*(screen.width/barPixelSize); i++){
         let singleBar = '<div id="bar-' + i + '" class="single-bar"></div>'
-        console.log(singleBar)
         allBars += singleBar
     }
     let barsContainerInnerHtml = `${spacerContainer}
@@ -24,7 +18,6 @@ function generateBarChart(){
                                 ${spacerContainer}`
     barContainer.innerHTML = barsContainerInnerHtml
     let bars = document.getElementsByClassName("single-bar");
-    console.log('setting new heights: called')
     let maxHeight = 0
     for(let bar of bars){
         /*Need to remove these magic numbers for screen size adjusting but working for now*/
@@ -35,13 +28,13 @@ function generateBarChart(){
         bar.setAttribute("style", "height: " + newHeight + "px")
         bar.style.width = barPixelSize + "px"
     }
-    let barChart = document.getElementById('bar-chart') 
-    // barChart.style.minHeight = maxHeight + "px"
 }
 
 function playAnimations(animations){
     let flipColor = false
     for(let i=0; i<animations.length; i+=1){
+        let algorithmSpeed = $('#algorithmSpeed').val()
+        console.log('algorithmSpeed ' + algorithmSpeed)
         let currentAnimation = animations[i]
         let currentBar = currentAnimation[0]
         let currentBarNewHeight = currentAnimation[1]
@@ -52,36 +45,34 @@ function playAnimations(animations){
         if(swapColor){
             setTimeout(function() {
                 if(flipColor){
-                    setColor(currentBar, "red")}
+                    setColor(currentBar, "red")
+                }
                 else{
                     setColor(currentBar, "yellow")
                 }
                 flipColor = !flipColor
-            },20*i);
+            }, algorithmSpeed*i);
         }
         else if(swapBar){
             setTimeout(function() {
                 setHeight(currentBar, currentBarNewHeight)
-            }, 20*i);
+            }, algorithmSpeed*i);
         }
         else if(barInFinalPosition){
             setTimeout(function() {
                 setColor(currentBar, "royalblue")
-            },20*i);
+            }, algorithmSpeed*i);
         }
         else{
             setTimeout(function() {
                 setColor(currentBar, "#198754")
-            },20*i);
+            }, algorithmSpeed*i);
         }
     }
 }
 
 function setHeight(barId, newHeight){
     let barOne =  $(barId)
-    console.log('1: ' + barId)
-    console.log('2: ' + newHeight)
-    // barOne.css("background","blue")
     barOne.css("height", newHeight) 
 }
 function setColor(barId, color){
@@ -89,7 +80,6 @@ function setColor(barId, color){
     barOne.css("background", color)
 }
 $('#generateBars').click(function() {
-    console.log('generateBars click: called')
     generateBarChart();
 });
 $('#sortBars').click(function() {
