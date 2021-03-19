@@ -2,8 +2,11 @@ import {bubbleSortAlgorithm} from './sortingAlgorithms/bubble-sort.js'
 import {mergeSortAlgorithm} from './sortingAlgorithms/merge-sort.js'
 
 let currentSortAlgorithm = "None"
+let swapAnimations = []
+let lastSwapAnimationIdx = 0
 
 function generateBarChart(){
+    flag = true
     let barContainer = document.getElementById('bars-container')
     let barPixelSize = $('#arraySize').val()
     let spacerContainer = '<div class="col-1"></div>'
@@ -30,45 +33,46 @@ function generateBarChart(){
     }
 }
 
+let flipColor = false
 function playAnimations(animations){
-    let flipColor = false
-    for(let i=0; i<animations.length; i+=1){
-        let algorithmSpeed = $('#algorithmSpeed').val()
-        console.log('algorithmSpeed ' + algorithmSpeed)
-        let currentAnimation = animations[i]
-        let currentBar = currentAnimation[0]
-        let currentBarNewHeight = currentAnimation[1]
-        let swapBar = currentAnimation[2]
-        let swapColor = currentAnimation[3]
-        let barInFinalPosition = currentAnimation[4]
-        console.log('currentBar: ' + currentBar  + ' newHeight: ' + currentBarNewHeight + ' swapBar: ' + swapBar)
-        if(swapColor){
-            setTimeout(function() {
-                if(flipColor){
-                    setColor(currentBar, "red")
-                }
-                else{
-                    setColor(currentBar, "yellow")
-                }
-                flipColor = !flipColor
-            }, algorithmSpeed*i);
-        }
-        else if(swapBar){
-            setTimeout(function() {
-                setHeight(currentBar, currentBarNewHeight)
-            }, algorithmSpeed*i);
-        }
-        else if(barInFinalPosition){
-            setTimeout(function() {
-                setColor(currentBar, "royalblue")
-            }, algorithmSpeed*i);
-        }
-        else{
-            setTimeout(function() {
-                setColor(currentBar, "#198754")
-            }, algorithmSpeed*i);
-        }
+    let i = animationCounter
+    console.log('animationCounter ' + animationCounter)
+    let algorithmSpeed = $('#algorithmSpeed').val()
+    console.log('algorithmSpeed ' + algorithmSpeed)
+    let currentAnimation = animations
+    let currentBar = currentAnimation[0]
+    let currentBarNewHeight = currentAnimation[1]
+    let swapBar = currentAnimation[2]
+    let swapColor = currentAnimation[3]
+    let barInFinalPosition = currentAnimation[4]
+    console.log('currentBar: ' + currentBar  + ' newHeight: ' + currentBarNewHeight + ' swapBar: ' + swapBar)
+    if(swapColor){
+        setTimeout(function() {
+            if(flipColor){
+                setColor(currentBar, "red")
+            }
+            else{
+                setColor(currentBar, "yellow")
+            }
+            flipColor = !flipColor
+        }, algorithmSpeed*i);
     }
+    else if(swapBar){
+        setTimeout(function() {
+            setHeight(currentBar, currentBarNewHeight)
+        }, algorithmSpeed*i);
+    }
+    else if(barInFinalPosition){
+        setTimeout(function() {
+            setColor(currentBar, "royalblue")
+        }, algorithmSpeed*i);
+    }
+    else{
+        setTimeout(function() {
+            setColor(currentBar, "#198754")
+        }, algorithmSpeed*i);
+    }
+    animationCounter += 1
 }
 
 function setHeight(barId, newHeight){
@@ -82,20 +86,49 @@ function setColor(barId, color){
 $('#generateBars').click(function() {
     generateBarChart();
 });
+
+var flag = true;
+let animationCounter = 0
 $('#sortBars').click(function() {
-    let swapAnimations = []
-    if(currentSortAlgorithm === "bubbleSort"){
-        swapAnimations = bubbleSortAlgorithm();
+    animationCounter = 0
+    if(flag){
+        if(currentSortAlgorithm === "bubbleSort"){
+            swapAnimations = bubbleSortAlgorithm();
+        }
+        else if(currentSortAlgorithm === "mergeSort"){
+            swapAnimations = mergeSortAlgorithm();
+        }
+        else{
+            event.preventDefault();
+            $('#select-algorithm').modal('show');
+        }  
     }
-    else if(currentSortAlgorithm === "mergeSort"){
-        swapAnimations = mergeSortAlgorithm();
+    loop(swapAnimations)
+})
+
+function loopStep(swapAnimations) {
+    let currentAnimation = swapAnimations.shift()
+    playAnimations(currentAnimation)
+}
+
+let timeouts = []
+function loop(swapAnimations) {
+    if (swapAnimations.length < 1){
+        return
     }
-    else{
-        event.preventDefault();
-        $('#select-algorithm').modal('show');
-    }
-    
-    playAnimations(swapAnimations)
+    loopStep(swapAnimations);
+    timeouts.push(setTimeout(function() {
+        loop(swapAnimations)
+    }, 0));
+}
+
+$('#pause').click(function() {
+    flag = false
+    setTimeout(() => {
+    for (let i = 0; i < timeouts.length; i++) {
+            clearTimeout(timeouts[i]);
+        }
+    }, 0);
 })
 
 $('#bubbleSortSelect').click(function() {

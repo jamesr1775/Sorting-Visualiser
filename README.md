@@ -62,6 +62,7 @@ The Technologies used in this project are the following:
 #### Known Bugs
 1. When the algorithm is moving the largest bar to its sorted position all the bars jump up and down because the largest div is removed and added in the animation causing the 
    inline-blocks to change position.
+2. The pause feature is not currently instant as the delayed set timeouts still play.
 ## Deployment
 ### GitHub Pages
 I followed the steps below to deploy my project:
@@ -92,3 +93,4 @@ I followed the steps below to deploy my project:
   array which would be in its own loop iteration. This solved that issue.
 - For the merge sort algorithm, the auxilary array was a copy of the barsArray but it was not a deep copy and had all references to the objects inside the barsArray which 
   broke the algorithm. I tried to fix this by making the array a const but it did not work so instead I generated the auxilary with the bars array in the same loop.
+- The pause feature required reseting all timeouts which required the playAnimations function to be remade. I got some help with changing the playanimations function to a recursive loop so the pause feature could be implemented. [stackoverflow](https://stackoverflow.com/questions/29173956/start-and-stop-loop-in-javascript-with-start-and-stop-button)
