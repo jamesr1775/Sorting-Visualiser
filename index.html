@@ -38,32 +38,42 @@
 
     <!-- Main Content Container -->
     <main>
+        <div class="container-fluid hero-container">
         <div class="row">
-            <div class="col-3"><button id="generateBars" type="button" class="dashboard-btn btn btn-success" aria-label="Generate Bars Button">Generate Bars</button></div>
-            <div class="col-3">
-                <button id="sortBars" type="button" class="dashboard-btn btn btn-success" aria-label="Sort Button">Sort</button>
-                <button id="pause" type="button" class="dashboard-btn btn btn-success" aria-label="Pause Button">Pause</button>
-            </div>
-            <div class="col-3">
-                <div class="btn-group">
-                    <button id="selectAlgorithm" type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Select Algorithm
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <button id="mergeSortSelect" class="dropdown-item" type="button">Merge Sort</button>
-                        <button id="bubbleSortSelect" class="dropdown-item" type="button">Bubble Sort</button>
-                        <button id="quickSortSelect" class="dropdown-item" type="button">Quick Sort</button>
+                <div class="col-lg-2 col-md-4 col-sm-6 mt-1">
+                    <button id="generateBars" type="button" class="dashboard-btn btn btn-success gen-bars-button" aria-label="Generate Bars Button">Generate Bars</button>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6 mt-1">
+                    <button id="sortBars" type="button" class="dashboard-btn btn btn-success sort-bars-button" aria-label="Sort Button">Start Sorting</button>
+                    <!-- <button id="pause" type="button" class="dashboard-btn btn btn-success" aria-label="Pause Button">Pause</button> -->
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6 mt-1">
+                    <div class="btn-group select-algo-container">
+                        <button id="selectAlgorithm" type="button" class="btn btn-success dropdown-toggle select-algo-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Pick Algorithm
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <button id="mergeSortSelect" class="dropdown-item" type="button">Merge Sort</button>
+                            <button id="bubbleSortSelect" class="dropdown-item" type="button">Bubble Sort</button>
+                            <button id="quickSortSelect" class="dropdown-item" type="button">Quick Sort</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-3">
-                <div class="slidecontainer">
-                    <div><p>Change Array Size</p></div>
-                    <input type="range" min="5" max="50" value="10" class="slider" id="arraySize">
+                <div class="col-lg-6">
+                <div class="row">
+                <div class="col-lg-6 col-md-12 col-sm-12 mt-1">
+                    <div class="slidecontainer">
+                        <!-- <p>Change Algorithm Speed</p> -->
+                        <label for="algorithmSpeed" class="algo-speed-slider">Sort Speed</label>
+                        <input type="range" min="1" max="50" value="20" class="slider" name="algorithmSpeed" id="algorithmSpeed">
+                    </div>
                 </div>
-                <div class="slidecontainer">
-                    <div><p>Change Algorithm Speed</p></div>
-                    <input type="range" min="1" max="50" value="20" class="slider" id="algorithmSpeed">
+                <div class="col-lg-6 col-md-12 col-sm-12 mt-1">
+                    <div class="slidecontainer">
+                        <label for="arraySize" class="array-size-slider">Array Size</label>
+                        <input type="range" min="5" max="50" value="10" class="slider" name="arraySize" id="arraySize" >
+                    </div>
+                </div>
                 </div>
             </div>
         </div>

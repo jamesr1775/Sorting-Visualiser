@@ -7,16 +7,17 @@ let screenWidthMultiplier = 0.5
 let swapAnimations = []
 let lastSwapAnimationIdx = 0
 let flipColor = false
-var unpaused = true;
+let unpaused = true;
 let animationCounter = 0
 let swapAnimationsPlayed = []
 
 function generateBarChart(){
     unpaused = true
     let barContainer = document.getElementById('bars-container')
-    let barPixelSize = $('#arraySize').val()
+    let barPixelSize = 55 - $('#arraySize').val()
     let spacerContainer = '<div class="col-1"></div>'
     let allBars = ""
+    swapAnimations = []
     for(let i=0; i<screenWidthMultiplier*(screen.width/barPixelSize); i++){
         let singleBar = '<div id="bar-' + i + '" class="single-bar"></div>'
         allBars += singleBar
@@ -96,6 +97,7 @@ function loopStep(swapAnimations, swapAnimationsIdx) {
     let currentAnimation = swapAnimations[swapAnimationsIdx]
     playAnimations(currentAnimation, swapAnimationsIdx)
 }
+
 function loop(swapAnimations, swapAnimationsIdx) {
     if (swapAnimationsIdx >= swapAnimations.length || unpaused === false){
         return
@@ -107,41 +109,59 @@ function loop(swapAnimations, swapAnimationsIdx) {
     swapAnimationsIdx++
 }
 
+var slider = document.getElementById("arraySize");
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function() {
+    generateBarChart()
+}
 $('#sortBars').click(function() {
+    let sortBarsId = document.getElementById("sortBars")
     animationCounter = 0
     let swapAnimationsIdx = 0
-    if(unpaused){
-        if(currentSortAlgorithm === "bubbleSort"){
-            swapAnimations = bubbleSortAlgorithm();
+    if(currentSortAlgorithm != "None"){
+        if(swapAnimations.length === 0){
+            if(currentSortAlgorithm === "bubbleSort"){
+                swapAnimations = bubbleSortAlgorithm();
+            }
+            else if(currentSortAlgorithm === "mergeSort"){
+                swapAnimations = mergeSortAlgorithm();
+            }
+            else{
+                event.preventDefault();
+                $('#select-algorithm').modal('show');
+            }  
+            for(let i=0; i<swapAnimations.length; i++){
+                swapAnimationsPlayed[i] = false
+            }
+            sortBarsId.innerHTML = "Pause"
         }
-        else if(currentSortAlgorithm === "mergeSort"){
-            swapAnimations = mergeSortAlgorithm();
+        else if(unpaused){
+            unpaused = false
+            console.log("swapAnimationsPlayed:" + swapAnimationsPlayed)
+            const highestId = window.setTimeout(() => {
+                for (let i = highestId; i >= 0; i--) {
+                    window.clearTimeout(i);
+                }
+            }, 0);
+            sortBarsId.innerHTML = "Start Sorting"
         }
         else{
-            event.preventDefault();
-            $('#select-algorithm').modal('show');
-        }  
-        for(let i=0; i<swapAnimations.length; i++){
-            swapAnimationsPlayed[i] = false
-        }
-    }else{
-        unpaused = true
-        while(swapAnimationsPlayed[swapAnimationsIdx] === true){
-                swapAnimationsIdx++
+            unpaused = true
+            while(swapAnimationsPlayed[swapAnimationsIdx] === true){
+                    swapAnimationsIdx++
             }
-    }
-        loop(swapAnimations, swapAnimationsIdx)
-})
-$('#pause').click(function() {
-    unpaused = false
-    console.log("swapAnimationsPlayed:" + swapAnimationsPlayed)
-    const highestId = window.setTimeout(() => {
-        for (let i = highestId; i >= 0; i--) {
-            window.clearTimeout(i);
+            sortBarsId.innerHTML = "Pause"
         }
-    }, 0);
+        loop(swapAnimations, swapAnimationsIdx)
+    }
+    else{
+        event.preventDefault();
+        $('#select-algorithm').modal('show');
+    }
 })
 $('#generateBars').click(function() {
+    let sortBarsId = document.getElementById("sortBars")
+    sortBarsId.innerHTML = "Start Sorting"
     generateBarChart();
 });
 $('#bubbleSortSelect').click(function() {
@@ -159,3 +179,6 @@ $('#quickSortSelect').click(function() {
     selectAlgorithm.innerHTML = "Quick Sort"
     currentSortAlgorithm = "quickSort"
 })
+$(document).ready(function() {
+    generateBarChart()
+});
