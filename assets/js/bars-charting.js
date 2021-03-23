@@ -14,16 +14,16 @@ let swapAnimationsPlayed = []
 function generateBarChart(){
     unpaused = true
     let barContainer = document.getElementById('bars-container')
-    let barPixelSize = 55 - $('#arraySize').val()
+    let arraySize = $('#arraySize').val()
     let spacerContainer = '<div class="col-1"></div>'
     let allBars = ""
     swapAnimations = []
-    for(let i=0; i<screenWidthMultiplier*(screen.width/barPixelSize); i++){
+    for(let i=0; i<arraySize; i++){
         let singleBar = '<div id="bar-' + i + '" class="single-bar"></div>'
         allBars += singleBar
     }
     let barsContainerInnerHtml = `${spacerContainer}
-                                <div  id="bar-chart" class="col-10">${allBars}</div>
+                                <div  id="bar-chart" class="col-10 no-padding">${allBars}</div>
                                 ${spacerContainer}`
     barContainer.innerHTML = barsContainerInnerHtml
     let bars = document.getElementsByClassName("single-bar");
@@ -34,7 +34,7 @@ function generateBarChart(){
             maxHeight = newHeight
         }
         bar.setAttribute("style", "height: " + newHeight + "px")
-        bar.style.width = barPixelSize + "px"
+        bar.style.width =  Math.floor((screen.width*(5/6) - (bars.length*2))/arraySize) + "px"
     }
 }
 

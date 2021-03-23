@@ -25,12 +25,13 @@
     min-height: 500px;
     max-height: 500px;
 }
-#bars-chart{
+#bar-chart{
     min-height: 500px;
     max-height: 500px;
+    margin-top: 50px;
 }
-#bars-chart div{
-    vertical-align: bottom;
+.no-padding {
+   padding: 0 !important;
 }
 
 /*********************** Chart Buttons Section ***********************/

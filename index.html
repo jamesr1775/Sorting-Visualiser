@@ -39,7 +39,7 @@
     <!-- Main Content Container -->
     <main>
         <div class="container-fluid hero-container">
-        <div class="row">
+            <div class="row">
                 <div class="col-lg-2 col-md-4 col-sm-6 mt-1">
                     <button id="generateBars" type="button" class="dashboard-btn btn btn-success gen-bars-button" aria-label="Generate Bars Button">Generate Bars</button>
                 </div>
@@ -60,24 +60,27 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                <div class="row">
-                <div class="col-lg-6 col-md-12 col-sm-12 mt-1">
-                    <div class="slidecontainer">
-                        <!-- <p>Change Algorithm Speed</p> -->
-                        <label for="algorithmSpeed" class="algo-speed-slider">Sort Speed</label>
-                        <input type="range" min="1" max="50" value="20" class="slider" name="algorithmSpeed" id="algorithmSpeed">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12 col-sm-12 mt-1">
+                            <div class="slidecontainer">
+                                <!-- <p>Change Algorithm Speed</p> -->
+                                <label for="algorithmSpeed" class="algo-speed-slider">Sort Speed</label>
+                                <input type="range" min="1" max="50" value="20" class="slider" name="algorithmSpeed" id="algorithmSpeed">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 mt-1">
+                            <div class="slidecontainer">
+                                <label for="arraySize" class="array-size-slider">Array Size</label>
+                                <input type="range" min="5" max="100" value="10" class="slider" name="arraySize" id="arraySize" >
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-6 col-md-12 col-sm-12 mt-1">
-                    <div class="slidecontainer">
-                        <label for="arraySize" class="array-size-slider">Array Size</label>
-                        <input type="range" min="5" max="50" value="10" class="slider" name="arraySize" id="arraySize" >
-                    </div>
-                </div>
                 </div>
             </div>
         </div>
-        <div id="bars-container" class="row">
+        <div id="test" class="container-fluid">
+            <div id="bars-container" class="row no-padding">      
+            </div>
         </div>
     </main>
 
