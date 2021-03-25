@@ -62,7 +62,7 @@ The Technologies used in this project are the following:
 #### Known Bugs
 1. When the algorithm is moving the largest bar to its sorted position all the bars jump up and down because the largest div is removed and added in the animation causing the 
    inline-blocks to change position.
-2. Can click sort button more than once causing odd behaviour since we are not in a for loop anymore.
+2. Zooming in on chrome causes the bar chart to fold bars to next rows
 
 ## Deployment
 ### GitHub Pages
@@ -98,3 +98,5 @@ I followed the steps below to deploy my project:
 - Pushing the timeouts to an array did not seem to work when clearing them, but the window.clearTimeouts does seem to work which I found from [stackoverflow](https://stackoverflow.com/questions/8860188/javascript-clear-all-timeouts) 
 - Initially I tried to just shift the swapAnimations array and pass the animation to play, but with timeouts some animations might have got lost. I made an animationsPlayed array instead to find out which animation has been played last 
   so when unpaused we go back to the correct animation.
+- Fixed the sort button so it swaps between pausing and starting the animation of the algorithm.
+- When the algorithm code is loaded, some of the bars would fold to a new row. Changing the bar width calculation to use clientWidth and moving the col-10 of bar-chart to the html instead of javascript helped remove this issue. [stackoverflow](https://developer.mozilla.org/en-US/docs/Web/API/Element/clientWidth)

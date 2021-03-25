@@ -1,4 +1,4 @@
-import {bubbleSortAlgorithm} from './sortingAlgorithms/bubble-sort.js'
+import {bubbleSortAlgorithm, getBubbleSortCodeString, getBubbleSortInfoString} from './sortingAlgorithms/bubble-sort.js'
 import {mergeSortAlgorithm} from './sortingAlgorithms/merge-sort.js'
 
 let currentSortAlgorithm = "None"
@@ -13,7 +13,7 @@ let swapAnimationsPlayed = []
 
 function generateBarChart(){
     unpaused = true
-    let barContainer = document.getElementById('bars-container')
+    let barChart = document.getElementById('bar-chart')
     let arraySize = $('#arraySize').val()
     let spacerContainer = '<div class="col-1"></div>'
     let allBars = ""
@@ -22,20 +22,21 @@ function generateBarChart(){
         let singleBar = '<div id="bar-' + i + '" class="single-bar"></div>'
         allBars += singleBar
     }
-    let barsContainerInnerHtml = `${spacerContainer}
-                                <div  id="bar-chart" class="col-10 no-padding">${allBars}</div>
-                                ${spacerContainer}`
-    barContainer.innerHTML = barsContainerInnerHtml
+    let barsContainerInnerHtml = `${allBars}`
+    barChart.innerHTML = barsContainerInnerHtml
     let bars = document.getElementsByClassName("single-bar");
     let maxHeight = 0
+    let newBarWidth = ((barChart.clientWidth - 20 - ((bars.length )*2))/(arraySize))
+    console.log('barChart.style.width ' + barChart.clientWidth)
     for(let bar of bars){
         let newHeight = Math.ceil(Math.random() * screen.height*screenHeightMultiplier)
         if (newHeight > maxHeight){
             maxHeight = newHeight
         }
-        bar.setAttribute("style", "height: " + newHeight + "px")
-        bar.style.width =  Math.floor((screen.width*(5/6) - (bars.length*2))/arraySize) + "px"
+        bar.style.height = newHeight + "px"
+        bar.style.width = newBarWidth + "px"
     }
+    barChart.setAttribute("style", "min-height:" + (maxHeight + 20) + "px");
 }
 
 function playAnimations(animations , animationIdx){
@@ -168,6 +169,16 @@ $('#bubbleSortSelect').click(function() {
     let selectAlgorithm = document.getElementById('selectAlgorithm')
     selectAlgorithm.innerHTML = "Bubble Sort"
     currentSortAlgorithm = "bubbleSort"
+    addCodeToHtml(currentSortAlgorithm)
+    console.log("currentSortAlgorithm:" + currentSortAlgorithm)
+    let codeBlock = document.getElementById("algo-code-block")
+    let codeBlockDiv = document.getElementById("code-block")
+    let infoBlockDiv = document.getElementById("algo-info-block")
+    codeBlock.classList.remove("language-none")
+    codeBlock.classList.add("language-js")
+    codeBlockDiv.classList.add("code-block-div")
+    infoBlockDiv.classList.add("algo-info-div")
+    Prism.highlightElement(codeBlock);
 })
 $('#mergeSortSelect').click(function() {
     let selectAlgorithm = document.getElementById('selectAlgorithm')
@@ -182,3 +193,17 @@ $('#quickSortSelect').click(function() {
 $(document).ready(function() {
     generateBarChart()
 });
+
+function addCodeToHtml(currentAlgorithm){  
+    console.log("currentAlgorithm" + currentAlgorithm)
+    let codeBlock = document.getElementById("algo-code-block")
+    let algoInfoBlock = document.getElementById("algo-info-block")
+    let codeString = ``
+    let codeInfoString = ``
+    if (currentAlgorithm==="bubbleSort"){
+        codeString = getBubbleSortCodeString()
+        codeInfoString = getBubbleSortInfoString()
+    }
+    codeBlock.textContent = `${codeString}`
+    algoInfoBlock.innerHTML = `${codeInfoString}`
+}
