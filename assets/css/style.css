@@ -2,6 +2,12 @@
 .header-nav-menu-bg-color{
     background-color: #18A558;
 }
+.bar-chart-container-bg-color{
+    background-color: snow;
+}
+.code-info-container-bg-color{
+    background-color: snow;
+}
 
 /*********************** Header Section ***********************/
 .company-logo{
@@ -16,19 +22,15 @@
 /*********************** Chart Section ***********************/
 .single-bar{
     display: inline-block;
-    margin: 0px 1px 0px 1px;
+    margin: 10px 1px 0px 1px;
     width: 10px;
     height: 100px;
     background-color: #198754;
 }
-#bars-container{
-    min-height: 500px;
-    max-height: 500px;
-}
+
 #bar-chart{
-    min-height: 500px;
-    max-height: 500px;
     margin-top: 50px;
+    margin-bottom: 50px;
 }
 .no-padding {
    padding: 0 !important;
@@ -112,4 +114,14 @@
     padding: .375rem .75rem;
     font-size: 1rem;
     /* border-radius: .25rem; */
+}
+
+/*********************** Code Section ***********************/
+.code-block-div{
+    padding: 10px;
+    border: 1px solid slategray;
+}
+.algo-info-div{
+    padding: 25px;
+    border: 1px solid slategray;
 }

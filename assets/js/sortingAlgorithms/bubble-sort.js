@@ -50,3 +50,43 @@ export function bubbleSortAlgorithm(){
     console.log('swapAnimations: ' + swapAnimations)
     return swapAnimations
 }
+
+export function getBubbleSortCodeString(){
+    let bubbleSortCodeString = `function bubbleSortAlgorithm(arr){
+        // traverse through entire array
+        for(let i=0; i<arr.length - 1; i++){
+            let tempValue = null;
+            // slight optimization to reduce inner loop iterations
+            let innerLoopEnd = arr.length - i - 1;
+            // swap values so the largest value shifts to right
+            for(let j=0; j<innerLoopEnd; j++){
+                // Swap the heights if needed;
+                if (arr[j]>arr[j+1]){
+                    tempValue = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = tempValue;
+                }
+            }
+        }
+        return arr;
+    }`
+    return bubbleSortCodeString
+}
+
+export function getBubbleSortInfoString(){
+    let bubbleSortInfoString = `<h2>Bubble Sort Algorithm</h2>
+                                <p>Bubble sort is an old and well known algorithm that sorts the array, usually in ascending order.</p>
+                                <h3>Algorithm Steps :</h3>
+                                <ol>
+                                    <li>It passes through the array of <em>n</em> values, comparing adjacent values to each other.</li>
+                                    <li>If this comparison finds values out of order, it will swap the values in place.</li>
+                                    <li>This will "Bubble" hence the name, the largest value into its correct position in the array.</li>
+                                    <li>Repeat this procedure but now only iterating to the <em>n-i</em> positions.</li>
+                                    <li>The algorithm will terminate when all the values are in their correct position.</li>
+                                </ol>
+                                <h3>Complexity</h3>
+                                <p>In the worst case scenario (the list is in reverse order), the inner for loop will run <em>n-1</em> times, 
+                                on the second iteration it will run <em>n-2</em> times. Thus what will the time complexity be? Take the quiz below to find out!</p>
+    `
+    return bubbleSortInfoString    
+}
