@@ -1,5 +1,6 @@
 import {bubbleSortAlgorithm, getBubbleSortCodeString, getBubbleSortInfoString} from './sortingAlgorithms/bubble-sort.js'
 import {mergeSortAlgorithm} from './sortingAlgorithms/merge-sort.js'
+import {addQuizQuestionsToHtml, getCurrentQuestionsStruct} from './quiz-generation.js'
 
 let currentSortAlgorithm = "None"
 let screenHeightMultiplier = 0.5
@@ -169,7 +170,9 @@ $('#bubbleSortSelect').click(function() {
     let selectAlgorithm = document.getElementById('selectAlgorithm')
     selectAlgorithm.innerHTML = "Bubble Sort"
     currentSortAlgorithm = "bubbleSort"
+    let currentQuestions = getCurrentQuestionsStruct(currentSortAlgorithm)
     addCodeToHtml(currentSortAlgorithm)
+    addQuizQuestionsToHtml(currentSortAlgorithm)
     console.log("currentSortAlgorithm:" + currentSortAlgorithm)
     let codeBlock = document.getElementById("algo-code-block")
     let codeBlockDiv = document.getElementById("code-block")
@@ -178,7 +181,7 @@ $('#bubbleSortSelect').click(function() {
     codeBlock.classList.add("language-js")
     codeBlockDiv.classList.add("code-block-div")
     infoBlockDiv.classList.add("algo-info-div")
-    Prism.highlightElement(codeBlock);
+    Prism.highlightElement(codeBlock)
 })
 $('#mergeSortSelect').click(function() {
     let selectAlgorithm = document.getElementById('selectAlgorithm')

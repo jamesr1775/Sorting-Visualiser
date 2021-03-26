@@ -89,12 +89,38 @@
         <div class="container-fluid code-info-container-bg-color">
             <div class="row">
                 <div class="col-1"></div>
-                <div id="code-block" class="col-lg-5 col-xs-12 mt-5">
+                <div id="code-block" class="col-lg-5 col-12 mt-5">
                     <pre><code id="algo-code-block"></code></pre>
                 </div>
-                <div id="algo-info-block" class="col-lg-5 col-xs-12 mt-5">
+                <div id="algo-info-block" class="col-lg-5 col-12 mt-5">
                 </div>
                 <div class="col-1"></div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <p>
+                <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Take Quiz</button>
+            </p>
+            <div class="row">
+                <div class="col-1 d-none d-sm-block"></div>
+                <div class="col-10-sm col-12">
+                    <div class="collapse multi-collapse" id="multiCollapseExample2">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div id="question-block"></div>
+                                    <div id="answer-choices-block"></div>
+                                    <div id="answer-reveal-block"></div>
+                                </div>
+                                <div class="col-12">
+                                    <div id="nav-questions-block"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-1 d-none d-sm-block"></div>
             </div>
         </div>
     </main>
@@ -105,7 +131,7 @@
         </div>
     </footer>
     <!-- Modal -->
-    <div class="modal fade" id="select-algorithm" tabindex="-1" role="dialog" aria-labelledby="message-sent" aria-hidden="true">
+    <div class="modal fade" id="select-algorithm" tabindex="-1" role="dialog" aria-labelledby="select-algorithm" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered " role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -124,6 +150,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script type="module" src="assets/js/quiz-generation.js"></script>
     <script type="module" src="assets/js/bars-charting.js"></script>
     <script src="assets/js/prism.js"></script>
 
