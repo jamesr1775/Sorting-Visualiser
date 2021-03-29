@@ -1,7 +1,10 @@
 let allQuestions = {
     bubbleSort:{    
-                    questions: ["Question 1", "Question 2"],
-                    answers: [["answer 1", "answer 2", "answer 3", "answer 4"]]
+                    questions: ["What is the time complexity of the bubble sort algorithm with an array of length <em>n</em>?",
+                                "What is the space complexity of the bubble sort algorithm with an array of length <em>n</em>?"],
+                    answers: [["O(<em>n</em>)", "O(<em>log(n)</em>)", "O(<em>n<sup>2</sup></em>)", "O(<em>n*log(n)</em>)"],
+                              ["O(<em>n</em>)", "O(<em>log(n)</em>)", "O(<em>n<sup>2</sup></em>)", "O(1)"]
+                            ]
                 }
 }
 let questionsCounter = 0
@@ -53,12 +56,13 @@ function updateQuestionsDisplayed(){
     let answerChoiceBlock = document.getElementById("answer-choices-block")
     quizBlock.innerHTML = `<div id='question'>${currentQuestionsStruct.questions[questionsCounter]}</div>`
     let answerChoiceBlockHTML = `<div class="row">`
-    for(let i=0; i<currentQuestionsStruct.answers.length; i++){
+    for(let i=0; i<currentQuestionsStruct.answers[questionsCounter].length; i++){
         answerChoiceBlockHTML += `<div class= "col-6 col-xs-12">
                                     <input id="option-${i}" type="radio" class="answer-radio" name="answers" value="option-${i}">
-                                    <label for="option-${i}">${currentQuestionsStruct.answers[i]}</label>
+                                    <label for="option-${i}">${currentQuestionsStruct.answers[questionsCounter][i]}</label>
                                     </div>`
     }
+    answerChoiceBlock.innerHTML = answerChoiceBlockHTML
 }
 $(document).on("click",'#answer-choices-block input[type=radio]', function() {
     alert($(this).val())

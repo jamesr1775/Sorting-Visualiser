@@ -82,7 +82,13 @@ I followed the steps below to deploy my project:
 - The photos used in this site were obtained from:
 
 ### Acknowledgements
-- Refreshed my memeory of javascript objects from [w3schools](https://www.w3schools.com/js/js_objects.asp)
+- Refreshed my memory of javascript objects from [w3schools](https://www.w3schools.com/js/js_objects.asp)
+- Used bootstraps collapse webpage to build my own for the quiz [getbootstrap](https://getbootstrap.com/docs/4.1/components/collapse/)
+- Template literals information helped me out from [developer.mozilla](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Strings)  and [developer.mozilla](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
+- Prism wasn't running on dynamically generated elements so with research I used Prism.highlightAll from [schier.co/blog](https://schier.co/blog/how-to-re-run-prismjs-on-ajax-content)
+- jsfiddle helped with the initial testing of the algorithm functions [jsfiddle](https://jsfiddle.net/e6m05vdj/2/)
+- Had to get the value of a radio button and needed the click event to handle the users answer picks. Got information from [stackoverflow](https://stackoverflow.com/questions/8622336/jquery-get-value-of-selected-radio-button)  and [stackoverflow](https://stackoverflow.com/questions/5142300/javascript-jquery-radio-button-click)
+- Add math operaters to strings [stackexchange](https://meta.stackexchange.com/questions/226869/how-can-i-add-the-mathematical-symbol-for-power-like-x-2-to-a-question)
 ### Bugs/Issues Resolved
 - First few versions of bubble sort and trying to change the bar charts heights to perform sorting was difficult. The animation happened 
   all at once at the end of the function, or with the set timeout function the heights were not updated fast enough for the sorting algorithm and maybe only one or two 
