@@ -89,6 +89,9 @@ I followed the steps below to deploy my project:
 - jsfiddle helped with the initial testing of the algorithm functions [jsfiddle](https://jsfiddle.net/e6m05vdj/2/)
 - Had to get the value of a radio button and needed the click event to handle the users answer picks. Got information from [stackoverflow](https://stackoverflow.com/questions/8622336/jquery-get-value-of-selected-radio-button)  and [stackoverflow](https://stackoverflow.com/questions/5142300/javascript-jquery-radio-button-click)
 - Add math operaters to strings [stackexchange](https://meta.stackexchange.com/questions/226869/how-can-i-add-the-mathematical-symbol-for-power-like-x-2-to-a-question)
+- Learned to get radio input labels ids to be able to style the correct answer green and wrong answers red. [stackoverflow](https://stackoverflow.com/questions/14709617/how-do-i-get-the-label-of-the-selected-radio-button-using-javascript)
+- Wanted to add table border [w3schools](https://www.w3schools.com/html/tryit.asp?filename=tryhtml_table_border)
+- Got the check mark and cross mark from [htmlsymbols](https://www.htmlsymbols.xyz/unicode/U+2612)
 ### Bugs/Issues Resolved
 - First few versions of bubble sort and trying to change the bar charts heights to perform sorting was difficult. The animation happened 
   all at once at the end of the function, or with the set timeout function the heights were not updated fast enough for the sorting algorithm and maybe only one or two 
