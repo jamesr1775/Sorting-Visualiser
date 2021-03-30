@@ -83,7 +83,9 @@ $(document).on("click",'#answer-choices-block input[type=radio]', function() {
     let answerRevealBlockHTML = `<p><button class="btn btn-success" type="button" data-toggle="collapse" data-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3">Answer explanation</button></p>
     <div class="row"><div class="col-12"><div class="collapse multi-collapse" id="multiCollapseExample3">${currentQuestionsStruct.answerExplanations[questionsCounter]}</div></div></div>`
     answerRevealBlock.innerHTML = answerRevealBlockHTML
-    presentUserQuizScore()
+    if(questionsCounter === currentQuestionsStruct.questions.length - 1){
+        presentUserQuizScore()
+    }
 });
 function answerSelectUpdate(currentCorrectAnswer){
     console.log("answerSelectUpdate")
@@ -106,21 +108,37 @@ function answerSelectUpdate(currentCorrectAnswer){
 }
 
 function presentUserQuizScore(){
-    if(questionsCounter === currentQuestionsStruct.questions.length - 1){
-        let quizModalResults = document.getElementById("quiz-results-modal")
-        let quizModalHeader = document.getElementById("quiz-header-modal")
-        let quizModalResultsHTML = `<table id="results-table"><th>Question</th><th>Result</th></tr>`
-        for(let i=0; i<currentQuestionsStruct.questions.length; i++){
-            let questionResult =  currentQuestionsStruct.userScore[i]? `<div class="text-center"><span class="check-mark">&#9989;</span></div>`: `<div class="text-center"><span class="cross-mark">&#9746;</span></div>`
-            quizModalResultsHTML += `<tr><td>${currentQuestionsStruct.questions}</td><td>${questionResult}</td></tr>`
-        }
-        quizModalResultsHTML += `</table>`
-        quizModalResults.innerHTML = quizModalResultsHTML
-        quizModalHeader.innerHTML = "TEST1"
-        $('#quiz-results').modal('show');
-        let quizResultsBlock = document.getElementById("quiz-results-block")
-        let quizResultsBlockHTML = `<button id="viewResults" type="button" class="dashboard-btn btn btn-success" aria-label="View Score Button">View Score</button>
-        <button id="retakeQuiz" type="button" class="dashboard-btn btn btn-success" aria-label="Retake Quiz Button">Retake Quiz</button>`
-        quizResultsBlock.innerHTML = quizResultsBlockHTML
+    let quizModalResults = document.getElementById("quiz-results-modal")
+    let quizModalHeader = document.getElementById("quiz-header-modal")
+    let quizModalResultsHTML = `<table id="results-table"><th>Question</th><th>Result</th></tr>`
+    let correctAnswerCounter = 0
+    for(let i=0; i<currentQuestionsStruct.questions.length; i++){
+        let questionResult =  currentQuestionsStruct.userScore[i]? `<div class="text-center"><span class="check-mark">&#9989;</span></div>`: `<div class="text-center"><span class="cross-mark">&#9746;</span></div>`
+        correctAnswerCounter += currentQuestionsStruct.userScore[i]
+        quizModalResultsHTML += `<tr><td>${currentQuestionsStruct.questions}</td><td>${questionResult}</td></tr>`
     }
+    let algorithm = document.getElementById("algo-header").innerHTML
+    let percentCorrect = 100*(correctAnswerCounter/currentQuestionsStruct.questions.length)
+    quizModalResultsHTML += `</table><p id="score-fraction">You scored ${percentCorrect}%.</p>`
+    quizModalResults.innerHTML = quizModalResultsHTML
+    quizModalHeader.innerHTML = `${algorithm} Quiz Results`
+    $('#quiz-results').modal('show');
+    let quizResultsBlock = document.getElementById("quiz-results-block")
+    let quizResultsBlockHTML = `<button id="view-results" type="button" class="dashboard-btn btn btn-success" aria-label="View Score Button">View Score</button>
+    <button id="retake-quiz" type="button" class="dashboard-btn btn btn-success" aria-label="Retake Quiz Button">Retake Quiz</button>`
+    quizResultsBlock.innerHTML = quizResultsBlockHTML
 }
+
+$(document).on('click','#view-results',function(){
+    $('#quiz-results').modal('show');
+})
+
+$(document).on('click','#retake-quiz',function(){
+    questionsCounter = 0
+    updateQuestionsDisplayed()
+    for(let i=0; i<currentQuestionsStruct.userScore.length; i++){
+        currentQuestionsStruct.userScore[i] = 0
+    }
+    let quizResultsBlock = document.getElementById("quiz-results-block")
+    quizResultsBlock.innerHTML = ``
+})
