@@ -151,6 +151,12 @@
   width: 100%;
   cursor: grab;
 }
+.correct-answer{
+    background: green !important;
+}
+.incorrect-answer{
+    background: red !important;
+}
 
 #answer-choices-block label:hover {
   background: powderblue;
@@ -159,7 +165,6 @@
   background: darkcyan;
   color:snow;
 }
-
 .answer-radio{
     border-radius: 5%;
 }

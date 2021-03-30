@@ -4,7 +4,9 @@ let allQuestions = {
                                 "What is the space complexity of the bubble sort algorithm with an array of length <em>n</em>?"],
                     answers: [["O(<em>n</em>)", "O(<em>log(n)</em>)", "O(<em>n<sup>2</sup></em>)", "O(<em>n*log(n)</em>)"],
                               ["O(<em>n</em>)", "O(<em>log(n)</em>)", "O(<em>n<sup>2</sup></em>)", "O(1)"]
-                            ]
+                            ],
+                    correctAnswers: ["option-2", "option-3"], 
+                    answerExplanations: ["Because it is", "Because why not"]
                 }
 }
 let questionsCounter = 0
@@ -64,6 +66,38 @@ function updateQuestionsDisplayed(){
     }
     answerChoiceBlock.innerHTML = answerChoiceBlockHTML
 }
+
 $(document).on("click",'#answer-choices-block input[type=radio]', function() {
-    alert($(this).val())
+    let currentCorrectAnswer = currentQuestionsStruct.correctAnswers[questionsCounter]
+    let answerRevealBlock = document.getElementById("answer-reveal-block")
+    if($(this).val() === currentCorrectAnswer){
+        alert("Correct!")
+    }
+    else{
+        alert("Wrong Answer!")
+    }
+    answerSelectUpdate(currentCorrectAnswer)
+    let answerRevealBlockHTML = `<p><button class="btn btn-success" type="button" data-toggle="collapse" data-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3">Answer explanation</button></p>
+    <div class="row"><div class="col-12"><div class="collapse multi-collapse" id="multiCollapseExample3">${currentQuestionsStruct.answerExplanations[questionsCounter]}</div></div></div>`
+    answerRevealBlock.innerHTML = answerRevealBlockHTML
   });
+
+function answerSelectUpdate(currentCorrectAnswer){
+    console.log("answerSelectUpdate")
+    let answers = document.getElementsByName("answers")
+    console.log("answers" + answers)
+    console.log("answers.length" + answers.length)
+    for(let i=0; i< answers.length; i++){
+        let radioAnswer = answers[i].getAttribute("value")
+        console.log("answers[i] " + answers[i])
+        console.log("radioAnswer " + radioAnswer)
+        let selector = 'label[for=' + radioAnswer + ']';
+        let label = document.querySelector(selector);
+        if(radioAnswer === currentCorrectAnswer){
+            label.classList.add("correct-answer")
+        }
+        else{
+            label.classList.add("incorrect-answer")
+    }
+}
+}
