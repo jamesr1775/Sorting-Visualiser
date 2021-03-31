@@ -42,7 +42,7 @@ function generateBarChart(){
 
 function playAnimations(animations , animationIdx){
         console.log('animationCounter ' + animationCounter)
-        let algorithmSpeed = $('#algorithmSpeed').val()
+        let algorithmSpeed = 51 - $('#algorithmSpeed').val()
         console.log('algorithmSpeed ' + algorithmSpeed)
         let currentAnimation = animations
         let currentBar = currentAnimation[0]

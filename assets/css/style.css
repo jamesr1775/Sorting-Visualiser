@@ -68,9 +68,9 @@
     -webkit-appearance: none;  /* Override default CSS styles */
     appearance: none;
     width: 50%; /* Full-width */
-    height: 35px; /* Specified height */
+    height: 15px; /* Specified height */
     vertical-align: middle;
-    background: silver; /* Grey background */
+    background: snow; /* Grey background */
     outline: none; /* Remove outline */
     -webkit-transition: .2s; /* 0.2 seconds transition on hover */
     transition: opacity .2s;
@@ -82,18 +82,18 @@
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none; /* Override default look */
     appearance: none;
-    width: 35px; /* Set a specific slider handle width */
-    height: 35px; /* Slider handle height */
-    background: #198754; /* Green background */
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: darkslategray; /* Green background */
     cursor: pointer; /* Cursor on hover */
-    border-radius: .25rem;
+    border-radius: 1rem;
 }
 .slider::-moz-range-thumb {
-    width: 35px; /* Set a specific slider handle width */
-    height: 35px; /* Slider handle height */
-    background: #198754; /* Green background */
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: darkslategray; /* Green background */
     cursor: pointer; /* Cursor on hover */
-    border-radius: .25rem;
+    border-radius: 1rem;
 }
 .algo-speed-slider{
     width: 48%;    
