@@ -1,13 +1,25 @@
 let allQuestions = {
     bubbleSort:{    
-                    questions: ["What is the time complexity of the bubble sort algorithm with an array of length <em>n</em>?",
-                                "What is the space complexity of the bubble sort algorithm with an array of length <em>n</em>?"],
+                    questions: ["What is the average time complexity of the bubble sort algorithm with an array of length <em>n</em>?",
+                                "What is the space complexity of the bubble sort algorithm with an array of length <em>n</em>?",
+                                "The best case time complexity for bubble sort is O(<em>nlog(n)</em>)",
+                                "Bubble sort can also be known as:",
+                                "When asked  what is the best way to sort a million integers, who replied 'I think the bubble sort would be the wrong way to go'."
+                                ],
                     answers: [["O(<em>n</em>)", "O(<em>log(n)</em>)", "O(<em>n<sup>2</sup></em>)", "O(<em>n*log(n)</em>)"],
-                              ["O(<em>n</em>)", "O(<em>log(n)</em>)", "O(<em>n<sup>2</sup></em>)", "O(1)"]
+                              ["O(<em>n</em>)", "O(<em>log(n)</em>)", "O(<em>n<sup>2</sup></em>)", "O(1)"],
+                              ["True", "False"],
+                              ["Comparison sort", "Sinking sort", "Insertion sort", "Odd-even sort"],
+                              ["Barack Obama", "Dara Ó Briain", "Lebron James", "Alan Turing"],
                             ],
-                    correctAnswers: ["option-2", "option-3"], 
-                    answerExplanations: ["Because it is", "Because why not"],
-                    userScore:[0 , 0]
+                    correctAnswers: ["option-2", "option-3", "option-1", "option-1", "option-0"], 
+                    answerExplanations: ["Bubble sort iterates over the array of n elements effectively twice. The inner loop does have the optimization of <em>n-i-1</em> iterations but this still equates to a time complexity of O(<em>n</em>)*O(<em>n-i-1</em>) which simplifies to O(<em>n<sup>2</sup></em>)",
+                                         "The original array is manipulated in place and only one temporary variable to do the swaps is needed so the space complexity is constant O(1)",
+                                         "Another optimization can be added to the algorithm to check if any swaps occured during the first pass through the array. If none occured you can terminate the algorithm as the array is already sorted. Thus the best case time complexity would be <em>n<sup>2</sup></em>",
+                                         "Bubble sort can be thought to bubble the smallest values to the top of the array, hence sinking sort sinks the largest values to the bottom of the array.",
+                                         "In an interview with former Google CEO Eric Schmidt, Barack Obama replied to this question. See it <a href='https://youtu.be/m4yVlPqeZwo?t=1398' target='_blank'>here</a>"
+                                        ],
+                    userScore:[0, 0, 0, 0, 0]
                 }
 }
 let questionsCounter = 0
@@ -115,7 +127,7 @@ function presentUserQuizScore(){
     for(let i=0; i<currentQuestionsStruct.questions.length; i++){
         let questionResult =  currentQuestionsStruct.userScore[i]? `<div class="text-center"><span class="check-mark">&#9989;</span></div>`: `<div class="text-center"><span class="cross-mark">&#9746;</span></div>`
         correctAnswerCounter += currentQuestionsStruct.userScore[i]
-        quizModalResultsHTML += `<tr><td>${currentQuestionsStruct.questions}</td><td>${questionResult}</td></tr>`
+        quizModalResultsHTML += `<tr><td>${currentQuestionsStruct.questions[i]}</td><td>${questionResult}</td></tr>`
     }
     let algorithm = document.getElementById("algo-header").innerHTML
     let percentCorrect = 100*(correctAnswerCounter/currentQuestionsStruct.questions.length)

@@ -92,6 +92,7 @@ I followed the steps below to deploy my project:
 - Learned to get radio input labels ids to be able to style the correct answer green and wrong answers red. [stackoverflow](https://stackoverflow.com/questions/14709617/how-do-i-get-the-label-of-the-selected-radio-button-using-javascript)
 - Wanted to add table border [w3schools](https://www.w3schools.com/html/tryit.asp?filename=tryhtml_table_border)
 - Got the check mark and cross mark from [htmlsymbols](https://www.htmlsymbols.xyz/unicode/U+2612)
+- The wikipedia page for bubble sort algorithm helped me come up with some questions for the quiz [wikipedia](https://en.wikipedia.org/wiki/Bubble_sort)
 ### Bugs/Issues Resolved
 - First few versions of bubble sort and trying to change the bar charts heights to perform sorting was difficult. The animation happened 
   all at once at the end of the function, or with the set timeout function the heights were not updated fast enough for the sorting algorithm and maybe only one or two 
