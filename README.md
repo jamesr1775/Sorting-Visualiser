@@ -60,9 +60,7 @@ The Technologies used in this project are the following:
 #### Further Testing
 
 #### Known Bugs
-1. When the algorithm is moving the largest bar to its sorted position all the bars jump up and down because the largest div is removed and added in the animation causing the 
-   inline-blocks to change position.
-2. Zooming in on chrome causes the bar chart to fold bars to next rows
+1. Zooming in on chrome causes the bar chart to fold bars to next rows
 
 ## Deployment
 ### GitHub Pages
@@ -110,3 +108,5 @@ I followed the steps below to deploy my project:
 - Fixed the sort button so it swaps between pausing and starting the animation of the algorithm.
 - When the algorithm code is loaded, some of the bars would fold to a new row. Changing the bar width calculation to use clientWidth and moving the col-10 of bar-chart to the html instead of javascript helped remove this issue. [stackoverflow](https://developer.mozilla.org/en-US/docs/Web/API/Element/clientWidth)
 - Learnt that dynamically generated elements need to use the .on to add click events to elements from here [stackoverflow](https://stackoverflow.com/questions/6658752/click-event-doesnt-work-on-dynamically-generated-elements)
+- When the algorithm is moving the largest bar to its sorted position all the bars jumped up and down because the largest div is removed and added in the animation causing the 
+   inline-blocks to change position. This was fixed by swapping the smallest bars height with the larger ones height first instead of the other way around.
