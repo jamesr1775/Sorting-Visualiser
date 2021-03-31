@@ -25,8 +25,8 @@ export function bubbleSortAlgorithm(){
             
             // Swap the heights if needed
             if (barOneHeight>barTwoHeight){
-                swapAnimations.push(['#bar-' + j, barTwoHeight, true, false, false])
                 swapAnimations.push(['#bar-' + (j + 1), barOneHeight, true, false, false])
+                swapAnimations.push(['#bar-' + j, barTwoHeight, true, false, false])
                 let tempHeight = barOneHeight
                 barsArray[j][1] = barTwoHeight
                 barsArray[j+1][1] = tempHeight
@@ -74,7 +74,7 @@ export function getBubbleSortCodeString(){
 }
 
 export function getBubbleSortInfoString(){
-    let bubbleSortInfoString = `<h2>Bubble Sort Algorithm</h2>
+    let bubbleSortInfoString = `<h2 id="algo-header">Bubble Sort Algorithm</h2>
                                 <p>Bubble sort is an old and well known algorithm that sorts the array, usually in ascending order.</p>
                                 <h3>Algorithm Steps :</h3>
                                 <ol>

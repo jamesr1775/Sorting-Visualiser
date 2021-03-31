@@ -125,3 +125,60 @@
     padding: 25px;
     border: 1px solid slategray;
 }
+
+/*********************** Quiz Section ***********************/
+
+
+/* #quiz {
+
+} */
+#question {
+  padding: 20px;
+  background: snow;
+  text-align: center;
+}
+
+#answer-choices-block input[type=radio] {
+    display: none;
+}
+#answer-choices-block label {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+  background: royalblue;
+  color: snow;
+  width: 100%;
+  cursor: grab;
+}
+.correct-answer{
+    background: green !important;
+}
+.incorrect-answer{
+    background: red !important;
+}
+
+#answer-choices-block label:hover {
+  background: powderblue;
+}
+#answer-choices-block input[type=radio]:checked + label {
+  background: darkcyan;
+  color:snow;
+}
+.answer-radio{
+    border-radius: 5%;
+}
+#results-table th, td {
+  border: 1px solid black;
+}
+.check-mark{
+    color: green;
+}
+.cross-mark {
+    color: red;
+    font-size: 25px;
+}
+.text-center{
+    text-align: center;
+    font-size: 25px;
+}

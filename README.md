@@ -60,9 +60,7 @@ The Technologies used in this project are the following:
 #### Further Testing
 
 #### Known Bugs
-1. When the algorithm is moving the largest bar to its sorted position all the bars jump up and down because the largest div is removed and added in the animation causing the 
-   inline-blocks to change position.
-2. Zooming in on chrome causes the bar chart to fold bars to next rows
+1. Zooming in on chrome causes the bar chart to fold bars to next rows
 
 ## Deployment
 ### GitHub Pages
@@ -82,9 +80,18 @@ I followed the steps below to deploy my project:
 - The photos used in this site were obtained from:
 
 ### Acknowledgements
-
+- Refreshed my memory of javascript objects from [w3schools](https://www.w3schools.com/js/js_objects.asp)
+- Used bootstraps collapse webpage to build my own for the quiz [getbootstrap](https://getbootstrap.com/docs/4.1/components/collapse/)
+- Template literals information helped me out from [developer.mozilla](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Strings)  and [developer.mozilla](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
+- Prism wasn't running on dynamically generated elements so with research I used Prism.highlightAll from [schier.co/blog](https://schier.co/blog/how-to-re-run-prismjs-on-ajax-content)
+- jsfiddle helped with the initial testing of the algorithm functions [jsfiddle](https://jsfiddle.net/e6m05vdj/2/)
+- Had to get the value of a radio button and needed the click event to handle the users answer picks. Got information from [stackoverflow](https://stackoverflow.com/questions/8622336/jquery-get-value-of-selected-radio-button)  and [stackoverflow](https://stackoverflow.com/questions/5142300/javascript-jquery-radio-button-click)
+- Add math operaters to strings [stackexchange](https://meta.stackexchange.com/questions/226869/how-can-i-add-the-mathematical-symbol-for-power-like-x-2-to-a-question)
+- Learned to get radio input labels ids to be able to style the correct answer green and wrong answers red. [stackoverflow](https://stackoverflow.com/questions/14709617/how-do-i-get-the-label-of-the-selected-radio-button-using-javascript)
+- Wanted to add table border [w3schools](https://www.w3schools.com/html/tryit.asp?filename=tryhtml_table_border)
+- Got the check mark and cross mark from [htmlsymbols](https://www.htmlsymbols.xyz/unicode/U+2612)
+- The wikipedia page for bubble sort algorithm helped me come up with some questions for the quiz [wikipedia](https://en.wikipedia.org/wiki/Bubble_sort)
 ### Bugs/Issues Resolved
-- 
 - First few versions of bubble sort and trying to change the bar charts heights to perform sorting was difficult. The animation happened 
   all at once at the end of the function, or with the set timeout function the heights were not updated fast enough for the sorting algorithm and maybe only one or two 
   bars swapped back and forth. I found some information that helped me from [stackoverflow](https://stackoverflow.com/questions/48184493/update-element-with-ajax-dont-affect-until-for-loop-end/48184577). 
@@ -100,3 +107,6 @@ I followed the steps below to deploy my project:
   so when unpaused we go back to the correct animation.
 - Fixed the sort button so it swaps between pausing and starting the animation of the algorithm.
 - When the algorithm code is loaded, some of the bars would fold to a new row. Changing the bar width calculation to use clientWidth and moving the col-10 of bar-chart to the html instead of javascript helped remove this issue. [stackoverflow](https://developer.mozilla.org/en-US/docs/Web/API/Element/clientWidth)
+- Learnt that dynamically generated elements need to use the .on to add click events to elements from here [stackoverflow](https://stackoverflow.com/questions/6658752/click-event-doesnt-work-on-dynamically-generated-elements)
+- When the algorithm is moving the largest bar to its sorted position all the bars jumped up and down because the largest div is removed and added in the animation causing the 
+   inline-blocks to change position. This was fixed by swapping the smallest bars height with the larger ones height first instead of the other way around.
