@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700|Roboto:100,200,300,400,500,600,700');
+
 /*********************** Colors Section ***********************/
 .header-nav-menu-bg-color{
     background-color: #18A558;
@@ -8,7 +10,9 @@
 .code-info-container-bg-color{
     background-color: snow;
 }
-
+.footer-menu-bg-color{
+    background-color: #18A558;
+}
 /*********************** Header Section ***********************/
 .company-logo{
     background: url("../images/Sorting-Visualiser-Logo.png");
@@ -181,4 +185,31 @@
 .text-center{
     text-align: center;
     font-size: 25px;
+}
+
+/*********************** Footer Section ***********************/
+footer{
+    padding: 10px;
+}
+.developer-info{
+    margin: 0;
+    text-align: center;
+}
+.developer-info a i{
+    font-size: 30px;
+    width: 40px;
+    height: 40px;
+    color: black;
+    padding: 5px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+.developer-info p{
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+    color: snow;
+    text-align: center;
+    text-shadow:1px 1px gray;
 }
