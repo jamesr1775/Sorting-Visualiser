@@ -53,23 +53,25 @@ export function bubbleSortAlgorithm(){
 
 export function getBubbleSortCodeString(){
     let bubbleSortCodeString = `function bubbleSortAlgorithm(arr){
-        // traverse through entire array
-        for(let i=0; i<arr.length - 1; i++){
-            let tempValue = null;
-            // slight optimization to reduce inner loop iterations
-            let innerLoopEnd = arr.length - i - 1;
-            // swap values so the largest value shifts to right
-            for(let j=0; j<innerLoopEnd; j++){
-                // Swap the heights if needed;
-                if (arr[j]>arr[j+1]){
-                    tempValue = arr[j];
-                    arr[j] = arr[j+1];
-                    arr[j+1] = tempValue;
-                }
+    // traverse through entire array
+    for(let i=0; i<arr.length - 1; i++){
+        let tempValue = null;
+        /* slight optimization to reduce 
+           inner loop iterations */
+        let innerLoopEnd = arr.length - i - 1;
+        /* swap values so the largest 
+           value shifts to right */
+        for(let j=0; j<innerLoopEnd; j++){
+            // Swap the heights if needed
+            if (arr[j]>arr[j+1]){
+                tempValue = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = tempValue;
             }
         }
-        return arr;
-    }`
+    }
+    return arr;
+}`
     return bubbleSortCodeString
 }
 

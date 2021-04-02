@@ -17,10 +17,12 @@
 .company-logo{
     background: url("../images/Sorting-Visualiser-Logo.png");
     min-height: 100px;
-    width: 150px;
+    height: auto;
+    width: 300px;
     background-position: center;
     background-repeat: no-repeat;
     background-size:contain;
+    margin-left: calc(50% - 150px);
 }
 
 /*********************** Chart Section ***********************/
@@ -37,7 +39,7 @@
     margin-bottom: 50px;
 }
 .no-padding {
-   padding: 0 !important;
+    padding: 0 !important;
 }
 
 /*********************** Chart Buttons Section ***********************/
@@ -62,7 +64,7 @@
     border: 1px solid #198754;
     background-color: #198754;
     border-radius: .25rem;
-    height: 38px; /* Specified height */
+    height: 44px; /* Specified height */
 }
 .slider {
     -webkit-appearance: none;  /* Override default CSS styles */
@@ -100,24 +102,16 @@
     text-align: center;
     background-color: #198754;
     color: #fff;
-    font-weight: 400;
     vertical-align: middle;
-    /* border: 1px solid transparent; */
     padding: .375rem .75rem;
-    font-size: 1rem;
-    /* border-radius: .25rem; */
 }
 .array-size-slider{
     width: 48%;
     text-align: center;
     background-color: #198754;
     color: #fff;
-    font-weight: 400;
     vertical-align: middle;
-    /* border: 1px solid transparent; */
     padding: .375rem .75rem;
-    font-size: 1rem;
-    /* border-radius: .25rem; */
 }
 
 /*********************** Code Section ***********************/
@@ -128,32 +122,40 @@
 .algo-info-div{
     padding: 25px;
     border: 1px solid slategray;
+    font-size: 15px;
+    font-weight: 400;
+    font-family: "Roboto", sans-serif;
 }
 
 /*********************** Quiz Section ***********************/
-
-
-/* #quiz {
-
-} */
+#take-quiz-btn{
+    width: 150px;
+    margin-left: calc(50% - 75px);
+    margin-top: 20px;
+}
 #question {
-  padding: 20px;
-  background: snow;
-  text-align: center;
+    padding: 22px;
+    background: snow;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
 }
 
 #answer-choices-block input[type=radio] {
     display: none;
 }
-#answer-choices-block label {
-  display: inline-block;
-  margin: 10px;
-  padding: 10px;
-  text-align: center;
-  background: royalblue;
-  color: snow;
-  width: 100%;
-  cursor: grab;
+#answer-choices-block label { 
+    display: inline-block;
+    margin: 10px 0;
+    padding: 10px;
+    text-align: center;
+    background: royalblue;
+    color: snow;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: "Roboto", sans-serif;
+    width: 100%;
+    cursor: grab;
 }
 .correct-answer{
     background: green !important;
@@ -163,17 +165,18 @@
 }
 
 #answer-choices-block label:hover {
-  background: powderblue;
+    background: powderblue;
 }
 #answer-choices-block input[type=radio]:checked + label {
-  background: darkcyan;
-  color:snow;
+    background: darkcyan;
+    color:snow;
 }
 .answer-radio{
     border-radius: 5%;
+
 }
 #results-table th, td {
-  border: 1px solid black;
+    border: 1px solid black;
 }
 .check-mark{
     color: green;
@@ -182,11 +185,47 @@
     color: red;
     font-size: 25px;
 }
-.text-center{
-    text-align: center;
-    font-size: 25px;
+#nav-questions-block{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 0;
+    display: flex;
 }
-
+#prev-question{
+    padding:2px;
+    width: 150px;
+    box-shadow: 2px 2px darkslategray;
+    margin-right: 1px;
+}
+#next-question{
+    padding:2px;
+    width: 150px;
+    box-shadow: 2px 2px darkslategray;
+    margin-left: 1px;
+}
+#answer-reveal-block{
+    font-family: "Roboto", sans-serif;
+}
+#answer-reveal-block button{
+    padding: 2px;
+    height: 40px;
+    width: 200px;
+    margin-left: calc(50% - 100px);
+}
+#quiz-results-block{
+    font-family: "Roboto", sans-serif;
+    display: flex;
+    margin-bottom: 10px;
+    margin-left: calc(50% - 200px);
+}
+#quiz-results-block button{
+    font-size: 20px;
+    font-weight: 600;
+    margin: 5px;
+    padding: 2px;
+    height: 40px;
+    width: 200px;
+}
 /*********************** Footer Section ***********************/
 footer{
     padding: 10px;
@@ -212,4 +251,74 @@ footer{
     color: snow;
     text-align: center;
     text-shadow:1px 1px gray;
+}
+/*********************** General ***********************/
+.text-center{
+    text-align: center;
+    font-size: 25px;
+}
+.button-text{
+    font-size: 20px;
+    font-weight: 600;
+    font-family: "Roboto", sans-serif;
+}
+/*********************** Media Queries ***********************/
+
+/*********** Smart Phones Only ***********/
+@media screen and (max-width:575px){
+    .code-block-div{
+        font-size: 14px;
+        padding: 0;
+        margin: 0;
+    }
+        
+    pre[class*="language-"] {
+        padding: 0.2em !important;
+        margin:1px !important;
+    }
+}
+/*********** Tablets ***********/
+@media screen and (max-width:577px){
+    #quiz-results-block{
+        margin-left: calc(50% - 150px);
+    }
+    #quiz-results-block button{
+        width: 150px;
+    }
+} 
+
+@media screen and (max-width:991px) and (min-width: 577px){
+    #bar-chart {
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+    .slidecontainer {
+        width: 98.5%;
+    }
+} 
+
+@media screen and (max-width:1250px){
+    .button-text{
+        font-size: 15px;
+        font-weight: 800;
+    }
+    .slidecontainer {
+        height: 36px; /* Specified height */
+    }
+}
+/*********** Laptops & Desktops ***********/
+@media screen and (min-width:768px){
+    #prev-question{
+        width: 200px;
+        box-shadow: 2px 2px darkslategray;
+        margin-right: 5px;
+    }
+    #next-question{
+        width: 200px;
+        box-shadow: 2px 2px darkslategray;
+        margin-left: 5px;
+    }
+    #nav-questions-block{
+        margin-left: calc(50% - 195px);
+    }
 }
