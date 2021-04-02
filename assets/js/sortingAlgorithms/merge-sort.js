@@ -1,13 +1,13 @@
-function mergeSortAlgorithmHelper(array, leftIdx, rightIdx, auxilaryArray, animations, heightArray, finalDoMerge){
+function mergeSortAlgorithmHelper(array, leftIdx, rightIdx, auxilaryArray, animations, finalDoMerge){
     if (leftIdx === rightIdx){
         return
     }
     let midIdx = Math.floor((leftIdx + rightIdx)/2)
-    mergeSortAlgorithmHelper(auxilaryArray, leftIdx, midIdx, array, animations, heightArray, false)
-    mergeSortAlgorithmHelper(auxilaryArray, midIdx + 1, rightIdx, array, animations, heightArray, false)
-    doMerge(array, leftIdx, midIdx, rightIdx, auxilaryArray, animations, heightArray, finalDoMerge)
+    mergeSortAlgorithmHelper(auxilaryArray, leftIdx, midIdx, array, animations, false)
+    mergeSortAlgorithmHelper(auxilaryArray, midIdx + 1, rightIdx, array, animations, false)
+    doMerge(array, leftIdx, midIdx, rightIdx, auxilaryArray, animations, finalDoMerge)
 }
-function doMerge(array, leftIdx, midIdx, rightIdx, auxilaryArray, animations, heightArray, finalDoMerge){
+function doMerge(array, leftIdx, midIdx, rightIdx, auxilaryArray, animations, finalDoMerge){
     let i = leftIdx
     let k = leftIdx
     let j = midIdx + 1
@@ -61,20 +61,14 @@ function doMerge(array, leftIdx, midIdx, rightIdx, auxilaryArray, animations, he
 export function mergeSortAlgorithm(){
     let leftIdx = 0
     let rightIdx = document.getElementsByClassName("single-bar").length - 1;
-    console.log('setting new heights: called')
     let barsArray = []
     let swapAnimations = []
     let auxilaryArray = []
-    let heightArray = []
     for(let i=0; i<=rightIdx; i++){
         let bar =  $('#bar-' + i)
         barsArray.push(['#bar-' + i, bar.height()])
         auxilaryArray.push(['#bar-' + i, bar.height()])
-        heightArray.push(bar.height())
     }
-    heightArray.sort(function(a, b){return a - b})
-    console.log("heightArray" + heightArray)
-    mergeSortAlgorithmHelper(barsArray, leftIdx, rightIdx, auxilaryArray, swapAnimations, heightArray, true)
-    console.log(swapAnimations)
+    mergeSortAlgorithmHelper(barsArray, leftIdx, rightIdx, auxilaryArray, swapAnimations, true)
     return swapAnimations
 }
