@@ -35,7 +35,7 @@ export function addQuizQuestionsToHtml(currentAlgorithm){
     let answerChoiceBlock = document.getElementById("answer-choices-block")
     let navQuestionsBlock = document.getElementById("nav-questions-block")
     if (currentAlgorithm==="bubbleSort"){
-        quizBlock.innerHTML = `<div id='question'>${currentQuestionsStruct.questions[0]}</div>`
+        quizBlock.innerHTML = `<div id='question'>Question ${1}/${currentQuestionsStruct.questions.length}<br>${currentQuestionsStruct.questions[0]}</div>`
         let answerChoiceBlockHTML = `<div class="row">`
         for(let i=0; i<currentQuestionsStruct.answers[0].length; i++){
             answerChoiceBlockHTML += `<div class= "col-sm-6 col-xs-12">
@@ -46,8 +46,8 @@ export function addQuizQuestionsToHtml(currentAlgorithm){
         answerChoiceBlock.innerHTML = answerChoiceBlockHTML + `</div>`
         console.log("answerChoiceBlockHTML" + answerChoiceBlockHTML)
     }
-    navQuestionsBlock.innerHTML = `<button id="prev-question">Previous Question</button>
-    <button id="next-question">Next Question</button>`
+    navQuestionsBlock.innerHTML = `<button id="prev-question" class="btn btn-success button-text">Previous Question</button>
+    <button id="next-question" class="btn btn-success button-text">Next Question</button>`
 }
 
 $(document).on('click','#prev-question', function(){
@@ -69,7 +69,7 @@ $(document).on('click','#next-question',function(){
 function updateQuestionsDisplayed(){
     let quizBlock = document.getElementById("question-block")
     let answerChoiceBlock = document.getElementById("answer-choices-block")
-    quizBlock.innerHTML = `<div id='question'>${currentQuestionsStruct.questions[questionsCounter]}</div>`
+    quizBlock.innerHTML = `<div id='question'>Question ${questionsCounter + 1}/${currentQuestionsStruct.questions.length}<br>${currentQuestionsStruct.questions[questionsCounter]}</div>`
     let answerChoiceBlockHTML = `<div class="row">`
     for(let i=0; i<currentQuestionsStruct.answers[questionsCounter].length; i++){
         answerChoiceBlockHTML += `<div class= "col-sm-6 col-xs-12">
@@ -92,7 +92,7 @@ $(document).on("click",'#answer-choices-block input[type=radio]', function() {
         currentQuestionsStruct.userScore[questionsCounter] = 0
     }
     answerSelectUpdate(currentCorrectAnswer)
-    let answerRevealBlockHTML = `<p><button class="btn btn-success" type="button" data-toggle="collapse" data-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3">Answer explanation</button></p>
+    let answerRevealBlockHTML = `<p><button class="btn btn-success button-text" type="button" data-toggle="collapse" data-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3">Answer explanation</button></p>
     <div class="row"><div class="col-12"><div class="collapse multi-collapse" id="multiCollapseExample3">${currentQuestionsStruct.answerExplanations[questionsCounter]}</div></div></div>`
     answerRevealBlock.innerHTML = answerRevealBlockHTML
     if(questionsCounter === currentQuestionsStruct.questions.length - 1){
@@ -136,8 +136,8 @@ function presentUserQuizScore(){
     quizModalHeader.innerHTML = `${algorithm} Quiz Results`
     $('#quiz-results').modal('show');
     let quizResultsBlock = document.getElementById("quiz-results-block")
-    let quizResultsBlockHTML = `<button id="view-results" type="button" class="dashboard-btn btn btn-success" aria-label="View Score Button">View Score</button>
-    <button id="retake-quiz" type="button" class="dashboard-btn btn btn-success" aria-label="Retake Quiz Button">Retake Quiz</button>`
+    let quizResultsBlockHTML = `<button id="view-results" type="button" class="dashboard-btn btn btn-success button-text" aria-label="View Score Button">View Score</button>
+    <button id="retake-quiz" type="button" class="dashboard-btn btn btn-success button-text" aria-label="Retake Quiz Button">Retake Quiz</button>`
     quizResultsBlock.innerHTML = quizResultsBlockHTML
 }
 
@@ -153,4 +153,6 @@ $(document).on('click','#retake-quiz',function(){
     }
     let quizResultsBlock = document.getElementById("quiz-results-block")
     quizResultsBlock.innerHTML = ``
+    let answerRevealBlock = document.getElementById("answer-reveal-block")
+    answerRevealBlock.innerHTML = ``
 })

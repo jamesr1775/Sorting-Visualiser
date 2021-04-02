@@ -1,10 +1,12 @@
 # Sorting Visualiser
-The sorting algorithm visualiser.
+The sorting algorithm visualiser. See the algorithms that you use day to day under the hood to sort data and get a picture of how they operate to sort data. Why are some algorithms
+better than others? Test your knowledge and work out or learn the time and space complexities of the famous algorithms.
 
 ## UX
 ### Project Goals
 * The goal of this project is to be able to visualise sorting algorithms to be able to understand them better and to know their time and space compexity.
 * The website will provide provide the user with a few sorting algorithms to choose from to sort bar chart data on the screen.
+* Users will be able to take a quiz on each algorithm to test themselves and learn.
 * This Website will be:
     * Responsive on multiple platforms such as desktops, tablets and smartphones
     * Provide the user with the sorting algorithm code so that they can try to understand it better along with the visualisation elements.
@@ -14,21 +16,56 @@ The sorting algorithm visualiser.
 2. As a new visitor, I would like to seamlessly navigate the website and understand and use the interactive parts easily.
 3. As a potential visitor, I want to be able to find the source code so I can see the javascript that was used in a sorting algorithm.
 4. As a potential user, I would like to generate data to sort and select a sorting algorithm to sort it.
-
+5. As a potential user, I would like to be able to increase and decrease the speed to see the algorithm in detail.
+6. As a potential user, I would like to take a quiz and test my knowledge of the algorithm.
 ### Wireframe mock-ups: 
 - [Home Page](https://github.com/jamesr1775/Sorting-Visualiser/blob/master/assets/wireframes/Home.png)
-- [Sort Comparison](https://github.com/jamesr1775/Sorting-Visualiser/blob/master/assets/wireframes/Our_Donuts.png)
+- [Home Algorithm Selected](https://github.com/jamesr1775/Sorting-Visualiser/blob/master/assets/wireframes/Home-Algo-Selected.png)
+- [Home Algorithm Quiz](https://github.com/jamesr1775/Sorting-Visualiser/blob/master/assets/wireframes/Home-Algo-Quiz.png)
+- [Home Algorithm Selected](https://github.com/jamesr1775/Sorting-Visualiser/blob/master/assets/wireframes/Home-Quiz-Results.png)
 
 ## Features
-
 ### Home Page
-
-### Sort Comparison
-
+1. The site logo will be at the top of the page and link back/ refresh the home page.
+2. There will be a menu bar that controls the bar chart generation, the array size, algorithm speed, sorting algorithm type, starting and stopping the algorithm.
+3. The bar chart will be responsive to different screen sizes and adjust the width of the bars based on screen size.
+4. The algorithm should display the steps it takes visually.
+5. A user can pause and adjust the speed of the algorithm. 
+### Algorithm Code & Explanation
+1. When an algorithm is selected, easy to understand, clean code will be presented to the user underneath the bar chart graph.
+2. The code will be syntaxed and have familiar highlights to that of IDE's so it looks pleasing and makes it easier to read.
+3. The user will also be given some explanation to how the algorithm operates.
+### Algorithm Quiz
+1. When the user has selected the algorithm, they can press the "Take Quiz" button to pull up the relevant trivia questions for the chosen algorithm.
+2. Multiple choice questions will be displayed to the user with 1 to 3 incorrect answers and 1 correct answer. 
+3. When the user selects an answer, the correct answer will be highlighted green and the wrong answers red.
+4. An answer explanation drop down button will appear when a question is answered. This will provide explanation to the answer revealed.
+5. There will be a next and previous question button to navigate the quiz questions.
+6. A running score of the correct answers will be tracked and then presented to the user when the final question is answered.
+7. When the user answers the final question and close the results screen. There will be two buttons generated. One that will allow them to view their score again.
+   The second button will allow them to retake the quiz.
+### Footer
+1. The footer will credit the developer.
+2. A link to the websites code will be available in the footer section
 ### Existing Features
-
+- The header contains the sites logo that directs the user back to the home page.
+- A bar chart that visually shows the sorting algorithms running is presented to the user.
+- Controls for the algorithm type, speed and array size are implemented above the graph.
+- The algorithm steps throught the sorting steps and visually updates the bar colors and heights to perform the swaps.
+- A user has the ability to pause and start the algorithm again if they wish and also change the speed of the sorting.
+- The algorithm javascript code is shown to the user upon selecting an algorithm along with an explanation/ information on that algorithm.
+- The "Take Quiz" button drop down loads up the quiz navigation buttons and question and choice buttons.
+- The next and previous question buttons allows navigation through the algorithm questions.
+- Visual feedback of the correct answer and incorrect answers is provided to the user upon selecting an answer.
+- A drop down button is available that will allow the user to get more information on why the answer to a particular question is the one shown.
+- At the end of the quiz a modal pops up and gives the user a table of the questions asked along with their scores for each question and overall score.
+- At the end of the quiz, two buttons, retake quiz and view results appear to allow the user to pop back up the score summary modal or restart the quiz from scratch.
+- The bottom of the site credits the developer and provides the websites repository/code.
 ### Features to implement in the future
-
+- An algorithm comparison page that pits a few algorithms against each other to display the speeds of the algorithms for different data lengths visually. i.e with an animated progress bar along with the bar chart that is already generated.
+- Video lessons to accompany the algorithm code shown, along with videos on analyzing time and space complexities of algorithms in general so users can get tools to answer some of the questions in the quiz while analyzing the code provided to them above it.
+- Add a few more sorting algorithms such as heap sort.
+- Implement a test/quiz playground where users could be asked to implement a random algorithm to sort certain data. The code the right could be tested to see if it works and give them feedback if all the tests pass (like leetcode) 
 ## Technologies Used
 The Technologies used in this project are the following:
 
@@ -44,19 +81,32 @@ The Technologies used in this project are the following:
     - Font Awesome was used throughout to add icons for a more pleasing UX.
 5. [jQuery:](https://jquery.com/)
     - jQuery came with Bootstrap to make the navbar responsive.
-6. [GitPod](https://gitpod.io/)
+6. [GitPod:](https://gitpod.io/)
     - GitPod was used as my Editor/ Development Environment.
 7. [GitHub:](https://github.com/)
     - GitHub is used to store the projects code with version control.
-
+8. 
 ## Testing
 
 ### Testing User Stories
 
 ### Manual Testing
-#### Home Page 
-#### Sort Comparison
-
+#### Home Page Header
+#### Bar chart
+##### Bar chart generation
+##### Algorithm Speed Slider
+##### Array Size Slider
+##### Algorithm Pause 
+#### Algorithms
+##### Bubble Sort
+##### Merge Sort
+##### Quick Sort
+#### Prism Code Block and Algo explanation
+#### Quiz
+##### Quiz Navigation & User Input
+##### Quiz results
+##### Quiz finished buttons
+#### Footer
 #### Further Testing
 
 #### Known Bugs
@@ -78,6 +128,7 @@ I followed the steps below to deploy my project:
 ## Credits
 ### Media
 - The photos used in this site were obtained from:
+    - [Free Logo Design](https://www.freelogodesign.org/) - Created the sorting visualiser logo.
 
 ### Acknowledgements
 - Refreshed my memory of javascript objects from [w3schools](https://www.w3schools.com/js/js_objects.asp)

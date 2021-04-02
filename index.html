@@ -16,24 +16,10 @@
 </head>
 
 <body>
-    
     <!-- Header Nav Bar and Company Logo -->
     <header class="header-nav-menu-bg-color">
-        <nav id="header-nav-bar" class="navbar navbar-light navbar-expand-sm">
+        <nav id="header-nav-bar" class="navbar navbar-light">
             <a href="index.html" class="company-logo"></a>
-            <button class="nav-bar-button navbar-toggler" type="button" data-toggle="collapse" data-target="#navBarDropDown" aria-controls="navBarDropDown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navBarDropDown">
-                <ul class="menu-bar-list navbar-nav">
-                    <li class="active nav-item">
-                        <a href="index.html" class="hvr-sweep-to-bottom nav-link"><i class="fa fa-home" aria-hidden="true"></i><span>Home</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="sort-comparison.html" class="hvr-sweep-to-bottom nav-link"><i class="fa fa-life-ring" aria-hidden="true"></i><span>Sort Comparison</span></a>
-                    </li>
-                </ul>
-            </div>
         </nav>
     </header>
 
@@ -42,15 +28,15 @@
         <div class="container-fluid hero-container">
             <div class="row">
                 <div class="col-lg-2 col-md-4 col-sm-6 mt-1">
-                    <button id="generateBars" type="button" class="dashboard-btn btn btn-success gen-bars-button" aria-label="Generate Bars Button">Generate Bars</button>
+                    <button id="generateBars" type="button" class="dashboard-btn btn btn-success gen-bars-button button-text" aria-label="Generate Bars Button">Generate Bars</button>
                 </div>
                 <div class="col-lg-2 col-md-4 col-sm-6 mt-1">
-                    <button id="sortBars" type="button" class="dashboard-btn btn btn-success sort-bars-button" aria-label="Sort Button">Start Sorting</button>
+                    <button id="sortBars" type="button" class="dashboard-btn btn btn-success sort-bars-button button-text" aria-label="Sort Button">Start Sorting</button>
                     <!-- <button id="pause" type="button" class="dashboard-btn btn btn-success" aria-label="Pause Button">Pause</button> -->
                 </div>
                 <div class="col-lg-2 col-md-4 col-sm-6 mt-1">
                     <div class="btn-group select-algo-container">
-                        <button id="selectAlgorithm" type="button" class="btn btn-success dropdown-toggle select-algo-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button id="selectAlgorithm" type="button" class="btn btn-success dropdown-toggle select-algo-button button-text" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Pick Algorithm
                         </button>
                         <div class="dropdown-menu dropdown-menu-right">
@@ -65,13 +51,13 @@
                         <div class="col-lg-6 col-md-12 col-sm-12 mt-1">
                             <div class="slidecontainer">
                                 <!-- <p>Change Algorithm Speed</p> -->
-                                <label for="algorithmSpeed" class="algo-speed-slider">Sort Speed</label>
+                                <label for="algorithmSpeed" class="algo-speed-slider button-text">Speed</label>
                                 <input type="range" min="1" max="50" value="25" class="slider" name="algorithmSpeed" id="algorithmSpeed">
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-12 col-sm-12 mt-1">
                             <div class="slidecontainer">
-                                <label for="arraySize" class="array-size-slider">Array Size</label>
+                                <label for="arraySize" class="array-size-slider button-text">Array Size</label>
                                 <input type="range" min="5" max="100" value="10" class="slider" name="arraySize" id="arraySize" >
                             </div>
                         </div>
@@ -100,7 +86,7 @@
 
         <div class="container-fluid">
             <p>
-                <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Take Quiz</button>
+                <button id="take-quiz-btn" class="btn btn-success button-text" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Take Quiz</button>
             </p>
             <div class="row">
                 <div class="col-1 d-none d-sm-block"></div>
@@ -111,11 +97,15 @@
                                 <div class="col-12">
                                     <div id="question-block"></div>
                                     <div id="answer-choices-block"></div>
-                                    <div id="answer-reveal-block"></div>
-                                    <div id="quiz-results-block"></div>
                                 </div>
                                 <div class="col-12">
                                     <div id="nav-questions-block"></div>
+                                </div>
+                                <div class="col-12">
+                                    <div id="answer-reveal-block"></div>
+                                </div>
+                                <div class="col-12">
+                                    <div id="quiz-results-block"></div>
                                 </div>
                             </div>
                         </div>
