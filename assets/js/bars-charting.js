@@ -1,5 +1,5 @@
 import {bubbleSortAlgorithm, getBubbleSortCodeString, getBubbleSortInfoString} from './sortingAlgorithms/bubble-sort.js'
-import {mergeSortAlgorithm} from './sortingAlgorithms/merge-sort.js'
+import {mergeSortAlgorithm,  getMergeSortCodeString, getMergeSortInfoString} from './sortingAlgorithms/merge-sort.js'
 import {addQuizQuestionsToHtml, getCurrentQuestionsStruct} from './quiz-generation.js'
 
 let currentSortAlgorithm = "None"
@@ -187,6 +187,18 @@ $('#mergeSortSelect').click(function() {
     let selectAlgorithm = document.getElementById('selectAlgorithm')
     selectAlgorithm.innerHTML = "Merge Sort"
     currentSortAlgorithm = "mergeSort"
+    let currentQuestions = getCurrentQuestionsStruct(currentSortAlgorithm)
+    addCodeToHtml(currentSortAlgorithm)
+    addQuizQuestionsToHtml(currentSortAlgorithm)
+    console.log("currentSortAlgorithm:" + currentSortAlgorithm)
+    let codeBlock = document.getElementById("algo-code-block")
+    let codeBlockDiv = document.getElementById("code-block")
+    let infoBlockDiv = document.getElementById("algo-info-block")
+    codeBlock.classList.remove("language-none")
+    codeBlock.classList.add("language-js")
+    codeBlockDiv.classList.add("code-block-div")
+    infoBlockDiv.classList.add("algo-info-div")
+    Prism.highlightElement(codeBlock)
 })
 $('#quickSortSelect').click(function() {
     let selectAlgorithm = document.getElementById('selectAlgorithm')
@@ -206,6 +218,10 @@ function addCodeToHtml(currentAlgorithm){
     if (currentAlgorithm==="bubbleSort"){
         codeString = getBubbleSortCodeString()
         codeInfoString = getBubbleSortInfoString()
+    }
+    else if(currentAlgorithm==="mergeSort"){
+        codeString = getMergeSortCodeString()
+        codeInfoString = getMergeSortInfoString()
     }
     codeBlock.textContent = `${codeString}`
     algoInfoBlock.innerHTML = `${codeInfoString}`
