@@ -147,15 +147,19 @@ I followed the steps below to deploy my project:
 - Required inbetween two screen size media query information and got the information from [w3schools](https://www.w3schools.com/css/css3_mediaqueries_ex.asp)
 - Learned to use the calc() function help with positioning  divs in the center of the screen from the website [developer mozilla] (https://developer.mozilla.org/en-US/docs/Web/CSS/calc())
 - Bubble Sort
-    - The wikipedia page for bubble sort algorithm helped me come up with some questions for the quiz [wikipedia](https://en.wikipedia.org/wiki/Bubble_sort)
+    - The wikipedia page for bubble sort algorithm helped me come up with the last two questions for the quiz [wikipedia](https://en.wikipedia.org/wiki/Bubble_sort)
     - Studied this algorithm during my engineering degree and implemented the majority of it from memory. Double checked my implementation from [medium](https://medium.com/javascript-algorithms/javascript-algorithms-bubble-sort-3d27f285c3b2).
 - Merge Sort
-    - The wikipedia page for merge sort algorithm helped me come up with some questions for the quiz [wikipedia](https://en.wikipedia.org/wiki/Merge_sort)
+    - The wikipedia page for merge sort algorithm helped me come up with the last two questions for the quiz [wikipedia](https://en.wikipedia.org/wiki/Merge_sort)
     - The following pages helped me learn and implement merge sort along with the wiki page:
         - [geeksforgeeks](https://www.geeksforgeeks.org/merge-sort/)
         - [stackabuse](https://stackabuse.com/merge-sort-in-javascript/)
         - Cracking the Coding Interview by Gayle Laakmann McDowell
-
+- Quick Sort
+    - The following pages helped me learn and implement quick sort along with the wiki page:
+        - [geeksforgeeks](https://www.geeksforgeeks.org/quick-sort/)
+        - [medium](https://medium.com/karuna-sehgal/a-quick-explanation-of-quick-sort-7d8e2563629b#:~:text=Quick%20Sort%20Algorithm%3A%20Steps%20on,last%20item%20in%20the%20array.)
+        - Cracking the Coding Interview by Gayle Laakmann McDowell
 ### Bugs/Issues Resolved
 - First few versions of bubble sort and trying to change the bar charts heights to perform sorting was difficult. The animation happened 
   all at once at the end of the function, or with the set timeout function the heights were not updated fast enough for the sorting algorithm and maybe only one or two 

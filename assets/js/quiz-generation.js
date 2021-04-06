@@ -43,7 +43,29 @@ let allQuestions = {
                                         "Merge sort is considered best for sorting linked lists because it is more efficient then other algorithms such as quick sort which performs poorly for linked lists due to slow random access for this data type."
                                     ],
                 userScore:[0, 0, 0, 0, 0]
-            }
+            },
+    quickSort:{    
+            questions: ["What is the average time complexity of the merge sort algorithm with an array of length <em>n</em>?",
+                        "What is the space complexity of the merge sort algorithm with an array of length <em>n</em> that uses an auxilary array?",
+                        "The best case time complexity for merge sort algorithm is <em>O(n)</em>?",
+                        "Merge sort was invented in 1945 by who:",
+                        "Is merge sort preferred to sort arrays instead of linked lists?"
+                        ],
+            answers: [  ["O(<em>n</em>)", "O(<em>nlog(n/2)</em>)", "O(<em>n<sup>2</sup></em>)", "O(<em>nlog(n)</em>)"],
+                        ["O(<em>n</em>)", "O(<em>log(n)</em>)", "O(<em>n<sup>2</sup></em>)", "O(<em>n<sup>2</sup>) - O(nlog(n))</em>"],
+                        ["True", "False"],
+                        ["Steve Wozniak", "Grace Hopper", "John von Neumann", "Steve Jobs"],
+                        ["True", "False"],
+                    ],
+            correctAnswers: ["option-3", "option-0", "option-1", "option-2", "option-1"], 
+            answerExplanations: [   "For each recursive call to the merge sort recursive helper we are dividing the number of elements we want to sort in to two, thus we have <em>log(n)</em> calls to the recursive helper. In each recursive call the do merge function iterates over its array which could be of length <em>n, n/2, n/4 etc.</em> and in time complexity analysis this will simplify to O(<em>n</em>). Thus the time complexity of log(n) calls with a loop of length n is O(<em>nlog(n)</em>)",
+                                    "In this algorithm because we create a copy of the original array we at the least have O(<em>n</em>) space complexity. Additionaly because of the recurion we have O(<em>log(n)</em>) calls on the call stack at worst. Thus the total time complexity could be O(<em>n</em>) + O(<em>log(n)</em>). Since the O(<em>n</em>) dominates we can simplify it to that.",
+                                    "The best case, average case and worst case are all the same with a time complexity of O(<em>nlog(n)</em>). We also will divide the array in to two <em>log(n)</em> times and go through those sub array lengths of <em>n, n/2, n/4 etc</em>",
+                                    "John von Neumann invented the algorithm in 1945.",
+                                    "Merge sort is considered best for sorting linked lists because it is more efficient then other algorithms such as quick sort which performs poorly for linked lists due to slow random access for this data type."
+                                ],
+            userScore:[0, 0, 0, 0, 0]
+        }
 }
 let questionsCounter = 0
 let currentQuestionsStruct = {}
