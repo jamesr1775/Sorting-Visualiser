@@ -27,9 +27,7 @@ export function bubbleSortAlgorithm(){
             if (barOneHeight>barTwoHeight){
                 swapAnimations.push(['#bar-' + (j + 1), barOneHeight, true, false, false])
                 swapAnimations.push(['#bar-' + j, barTwoHeight, true, false, false])
-                let tempHeight = barOneHeight
-                barsArray[j][1] = barTwoHeight
-                barsArray[j+1][1] = tempHeight
+                swap(barsArray, j, j+1)
             }
             else{
                 swapAnimations.push(['#bar-' + j, barOneHeight, false, false])
@@ -49,6 +47,12 @@ export function bubbleSortAlgorithm(){
     swapAnimations.push(['#bar-' + 1, null, false, false, true])
     console.log('swapAnimations: ' + swapAnimations)
     return swapAnimations
+}
+
+export function swap(array, left, right){
+    var temp = array[left][1];
+    array[left][1] = array[right][1];
+    array[right][1] = temp;
 }
 
 export function getBubbleSortCodeString(){

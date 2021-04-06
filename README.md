@@ -68,7 +68,6 @@ better than others? Test your knowledge and work out or learn the time and space
 - Implement a test/quiz playground where users could be asked to implement a random algorithm to sort certain data. The code the right could be tested to see if it works and give them feedback if all the tests pass (like leetcode) 
 ## Technologies Used
 The Technologies used in this project are the following:
-
 1. [Bootstrap 5.0:](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
     - Bootstrap was used to assist with the responsiveness and styling of the website.
 2. [Balsamiq:](https://balsamiq.com/)
@@ -85,7 +84,8 @@ The Technologies used in this project are the following:
     - GitPod was used as my Editor/ Development Environment.
 7. [GitHub:](https://github.com/)
     - GitHub is used to store the projects code with version control.
-8. 
+8. [Prismjs](https://prismjs.com/)
+    - Prism was used to highlight the code of the algorithms for easier readability.
 ## Testing
 
 ### Testing User Stories
@@ -111,6 +111,9 @@ The Technologies used in this project are the following:
 
 #### Known Bugs
 1. Zooming in on chrome causes the bar chart to fold bars to next rows
+2. Discovered that the swapping heights chart jitter bug is only fixed for bubble sort and occurs in merge sort.
+3. answer explanation button remains visible when different algorithm is loaded.
+4. Take quiz should not be visible until an algorithm is selected.
 
 ## Deployment
 ### GitHub Pages
@@ -122,7 +125,7 @@ I followed the steps below to deploy my project:
 5. Now if you go back to the GitHub pages section your project should be deployed and you should see the link it was deployed to.
 
 ### Creating your own local copy
-1. To get a copy of this repo, go to [Donut Disturb Repo](https://github.com/jamesr1775/Sorting-Visualiser), make sure your logged in. 
+1. To get a copy of this repo, go to [Sorting Visualiser Repo](https://github.com/jamesr1775/Sorting-Visualiser), make sure your logged in. 
 2. In the top right hand corner, click the fork button which will create a copy of the repo into your account.
 
 ## Credits
@@ -141,7 +144,18 @@ I followed the steps below to deploy my project:
 - Learned to get radio input labels ids to be able to style the correct answer green and wrong answers red. [stackoverflow](https://stackoverflow.com/questions/14709617/how-do-i-get-the-label-of-the-selected-radio-button-using-javascript)
 - Wanted to add table border [w3schools](https://www.w3schools.com/html/tryit.asp?filename=tryhtml_table_border)
 - Got the check mark and cross mark from [htmlsymbols](https://www.htmlsymbols.xyz/unicode/U+2612)
-- The wikipedia page for bubble sort algorithm helped me come up with some questions for the quiz [wikipedia](https://en.wikipedia.org/wiki/Bubble_sort)
+- Required inbetween two screen size media query information and got the information from [w3schools](https://www.w3schools.com/css/css3_mediaqueries_ex.asp)
+- Learned to use the calc() function help with positioning  divs in the center of the screen from the website [developer mozilla] (https://developer.mozilla.org/en-US/docs/Web/CSS/calc())
+- Bubble Sort
+    - The wikipedia page for bubble sort algorithm helped me come up with some questions for the quiz [wikipedia](https://en.wikipedia.org/wiki/Bubble_sort)
+    - Studied this algorithm during my engineering degree and implemented the majority of it from memory. Double checked my implementation from [medium](https://medium.com/javascript-algorithms/javascript-algorithms-bubble-sort-3d27f285c3b2).
+- Merge Sort
+    - The wikipedia page for merge sort algorithm helped me come up with some questions for the quiz [wikipedia](https://en.wikipedia.org/wiki/Merge_sort)
+    - The following pages helped me learn and implement merge sort along with the wiki page:
+        - [geeksforgeeks](https://www.geeksforgeeks.org/merge-sort/)
+        - [stackabuse](https://stackabuse.com/merge-sort-in-javascript/)
+        - Cracking the Coding Interview by Gayle Laakmann McDowell
+
 ### Bugs/Issues Resolved
 - First few versions of bubble sort and trying to change the bar charts heights to perform sorting was difficult. The animation happened 
   all at once at the end of the function, or with the set timeout function the heights were not updated fast enough for the sorting algorithm and maybe only one or two 
@@ -159,5 +173,5 @@ I followed the steps below to deploy my project:
 - Fixed the sort button so it swaps between pausing and starting the animation of the algorithm.
 - When the algorithm code is loaded, some of the bars would fold to a new row. Changing the bar width calculation to use clientWidth and moving the col-10 of bar-chart to the html instead of javascript helped remove this issue. [stackoverflow](https://developer.mozilla.org/en-US/docs/Web/API/Element/clientWidth)
 - Learnt that dynamically generated elements need to use the .on to add click events to elements from here [stackoverflow](https://stackoverflow.com/questions/6658752/click-event-doesnt-work-on-dynamically-generated-elements)
-- When the algorithm is moving the largest bar to its sorted position all the bars jumped up and down because the largest div is removed and added in the animation causing the 
+- **Fixed for bubble sort.** When the algorithm is moving the largest bar to its sorted position all the bars jumped up and down because the largest div is removed and added in the animation causing the 
    inline-blocks to change position. This was fixed by swapping the smallest bars height with the larger ones height first instead of the other way around.
