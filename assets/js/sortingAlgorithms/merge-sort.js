@@ -75,57 +75,57 @@ export function mergeSortAlgorithm(){
 
 
 export function getMergeSortCodeString(){
-    let mergeSortCodeString = `function mergeSortAlgorithmHelper(array, leftIdx, rightIdx, auxilaryArray){
-    if (leftIdx === rightIdx){
-        return
-    }
-    let midIdx = Math.floor((leftIdx + rightIdx)/2)
-    mergeSortAlgorithmHelper(auxilaryArray, leftIdx, midIdx, array)
-    mergeSortAlgorithmHelper(auxilaryArray, midIdx + 1, rightIdx, array)
-    doMerge(array, leftIdx, midIdx, rightIdx, auxilaryArray)
+    let mergeSortCodeString = `function mergeSortHelper(array, leftIdx, rightIdx, auxilaryArray){
+  if (leftIdx === rightIdx) return;
+  let midIdx = Math.floor((leftIdx + rightIdx)/2)
+  mergeSortHelper(auxilaryArray, leftIdx, midIdx, array)
+  mergeSortHelper(auxilaryArray, midIdx + 1, rightIdx, array)
+  doMerge(array, leftIdx, midIdx, rightIdx, auxilaryArray)
 }
+
 function doMerge(array, leftIdx, midIdx, rightIdx, auxilaryArray){
-    let i = leftIdx
-    let k = leftIdx
-    let j = midIdx + 1
-    while(i <= midIdx && j <= rightIdx){
-        if (auxilaryArray[i] <= auxilaryArray[j]){
-            array[k] = auxilaryArray[i]
-            i++
-        }
-        else{
-            array[k] = auxilaryArray[j]
-            j++
-        }
-        k++
+  let i = leftIdx
+  let k = leftIdx
+  let j = midIdx + 1
+  while(i <= midIdx && j <= rightIdx){
+    if (auxilaryArray[i] <= auxilaryArray[j]){
+      array[k] = auxilaryArray[i]
+      i++
+    }else{
+       array[k] = auxilaryArray[j]
+      j++
     }
-    while(i <= midIdx){
-        array[k] = auxilaryArray[i]
-        i++
-        k++
-    }
-    while(j <= rightIdx){
-        array[k] = auxilaryArray[j]
-        j++
-        k++
-    }
+    k++
+  }
+  while(i <= midIdx){
+    array[k] = auxilaryArray[i]
+    i++
+    k++
+  }
+  while(j <= rightIdx){
+    array[k] = auxilaryArray[j]
+    j++
+    k++
+  }
 }
-function mergeSortAlgorithm(array){
-		if(array.length <= 1) return array;
-    let leftIdx = 0;
-    let rightIdx = array.length - 1;
-    let auxilaryArray = array.slice();
-    mergeSortAlgorithmHelper(array, leftIdx, rightIdx, auxilaryArray);
-    return array;
+
+function mergeSort(array){
+  if(array.length <= 1) return array;
+  let leftIdx = 0;
+  let rightIdx = array.length - 1;
+  let auxilaryArray = array.slice();
+  mergeSortHelper(array, leftIdx, rightIdx, auxilaryArray);
+  return array;
 }`
     return mergeSortCodeString
 }
 
 export function getMergeSortInfoString(){
-    let mergeSortInfoString = `<h2 id="algo-header">Merge Sort Algorithm</h2>
-                                <p>Merge sort is a divide and conquer algorithm that splits up the array of length <em>n</em> in to two sub arrays. It will sort these 
-                                sub arrays and then merge the two sorted sub arrays back into one array that is sorted</p>
-                                <h3>Algorithm Steps :</h3>
+    let mergeSortInfoString = `<h2 id="algo-header" class="text-center mt-2">Merge Sort Algorithm</h2>
+                                <p>Merge sort is a divide and conquer algorithm that splits up the array of length <em>n</em> in to two sub arrays, and then these two sub arrays in to two additional sub arrays until there are <em>n</em> arrays with one element. 
+                                It will sort these sub arrays and then starting merging two sorted sub arrays back into one array until there is <em>n/2, n/4 ...1</em> arrays. When the final 2 sub arrays are merged to form the sorted array the algorithm ends.</p>
+                                <div  class="horizontal-divider"><hr/></div>
+                                <h3 class="text-center mt-5">Algorithm Steps</h3>
                                 <ol>
                                     <li>Divide the array in to two sub arrays of length <em>n/2</em></li>
                                     <li>Using recursion, divide the two sub arrays repeatedly until there are n sub arrays of length one</li>
@@ -133,7 +133,8 @@ export function getMergeSortInfoString(){
                                     <li>Repeat step 3 until you have an array of length <em>n</em></li>
                                     <li>This algorithm will terminate when the first two sub arrays of length <em>n/2</em> return, both sorted and the final merge occurs when we are left with a sorted array of length <em>n</em></li>
                                 </ol>
-                                <h3>Complexity</h3>
+                                <div  class="horizontal-divider"><hr/></div>
+                                <h3 class="text-center mt-5">Complexity</h3>
                                 <p>Divide and conquer algorithms can be tricky to analyze their time and space complexities. Hint:Exponentially working with smaller and smaller array sizes, one math operater is particularly useful. Thus what will the time complexity be? Take the quiz below to find out!</p>
     `
     return mergeSortInfoString    

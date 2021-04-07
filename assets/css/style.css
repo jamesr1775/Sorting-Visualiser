@@ -118,11 +118,14 @@
 .code-block-div{
     padding: 10px;
     border: 1px solid slategray;
+    background-color: #f5f2f0;
 }
 .algo-info-div{
+    background-color: #f5f2f0;
     padding: 25px;
     border: 1px solid slategray;
-    font-size: 15px;
+    font-size: 20px;
+    line-height: 2;
     font-weight: 400;
     font-family: "Roboto", sans-serif;
 }
@@ -135,10 +138,11 @@
 }
 #question {
     padding: 22px;
-    background: snow;
+    background: #f5f2f0;
     font-size: 20px;
     font-weight: 500;
     text-align: center;
+    border: 1px solid slategray;
 }
 
 #answer-choices-block input[type=radio] {
@@ -262,6 +266,14 @@ footer{
     font-weight: 600;
     font-family: "Roboto", sans-serif;
 }
+.horizontal-divider{
+    background-color: slategray;
+}
+.horizontal-divider hr{
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding: 0
+}
 /*********************** Media Queries ***********************/
 
 /*********** Smart Phones Only ***********/
@@ -269,13 +281,18 @@ footer{
     .code-block-div{
         font-size: 14px;
         padding: 0;
-        margin: 0;
+        width: 98%;
+        margin: 1%;
     }
-        
+    .algo-info-div{
+        width: 98%;
+        margin: 1%;
+    }  
     pre[class*="language-"] {
         padding: 0.2em !important;
         margin:1px !important;
     }
+
 }
 /*********** Tablets ***********/
 @media screen and (max-width:577px){
@@ -295,6 +312,14 @@ footer{
     .slidecontainer {
         width: 98.5%;
     }
+    .code-block-div{
+        width: 98%;
+        margin: 1%;
+    }
+    .algo-info-div{
+        width: 98%;
+        margin: 1%;
+    }  
 } 
 
 @media screen and (max-width:1250px){
@@ -320,5 +345,12 @@ footer{
     }
     #nav-questions-block{
         margin-left: calc(50% - 195px);
+    }
+}
+
+@media screen and (min-width:992px){
+    .algo-info-div{
+        font-size: 20px;
+        line-height: 1.75;
     }
 }
