@@ -112,8 +112,6 @@ The Technologies used in this project are the following:
 #### Known Bugs
 1. Zooming in on chrome causes the bar chart to fold bars to next rows
 2. Discovered that the swapping heights chart jitter bug is only fixed for bubble sort and occurs in merge sort.
-3. answer explanation button remains visible when different algorithm is loaded.
-4. Take quiz should not be visible until an algorithm is selected.
 
 ## Deployment
 ### GitHub Pages
@@ -179,3 +177,5 @@ I followed the steps below to deploy my project:
 - Learnt that dynamically generated elements need to use the .on to add click events to elements from here [stackoverflow](https://stackoverflow.com/questions/6658752/click-event-doesnt-work-on-dynamically-generated-elements)
 - **Fixed for bubble sort.** When the algorithm is moving the largest bar to its sorted position all the bars jumped up and down because the largest div is removed and added in the animation causing the 
    inline-blocks to change position. This was fixed by swapping the smallest bars height with the larger ones height first instead of the other way around.
+- Answer explanation button now dissapears after a new question is loaded
+- Take quiz button is not visible until an algorithm is selected.

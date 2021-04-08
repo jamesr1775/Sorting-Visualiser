@@ -73,7 +73,7 @@ function playAnimations(animations , animationIdx){
         }
         else if(barInFinalPosition){
             setTimeout(function() {
-                setColor(currentBar, "royalblue")
+                setColor(currentBar, "cornflowerblue")
                 swapAnimationsPlayed[animationIdx] = true
             }, algorithmSpeed*animationCounter);
         }
