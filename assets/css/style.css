@@ -13,6 +13,7 @@
 .footer-menu-bg-color{
     background-color: #18A558;
 }
+
 /*********************** Header Section ***********************/
 .company-logo{
     background: url("../images/Sorting-Visualiser-Logo.png");
@@ -33,7 +34,6 @@
     height: 100px;
     background-color: #198754;
 }
-
 #bar-chart{
     margin-top: 50px;
     margin-bottom: 50px;
@@ -118,12 +118,14 @@
 .code-block-div{
     padding: 10px;
     border: 1px solid slategray;
+    border-radius: 10px;
     background-color: #f5f2f0;
 }
 .algo-info-div{
     background-color: #f5f2f0;
     padding: 25px;
     border: 1px solid slategray;
+    border-radius: 10px;
     font-size: 20px;
     line-height: 2;
     font-weight: 400;
@@ -144,8 +146,8 @@
     font-weight: 500;
     text-align: center;
     border: 1px solid slategray;
+    border-radius: 10px;
 }
-
 #answer-choices-block input[type=radio] {
     display: none;
 }
@@ -161,6 +163,7 @@
     font-family: "Roboto", sans-serif;
     width: 100%;
     cursor: grab;
+    border-radius:5px;
 }
 .correct-answer{
     background: green !important;
@@ -168,7 +171,6 @@
 .incorrect-answer{
     background: red !important;
 }
-
 #answer-choices-block label:hover {
     background: powderblue;
 }
@@ -178,11 +180,11 @@
 }
 .answer-radio{
     border-radius: 5%;
-
 }
 #results-table th, td {
     padding:0 10px;
     border: 1px solid black;
+    border-radius: 10px;
 }
 .check-mark{
     color: green;
@@ -223,6 +225,7 @@
     padding: 10px ;
     background-color: #f5f2f0;
     border: 1px solid slategray;
+    border-radius: 10px;
     font-size: 20px;
     font-weight: 400;
     font-family: "Roboto", sans-serif;
@@ -279,7 +282,7 @@
     margin-top: 10px;
     margin-top: 0;
 }
-}
+
 /*********************** Footer Section ***********************/
 footer{
     padding: 10px;
@@ -306,6 +309,7 @@ footer{
     text-align: center;
     text-shadow:1px 1px gray;
 }
+
 /*********************** General ***********************/
 .text-center{
     text-align: center;
@@ -324,10 +328,11 @@ footer{
     margin-top: 10px;
     padding: 0
 }
+
 /*********************** Media Queries ***********************/
 
 /*********** Smart Phones Only ***********/
-@media screen and (max-width:575px){
+@media screen and (max-width:768px){
     .code-block-div{
         font-size: 12px;
         padding: 0;
@@ -342,25 +347,30 @@ footer{
         padding: 0.2em !important;
         margin:1px !important;
     }
-
-}
-/*********** Tablets ***********/
-@media screen and (max-width:577px){
+    .gen-bars-button{
+        width: 96.5%;
+    }
+    .sort-bars-button{
+        width: 96.5%;
+    }
+    .select-algo-button{
+        width: 96.5%;
+    }
     #quiz-results-block{
         margin-left: calc(50% - 150px);
     }
     #quiz-results-block button{
         width: 150px;
     }
-} 
-
-@media screen and (max-width:991px) and (min-width: 577px){
+    .slidecontainer{
+        width: 96.5%;
+    }
+}
+/*********** Tablets ***********/
+@media screen and (max-width:991px) and (min-width: 769px){
     #bar-chart {
         margin-top: 25px;
         margin-bottom: 25px;
-    }
-    .slidecontainer {
-        width: 98.5%;
     }
     .code-block-div{
         width: 98%;
@@ -369,9 +379,13 @@ footer{
     .algo-info-div{
         width: 98%;
         margin: 1%;
-    }  
+    }
+    .slidecontainer{
+        width: 99%;
+    }
 } 
 
+/*********** Laptops & Desktops ***********/
 @media screen and (max-width:1250px){
     .button-text{
         font-size: 15px;
@@ -381,7 +395,6 @@ footer{
         height: 36px; /* Specified height */
     }
 }
-/*********** Laptops & Desktops ***********/
 @media screen and (min-width:768px){
     #prev-question{
         width: 200px;
@@ -397,10 +410,20 @@ footer{
         margin-left: calc(50% - 195px);
     }
 }
-
 @media screen and (min-width:992px){
     .algo-info-div{
         font-size: 20px;
         line-height: 1.75;
+    }
+}
+@media screen and (max-width:991px){
+    .gen-bars-button{
+        width: 96.5%;
+    }
+    .sort-bars-button{
+        width: 96.5%;
+    }
+    .select-algo-button{
+        width: 96.5%;
     }
 }

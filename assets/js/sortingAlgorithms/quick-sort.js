@@ -133,7 +133,7 @@ export function getQuickSortInfoString(){
                                 </ol>
                                 <div  class="horizontal-divider"><hr/></div>
                                 <h3 class="text-center">Complexity</h3>
-                                <p>Divide and conquer algorithms can be tricky to analyze their time and space complexities. Hint:Exponentially working with smaller and smaller array sizes, one math operater is particularly useful. With quick sort, there is also the problem of the random choice of pivot value. 
+                                <p>Divide and conquer algorithms can be tricky to analyze their time and space complexities. Hint: Exponentially working with smaller and smaller array sizes, one math operater is particularly useful. With quick sort, there is also the problem of the random choice of pivot value. 
                                 <br><br>Picking a skewed pivot value can cause the algorithms performance to get worse drastically. Thus what will average and the worst case time complexity be? Take the quiz below to find out!</p>
     `
     return quickSortInfoString    

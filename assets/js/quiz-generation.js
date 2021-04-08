@@ -47,9 +47,9 @@ let allQuestions = {
     quickSort:{    
             questions: ["What is the average/best time complexity for the quick sort algorithm with an array of length <em>n</em>?",
                         "What is the space complexity of the quick sort algorithm with an array of length <em>n</em>?",
-                        "The worst case time complexity for the quick sort algorithm is O(<em>n<sup>2</sup>)?",
+                        "The worst case time complexity for the quick sort algorithm is O(<em>n<sup>2</sup></em>)?",
                         "Quick sort was invented in 1959 by who:",
-                        "Can using a second pivot element can improve the efficiency of the quick sort algorithm?"
+                        "Can using a second pivot element improve the efficiency of the quick sort algorithm?"
                         ],
             answers: [  ["O(<em>nlog(n)</em>)", "O(<em>n</em>)", "O(<em>n<sup>2</sup></em>)", "O(<em>nlog(n/2)</em>)"],
                         ["O(<em>n<sup>2</sup></em>)", "O(<em>n</em>)",  "O(<em>1</em>)", "O(<em>log(n)</em>)"],
