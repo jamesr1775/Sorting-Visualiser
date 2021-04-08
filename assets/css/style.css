@@ -132,11 +132,12 @@
 
 /*********************** Quiz Section ***********************/
 #take-quiz-btn{
+    font-size: 20px;
     width: 150px;
     margin-left: calc(50% - 75px);
     margin-top: 20px;
 }
-#question {
+#question{
     padding: 22px;
     background: #f5f2f0;
     font-size: 20px;
@@ -153,7 +154,7 @@
     margin: 10px 0;
     padding: 10px;
     text-align: center;
-    background: royalblue;
+    background-color: cornflowerblue;
     color: snow;
     font-size: 20px;
     font-weight: 600;
@@ -180,14 +181,16 @@
 
 }
 #results-table th, td {
+    padding:0 10px;
     border: 1px solid black;
 }
 .check-mark{
     color: green;
+    font-size: 50px
 }
 .cross-mark {
     color: red;
-    font-size: 25px;
+    font-size: 50px;
 }
 #nav-questions-block{
     margin-top: 10px;
@@ -216,6 +219,14 @@
     width: 200px;
     margin-left: calc(50% - 100px);
 }
+.answer-reveal-text{
+    padding: 10px ;
+    background-color: #f5f2f0;
+    border: 1px solid slategray;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: "Roboto", sans-serif;
+}
 #quiz-results-block{
     font-family: "Roboto", sans-serif;
     display: flex;
@@ -230,12 +241,51 @@
     height: 40px;
     width: 200px;
 }
+#question-modal-result{
+    font-size: 25px;
+    font-weight: 600;
+}
+#question-modal-header{
+    background-color: #18A558;
+}
+#question-modal-footer{
+    justify-content:center !important;
+}
+#quiz-header-modal{
+    color:snow;
+    background-color: #18A558;
+    font-family: "Roboto", sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+    text-align: center;
+    display: block !important;
+}
+#quiz-results-modal{
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+}
+#quiz-footer-modal{
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    justify-content:center !important;
+}
+#score-fraction{
+    font-family: "Roboto", sans-serif;
+    font-size: 25px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 10px;
+    margin-top: 0;
+}
+}
 /*********************** Footer Section ***********************/
 footer{
     padding: 10px;
 }
 .developer-info{
-    margin: 0;
+    margin: 10px 0 10px 0;
     text-align: center;
 }
 .developer-info a i{
@@ -279,7 +329,7 @@ footer{
 /*********** Smart Phones Only ***********/
 @media screen and (max-width:575px){
     .code-block-div{
-        font-size: 14px;
+        font-size: 12px;
         padding: 0;
         width: 98%;
         margin: 1%;

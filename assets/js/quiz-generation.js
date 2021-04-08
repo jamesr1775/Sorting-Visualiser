@@ -106,6 +106,8 @@ $(document).on('click','#prev-question', function(){
     updateQuestionsDisplayed()
 })
 $(document).on('click','#next-question',function(){
+    let answerRevealBlock = document.getElementById("answer-reveal-block")
+    answerRevealBlock.innerHTML = ``
     if(questionsCounter < currentQuestionsStruct.questions.length - 1){
         questionsCounter += 1
     }
@@ -129,20 +131,23 @@ function updateQuestionsDisplayed(){
 $(document).on("click",'#answer-choices-block input[type=radio]', function() {
     let currentCorrectAnswer = currentQuestionsStruct.correctAnswers[questionsCounter]
     let answerRevealBlock = document.getElementById("answer-reveal-block")
+    let questionModalResult = document.getElementById("question-modal-result")
     if($(this).val() === currentCorrectAnswer){
-        alert("Correct!")
+        questionModalResult.innerHTML = `Correct!  <span class="check-mark">&#9989;</span>`
         currentQuestionsStruct.userScore[questionsCounter] = 1
     }
     else{
-        alert("Wrong Answer!")
+        questionModalResult.innerHTML = `Incorrect!  <span class="cross-mark">&#9746;</span>`
         currentQuestionsStruct.userScore[questionsCounter] = 0
     }
     answerSelectUpdate(currentCorrectAnswer)
     let answerRevealBlockHTML = `<p><button class="btn btn-success button-text" type="button" data-toggle="collapse" data-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3">Answer explanation</button></p>
-    <div class="row"><div class="col-12"><div class="collapse multi-collapse" id="multiCollapseExample3">${currentQuestionsStruct.answerExplanations[questionsCounter]}</div></div></div>`
+    <div class="row"><div class="col-12"><div class="collapse multi-collapse answer-reveal-text" id="multiCollapseExample3">${currentQuestionsStruct.answerExplanations[questionsCounter]}</div></div></div>`
     answerRevealBlock.innerHTML = answerRevealBlockHTML
     if(questionsCounter === currentQuestionsStruct.questions.length - 1){
         presentUserQuizScore()
+    }else{
+        $('#question-result').modal('show');
     }
 });
 function answerSelectUpdate(currentCorrectAnswer){
@@ -168,16 +173,16 @@ function answerSelectUpdate(currentCorrectAnswer){
 function presentUserQuizScore(){
     let quizModalResults = document.getElementById("quiz-results-modal")
     let quizModalHeader = document.getElementById("quiz-header-modal")
-    let quizModalResultsHTML = `<table id="results-table"><th>Question</th><th>Result</th></tr>`
+    let quizModalResultsHTML = `<table id="results-table"><th class="text-center pl-3 pr-3">Question</th><th class="text-center pl-3 pr-3">Result</th></tr>`
     let correctAnswerCounter = 0
     for(let i=0; i<currentQuestionsStruct.questions.length; i++){
         let questionResult =  currentQuestionsStruct.userScore[i]? `<div class="text-center"><span class="check-mark">&#9989;</span></div>`: `<div class="text-center"><span class="cross-mark">&#9746;</span></div>`
         correctAnswerCounter += currentQuestionsStruct.userScore[i]
-        quizModalResultsHTML += `<tr><td>${currentQuestionsStruct.questions[i]}</td><td>${questionResult}</td></tr>`
+        quizModalResultsHTML += `<tr><td> ${currentQuestionsStruct.questions[i]} </td><td> ${questionResult} </td></tr>`
     }
     let algorithm = document.getElementById("algo-header").innerHTML
     let percentCorrect = 100*(correctAnswerCounter/currentQuestionsStruct.questions.length)
-    quizModalResultsHTML += `</table><p id="score-fraction">You scored ${percentCorrect}%.</p>`
+    quizModalResultsHTML += `</table><p id="score-fraction"><br>You scored ${percentCorrect}%.</p>`
     quizModalResults.innerHTML = quizModalResultsHTML
     quizModalHeader.innerHTML = `${algorithm} Quiz Results`
     $('#quiz-results').modal('show');
