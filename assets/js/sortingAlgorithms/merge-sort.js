@@ -58,7 +58,7 @@ function doMerge(array, leftIdx, midIdx, rightIdx, auxilaryArray, animations, fi
         k++
     }
 }
-export function mergeSortAlgorithm(){
+ function mergeSortAlgorithm(){
     let leftIdx = 0
     let rightIdx = document.getElementsByClassName("single-bar").length - 1;
     let barsArray = []
@@ -74,7 +74,7 @@ export function mergeSortAlgorithm(){
 }
 
 
-export function getMergeSortCodeString(){
+ function getMergeSortCodeString(){
     let mergeSortCodeString = `function mergeSortHelper(array, leftIdx, rightIdx, auxilaryArray){
   if (leftIdx === rightIdx) return;
   let midIdx = Math.floor((leftIdx + rightIdx)/2)
@@ -120,7 +120,7 @@ function mergeSort(array){
     return mergeSortCodeString
 }
 
-export function getMergeSortInfoString(){
+function getMergeSortInfoString(){
     let mergeSortInfoString = `<h2 id="algo-header" class="text-center mt-2">Merge Sort Algorithm</h2>
                                 <p>Merge sort is a divide and conquer algorithm that splits up the array of length <em>n</em> in to two sub arrays, and then these two sub arrays in to two additional sub arrays until there are <em>n</em> arrays with one element. 
                                 It will sort these sub arrays and then starting merging two sorted sub arrays back into one array. When the final 2 sub arrays are merged to form the sorted array the algorithm ends.</p>

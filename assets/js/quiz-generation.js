@@ -1,4 +1,3 @@
-
 let allQuestions = {
     bubbleSort:{    
                     questions: ["What is the average time complexity of the bubble sort algorithm with an array of length <em>n</em>?",
@@ -70,11 +69,11 @@ let allQuestions = {
 let questionsCounter = 0
 let currentQuestionsStruct = {}
 
-export function getCurrentQuestionsStruct(currentSortAlgorithm){
+function getCurrentQuestionsStruct(currentSortAlgorithm){
     return  currentQuestionsStruct = allQuestions[currentSortAlgorithm]
 }
 
-export function addQuizQuestionsToHtml(currentAlgorithm){
+function addQuizQuestionsToHtml(currentAlgorithm){
     questionsCounter = 0
     let takeQuizBlock = document.getElementById("take-quiz-block")
     takeQuizBlock.innerHTML = `<button id="take-quiz-btn" class="btn btn-success button-text" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Take Quiz</button>`
@@ -105,6 +104,7 @@ $(document).on('click','#prev-question', function(){
     }
     updateQuestionsDisplayed()
 })
+
 $(document).on('click','#next-question',function(){
     let answerRevealBlock = document.getElementById("answer-reveal-block")
     answerRevealBlock.innerHTML = ``
@@ -150,6 +150,7 @@ $(document).on("click",'#answer-choices-block input[type=radio]', function() {
         $('#question-result').modal('show');
     }
 });
+
 function answerSelectUpdate(currentCorrectAnswer){
     console.log("answerSelectUpdate")
     let answers = document.getElementsByName("answers")
