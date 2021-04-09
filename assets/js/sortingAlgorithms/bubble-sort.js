@@ -1,4 +1,4 @@
-export function bubbleSortAlgorithm(){
+function bubbleSortAlgorithm(){
     let numBars = document.getElementsByClassName("single-bar").length;
     console.log('setting new heights: called')
     let barsArray = []
@@ -49,13 +49,13 @@ export function bubbleSortAlgorithm(){
     return swapAnimations
 }
 
-export function swap(array, left, right){
+function swap(array, left, right){
     var temp = array[left][1];
     array[left][1] = array[right][1];
     array[right][1] = temp;
 }
 
-export function getBubbleSortCodeString(){
+function getBubbleSortCodeString(){
     let bubbleSortCodeString = `function bubbleSortAlgorithm(arr){
     // traverse through entire array
     for(let i=0; i<arr.length - 1; i++){
@@ -79,7 +79,7 @@ export function getBubbleSortCodeString(){
     return bubbleSortCodeString
 }
 
-export function getBubbleSortInfoString(){
+function getBubbleSortInfoString(){
     let bubbleSortInfoString = `<h2 id="algo-header" class="text-center">Bubble Sort Algorithm</h2>
                                 <p>Bubble sort is an old and well known algorithm that sorts the array, usually in ascending order.</p>
                                 <div  class="horizontal-divider"><hr/></div>

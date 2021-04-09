@@ -1,6 +1,4 @@
-import {swap} from './bubble-sort.js'
-
-export function quickSortAlgorithm() {
+function quickSortAlgorithm() {
     let leftIdx = 0
     let rightIdx = document.getElementsByClassName("single-bar").length - 1;
     let barsArray = []
@@ -73,7 +71,7 @@ function partition(array, left, right, swapAnimations) {
     return i;
 }
 
-export function getQuickSortCodeString(){
+function getQuickSortCodeString(){
     let quickSortCodeString = `function quickSort(array) {
 	quickSortHelper(array, 0, array.length - 1)
 	return array
@@ -116,7 +114,7 @@ function swap(array, left, right){
     return quickSortCodeString
 }
 
-export function getQuickSortInfoString(){
+function getQuickSortInfoString(){
     let quickSortInfoString = `<h2 id="algo-header" class="text-center">Quick Sort Algorithm</h2>
                                 <p>Quick sort is one of the most popular sorting algorithms used today. The algorithm usually selects a random element in the array is usually chosen as a pivot point in the array. The elements to the left and right of this pivot element
                                 are then shifted depending on if they are greater or smaller then the pivot element. 

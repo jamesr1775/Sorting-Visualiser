@@ -1,7 +1,7 @@
-import {bubbleSortAlgorithm, getBubbleSortCodeString, getBubbleSortInfoString} from './sortingAlgorithms/bubble-sort.js'
-import {mergeSortAlgorithm,  getMergeSortCodeString, getMergeSortInfoString} from './sortingAlgorithms/merge-sort.js'
-import {quickSortAlgorithm,  getQuickSortCodeString, getQuickSortInfoString} from './sortingAlgorithms/quick-sort.js'
-import {addQuizQuestionsToHtml, getCurrentQuestionsStruct} from './quiz-generation.js'
+// import {bubbleSortAlgorithm, getBubbleSortCodeString, getBubbleSortInfoString} from './sortingAlgorithms/bubble-sort.js'
+// import {mergeSortAlgorithm,  getMergeSortCodeString, getMergeSortInfoString} from './sortingAlgorithms/merge-sort.js'
+// import {quickSortAlgorithm,  getQuickSortCodeString, getQuickSortInfoString} from './sortingAlgorithms/quick-sort.js'
+// import {addQuizQuestionsToHtml, getCurrentQuestionsStruct} from './quiz-generation.js'
 
 let currentSortAlgorithm = "None"
 let screenHeightMultiplier = 0.5

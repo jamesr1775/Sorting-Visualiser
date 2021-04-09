@@ -414,6 +414,7 @@ footer{
     .algo-info-div{
         font-size: 20px;
         line-height: 1.75;
+        border-left: none;
     }
 }
 @media screen and (max-width:991px){
