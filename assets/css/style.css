@@ -41,6 +41,51 @@
 .no-padding {
     padding: 0 !important;
 }
+#tutorial-help{
+    font-size: 25px;
+    color: #198754;
+    padding: 0;
+}
+#tutorial{
+    display: flex;
+    float: right;
+    margin-right: 20%;
+}
+.arrow-right{
+    width: 0;
+    height: 0;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-top: calc(25% - 10px);
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 10px solid #198754;
+}
+.center-btn{
+    justify-content:center !important;
+}
+.close-btn{
+    font-size: 20px;
+    font-weight: 700;
+    font-family: "Roboto", sans-serif;    
+}
+.display-none{
+    display: none !important;
+}
+.display-flex{
+    display: flex !important;
+}
+#tutorial-arrow{
+    font-size: 20px;
+    font-weight: 700;
+    font-family: "Roboto", sans-serif;
+    background-color: #f5f2f0;
+    border-radius: 10px;
+}
+#tutorial-arrow p{
+    margin: 0;
+    padding: 2px;
+}
 
 /*********************** Chart Buttons Section ***********************/
 .gen-bars-button{
@@ -251,9 +296,6 @@
 #question-modal-header{
     background-color: #18A558;
 }
-#question-modal-footer{
-    justify-content:center !important;
-}
 #quiz-header-modal{
     color:snow;
     background-color: #18A558;
@@ -267,12 +309,6 @@
     font-family: "Roboto", sans-serif;
     font-size: 20px;
     font-weight: 400;
-}
-#quiz-footer-modal{
-    font-family: "Roboto", sans-serif;
-    font-size: 20px;
-    font-weight: 400;
-    justify-content:center !important;
 }
 #score-fraction{
     font-family: "Roboto", sans-serif;
@@ -329,10 +365,85 @@ footer{
     padding: 0
 }
 
+/*********************** Instructions Modal ***********************/
+.modal-body{
+    padding: 0;
+}
+.instruction-header{
+    color:snow;
+    background-color: #18A558;
+    font-family: "Roboto", sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+    padding: 10px;
+    text-align: center;
+}
+.instructions-gif{
+    margin: 1%;
+    width: 98%;
+    height: 400px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 2%;
+}
+.instruction-text{
+    /* background-color: #f5f2f0; */
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 20px;
+    margin: 2px;
+    border-radius: 10px;
+    text-align: center;
+}
+#gen-bars-gif{
+    background-image: url("../images/gen-bars.gif");
+}
+#algo-select-gif{
+    background-image: url("../images/algo-select.gif");
+}
+#start-stop-gif{
+    background-image: url("../images/start-stop.gif");
+}
+#algo-speed-gif{
+    background-image: url("../images/algo-speed.gif");
+}
+#array-size-gif{
+    background-image: url("../images/array-size.gif");
+}
+.carousel-control-next-icon {
+    background-color: black;
+}
+.carousel-control-prev-icon {
+    background-color: black;
+}
+.carousel-control-next {
+    position: relative;
+    display: inline-block;
+    left: 35%;
+}
+.carousel-control-prev {
+    position: relative;
+    display: inline-block;
+    left: 35%;
+}
+.carousel-indicators {
+    position: relative;
+}
+.carousel-indicators li {
+    background-color: gray;
+}
+.carousel-item {
+    transition: transform .3s ease-in;
+}
+
 /*********************** Media Queries ***********************/
 
 /*********** Smart Phones Only ***********/
-@media screen and (max-width:768px){
+@media screen and (max-width:767px){
+    #tutorial{
+        margin-right:40%;
+    }
     .code-block-div{
         font-size: 12px;
         padding: 0;
@@ -367,7 +478,7 @@ footer{
     }
 }
 /*********** Tablets ***********/
-@media screen and (max-width:991px) and (min-width: 769px){
+@media screen and (max-width:991px) and (min-width: 768px){
     #bar-chart {
         margin-top: 25px;
         margin-bottom: 25px;

@@ -207,6 +207,7 @@ function setupAlgorithmSelection(currentSortAlgorithm){
 
 $(document).ready(function() {
     generateBarChart()
+    $('#instructions').modal('show');
 });
 
 function addCodeToHtml(currentAlgorithm){  
@@ -230,3 +231,18 @@ function addCodeToHtml(currentAlgorithm){
     codeBlock.textContent = `${codeString}`
     algoInfoBlock.innerHTML = `${codeInfoString}`
 }
+
+$('#tutorial-close-btn').click(function() {
+    let tutorialArrow = document.getElementById("tutorial-arrow")
+    $("#tutorial-arrow").fadeIn( "slow" )
+    tutorialArrow.classList.add("display-flex")
+    tutorialArrow.classList.remove("display-none")
+    setTimeout(function() {
+        $("#tutorial-arrow").fadeOut( "slow" )
+    }, 2000);
+    setTimeout(function() {
+        $("#tutorial-arrow").fadeOut( "slow" )
+            tutorialArrow.classList.remove("display-flex")
+    }, 2500);
+
+})
