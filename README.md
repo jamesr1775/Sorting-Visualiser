@@ -158,6 +158,11 @@ I followed the steps below to deploy my project:
         - [geeksforgeeks](https://www.geeksforgeeks.org/quick-sort/)
         - [medium](https://medium.com/karuna-sehgal/a-quick-explanation-of-quick-sort-7d8e2563629b#:~:text=Quick%20Sort%20Algorithm%3A%20Steps%20on,last%20item%20in%20the%20array.)
         - Cracking the Coding Interview by Gayle Laakmann McDowell
+- Got the template for the bootstrap carousel from [getbootstrap](https://getbootstrap.com/docs/4.0/components/carousel/).
+- The pointing green triangle to show the tutorial button css was got from [css-tricks](https://css-tricks.com/snippets/css/css-triangle/).
+- Learnt about FadeIn functions in jquery from [jquery](https://api.jquery.com/fadein/).
+- Made the gifs by doing a screen capture for video and converted the video to gifs using [ezgif](https://ezgif.com/).
+
 ### Bugs/Issues Resolved
 - First few versions of bubble sort and trying to change the bar charts heights to perform sorting was difficult. The animation happened 
   all at once at the end of the function, or with the set timeout function the heights were not updated fast enough for the sorting algorithm and maybe only one or two 
@@ -179,3 +184,6 @@ I followed the steps below to deploy my project:
    inline-blocks to change position. This was fixed by swapping the smallest bars height with the larger ones height first instead of the other way around.
 - Answer explanation button now dissapears after a new question is loaded
 - Take quiz button is not visible until an algorithm is selected.
+- The jquery slim version did not have the fadein and fadeout functions when I used them which gave me an error. Found information on this at [stackoverflow](https://stackoverflow.com/questions/58863934/getting-fadein-is-not-a-function-although-i-did-add-jquery-to-my-html-file)
+- To pause the carousel in the html I found to use data-interval: false here [stackoverflow](https://stackoverflow.com/questions/14977392/bootstrap-carousel-remove-auto-slide)
+- Wanted my tutorial anchor to open my modal, I was missing data-toggle="modal" and found it out from [stackoverflow](https://stackoverflow.com/questions/31250364/how-can-i-use-an-anchor-tag-to-open-a-modal-page)
