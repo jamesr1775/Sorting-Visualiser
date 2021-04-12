@@ -70,7 +70,15 @@ let questionsCounter = 0
 let currentQuestionsStruct = {}
 
 function getCurrentQuestionsStruct(currentSortAlgorithm){
-    return  currentQuestionsStruct = allQuestions[currentSortAlgorithm]
+    if(currentSortAlgorithm == "bubble-sort"){
+        return  currentQuestionsStruct = allQuestions["bubbleSort"]
+    } else if(currentSortAlgorithm == "merge-sort"){
+        return  currentQuestionsStruct = allQuestions["mergeSort"]
+    }else if(currentSortAlgorithm == "quick-sort"){
+        return  currentQuestionsStruct = allQuestions["quickSort"]
+    }else{
+        return null
+    }
 }
 
 function addQuizQuestionsToHtml(currentAlgorithm){
@@ -93,7 +101,6 @@ function addQuizQuestionsToHtml(currentAlgorithm){
                                     </div>`
     }
     answerChoiceBlock.innerHTML = answerChoiceBlockHTML + `</div>`
-    console.log("answerChoiceBlockHTML" + answerChoiceBlockHTML)
     navQuestionsBlock.innerHTML = `<button id="prev-question" class="btn btn-success button-text">Previous Question</button>
     <button id="next-question" class="btn btn-success button-text">Next Question</button>`
 }
@@ -152,14 +159,9 @@ $(document).on("click",'#answer-choices-block input[type=radio]', function() {
 });
 
 function answerSelectUpdate(currentCorrectAnswer){
-    console.log("answerSelectUpdate")
     let answers = document.getElementsByName("answers")
-    console.log("answers" + answers)
-    console.log("answers.length" + answers.length)
     for(let i=0; i< answers.length; i++){
         let radioAnswer = answers[i].getAttribute("value")
-        console.log("answers[i] " + answers[i])
-        console.log("radioAnswer " + radioAnswer)
         let selector = 'label[for=' + radioAnswer + ']';
         let label = document.querySelector(selector);
         if(radioAnswer === currentCorrectAnswer){
