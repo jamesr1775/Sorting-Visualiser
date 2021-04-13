@@ -1,8 +1,3 @@
-// import {bubbleSortAlgorithm, getBubbleSortCodeString, getBubbleSortInfoString} from './sortingAlgorithms/bubble-sort.js'
-// import {mergeSortAlgorithm,  getMergeSortCodeString, getMergeSortInfoString} from './sortingAlgorithms/merge-sort.js'
-// import {quickSortAlgorithm,  getQuickSortCodeString, getQuickSortInfoString} from './sortingAlgorithms/quick-sort.js'
-// import {addQuizQuestionsToHtml, getCurrentQuestionsStruct} from './quiz-generation.js'
-
 let currentSortAlgorithm = "None"
 let screenHeightMultiplier = 0.5
 let screenWidthMultiplier = 0.5
@@ -113,6 +108,7 @@ var slider = document.getElementById("arraySize");
 slider.oninput = function() {
     generateBarChart()
 }
+
 $('#sortBars').click(function() {
     let sortBarsId = document.getElementById("sortBars")
     animationCounter = 0
@@ -160,11 +156,13 @@ $('#sortBars').click(function() {
         $('#select-algorithm').modal('show');
     }
 })
+
 $('#generateBars').click(function() {
     let sortBarsId = document.getElementById("sortBars")
     sortBarsId.innerHTML = "Start Sorting"
     generateBarChart();
 });
+
 $('#bubbleSortSelect').click(function() {
     let selectAlgorithm = document.getElementById('selectAlgorithm')
     selectAlgorithm.innerHTML = "Bubble Sort"
@@ -172,19 +170,22 @@ $('#bubbleSortSelect').click(function() {
     setupAlgorithmSelection(currentSortAlgorithm)
 
 })
+
 $('#mergeSortSelect').click(function() {
     let selectAlgorithm = document.getElementById('selectAlgorithm')
     selectAlgorithm.innerHTML = "Merge Sort"
     currentSortAlgorithm = "merge-sort"
     setupAlgorithmSelection(currentSortAlgorithm)
 })
+
 $('#quickSortSelect').click(function() {
     let selectAlgorithm = document.getElementById('selectAlgorithm')
     selectAlgorithm.innerHTML = "Quick Sort"
     currentSortAlgorithm = "quick-sort"
     setupAlgorithmSelection(currentSortAlgorithm)
 })
-function hideOtherAlgorithmCode(currentSortAlgorithm){
+
+function hideOtherAlgorithmCodeAndInfo(currentSortAlgorithm){
     let validAlgorithms = ["quick-sort", "bubble-sort", "merge-sort"]
     for(let algorithm of validAlgorithms){
         if (algorithm != currentSortAlgorithm){
@@ -195,7 +196,8 @@ function hideOtherAlgorithmCode(currentSortAlgorithm){
         }
     }
 }
-function showCurrentAlgorithmCode(currentSortAlgorithm){
+
+function showCurrentAlgorithmCodeAndInfo(currentSortAlgorithm){
     let containerBlock = document.getElementById(currentSortAlgorithm + "-pre")
     let codeBlock = document.getElementById(currentSortAlgorithm + "-code-block")
     let algoInfoBlock = document.getElementById(currentSortAlgorithm + "-info-block")
@@ -210,8 +212,8 @@ function showCurrentAlgorithmCode(currentSortAlgorithm){
 
 function setupAlgorithmSelection(currentSortAlgorithm){
     let currentQuestions = getCurrentQuestionsStruct(currentSortAlgorithm)
-    showCurrentAlgorithmCode(currentSortAlgorithm)
-    hideOtherAlgorithmCode(currentSortAlgorithm)
+    showCurrentAlgorithmCodeAndInfo(currentSortAlgorithm)
+    hideOtherAlgorithmCodeAndInfo(currentSortAlgorithm)
     addQuizQuestionsToHtml(currentSortAlgorithm)
     let infoBlockDiv = document.getElementById("algo-info-block")
     let codeBlockDiv = document.getElementById("code-block")
@@ -219,11 +221,6 @@ function setupAlgorithmSelection(currentSortAlgorithm){
     infoBlockDiv.classList.add("algo-info-div")
 }
 
-$(document).ready(function() {
-    generateBarChart()
-    addCodeToHtml(currentSortAlgorithm)
-    $('#instructions').modal('show');
-});
 function addCodeToHtml(){  
     let bSortCodeBlock = document.getElementById("bubble-sort-code-block")
     let mSortCodeBlock = document.getElementById("merge-sort-code-block")
@@ -251,5 +248,10 @@ $('#tutorial-close-btn').click(function() {
         $("#tutorial-arrow").fadeOut( "slow" )
             tutorialArrow.classList.remove("display-flex")
     }, 2500);
-
 })
+
+$(document).ready(function() {
+    generateBarChart()
+    addCodeToHtml(currentSortAlgorithm)
+    $('#instructions').modal('show');
+});

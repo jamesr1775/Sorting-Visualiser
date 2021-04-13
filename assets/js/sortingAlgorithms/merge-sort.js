@@ -13,7 +13,6 @@ function doMerge(array, leftIdx, midIdx, rightIdx, auxilaryArray, animations, fi
     let j = midIdx + 1
     while(i <= midIdx && j <= rightIdx){
         if (auxilaryArray[i][1] <= auxilaryArray[j][1]){
-            // swapAnimations = [[barId, barHeightInteger, swapBars, swapColors, barInFinalPosition],...]
             animations.push(['#bar-' + i, 0, false, true, false])
             animations.push(['#bar-' + k, auxilaryArray[i][1], true, false, false])
             animations.push(['#bar-' + i, 0, false, false, false])
