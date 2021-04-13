@@ -1,3 +1,8 @@
+
+/**
+ * quickSortAlgorithm() kicks off the recursive algorithm sort the bars array.
+ * Algorithm steps are tracked and the animations array is populated.
+ **/
 function quickSortAlgorithm() {
     let leftIdx = 0
     let rightIdx = document.getElementsByClassName("single-bar").length - 1;

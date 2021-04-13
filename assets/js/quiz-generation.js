@@ -1,3 +1,7 @@
+
+/**
+ * Algorithms question and answers structure
+ **/
 let allQuestions = {
     bubbleSort:{    
                 questions: ["What is the average time complexity of the bubble sort algorithm with an array of length <em>n</em>?",
@@ -74,6 +78,10 @@ let allQuestions = {
         }
 }
 
+/**
+ * getCurrentQuestionsStruct(currentSortAlgorithm) will set the global
+ * currentQuestionsStruct to the relevant algorithms questions.
+ **/
 let questionsCounter = 0
 let currentQuestionsStruct = {}
 function getCurrentQuestionsStruct(currentSortAlgorithm){
@@ -88,7 +96,11 @@ function getCurrentQuestionsStruct(currentSortAlgorithm){
     }
 }
 
-function addQuizQuestionsToHtml(currentAlgorithm){
+/**
+ * addQuizQuestionsToHtml() adds the question and choices
+ *  to the Take Quiz drop down.
+ **/
+function addQuizQuestionsToHtml(){
     questionsCounter = 0
     let takeQuizBlock = document.getElementById("take-quiz-block")
     takeQuizBlock.innerHTML = `<button id="take-quiz-btn" class="btn btn-success button-text" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Take Quiz</button>`
@@ -112,6 +124,9 @@ function addQuizQuestionsToHtml(currentAlgorithm){
     <button id="next-question" class="btn btn-success button-text">Next Question</button>`
 }
 
+/**
+ * previous and next question buttons 
+ **/
 $(document).on('click','#prev-question', function(){
     if(questionsCounter != 0){
         questionsCounter -= 1
@@ -128,6 +143,10 @@ $(document).on('click','#next-question',function(){
     updateQuestionsDisplayed()
 });
 
+/**
+ * updateQuestionsDisplayed() changes the question to that
+ * retrieved using the questions counter
+ **/
 function updateQuestionsDisplayed(){
     let quizBlock = document.getElementById("question-block")
     let answerChoiceBlock = document.getElementById("answer-choices-block")
@@ -142,6 +161,11 @@ function updateQuestionsDisplayed(){
     answerChoiceBlock.innerHTML = answerChoiceBlockHTML
 }
 
+/**
+ * One of the questions answer choices is clicked. Provides the 
+ * correct answer, answer explanation drop down. If we are at the last 
+ * question then the results are shown.
+ **/
 $(document).on("click",'#answer-choices-block input[type=radio]', function() {
     let currentCorrectAnswer = currentQuestionsStruct.correctAnswers[questionsCounter]
     let answerRevealBlock = document.getElementById("answer-reveal-block")
@@ -165,6 +189,10 @@ $(document).on("click",'#answer-choices-block input[type=radio]', function() {
     }
 });
 
+/**
+ * answerSelectUpdate(currentCorrectAnswer) styles the correct
+ * and incorrect answers green and red
+ **/
 function answerSelectUpdate(currentCorrectAnswer){
     let answers = document.getElementsByName("answers")
     for(let i=0; i< answers.length; i++){
@@ -180,6 +208,11 @@ function answerSelectUpdate(currentCorrectAnswer){
     }
 }
 
+/**
+ * presentUserQuizScore() builds a table of questions and results
+ * and adds it to a modal that it shows. The retake quiz and view results
+ * buttons are also displayed
+ **/
 function presentUserQuizScore(){
     let quizModalResults = document.getElementById("quiz-results-modal")
     let quizModalHeader = document.getElementById("quiz-header-modal")

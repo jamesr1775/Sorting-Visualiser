@@ -1,3 +1,8 @@
+
+/**
+ * bubbleSortAlgorithm() runs the bubble sort on the bars array.
+ * Algorithm steps are tracked and the animations array is populated.
+ **/
 function bubbleSortAlgorithm(){
     let numBars = document.getElementsByClassName("single-bar").length;
     let barsArray = []

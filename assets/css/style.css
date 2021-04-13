@@ -109,37 +109,37 @@
     border: 1px solid #198754;
     background-color: #198754;
     border-radius: .25rem;
-    height: 44px; /* Specified height */
+    height: 44px;
 }
 .slider {
-    -webkit-appearance: none;  /* Override default CSS styles */
+    -webkit-appearance: none;
     appearance: none;
-    width: 50%; /* Full-width */
-    height: 15px; /* Specified height */
+    width: 50%;
+    height: 15px;
     vertical-align: middle;
-    background: snow; /* Grey background */
-    outline: none; /* Remove outline */
-    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    background: snow;
+    outline: none;
+    -webkit-transition: .2s;
     transition: opacity .2s;
     border-radius: .25rem;
 }
 .slider:hover {
-    opacity: 1; /* Fully shown on mouse-over */
+    opacity: 1;
 }
 .slider::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
+    -webkit-appearance: none;
     appearance: none;
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background: darkslategray; /* Green background */
-    cursor: pointer; /* Cursor on hover */
+    width: 25px;
+    height: 25px;
+    background: darkslategray;
+    cursor: pointer;
     border-radius: 1rem;
 }
 .slider::-moz-range-thumb {
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background: darkslategray; /* Green background */
-    cursor: pointer; /* Cursor on hover */
+    width: 25px;
+    height: 25px;
+    background: darkslategray;
+    cursor: pointer;
     border-radius: 1rem;
 }
 .algo-speed-slider{
@@ -406,7 +406,6 @@ footer{
     border-radius: 2%;
 }
 .instruction-text{
-    /* background-color: #f5f2f0; */
     font-family: "Roboto", sans-serif;
     font-size: 20px;
     font-weight: 400;
@@ -522,7 +521,7 @@ footer{
         font-weight: 800;
     }
     .slidecontainer {
-        height: 36px; /* Specified height */
+        height: 36px;
     }
 }
 @media screen and (min-width:768px){
