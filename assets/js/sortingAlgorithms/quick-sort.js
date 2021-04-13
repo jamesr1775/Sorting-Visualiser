@@ -12,8 +12,6 @@ function quickSortAlgorithm() {
 }
 function quickSortHelper(array, left, right, swapAnimations){
     var index;
-    console.log("array "  + array)
-    console.log("array length" + array.length)
     if (array.length > 1) {
         index = partition(array, left, right, swapAnimations); //index returned from partition
         if (left < index - 1) { //more elements on the left side of the pivot
@@ -72,9 +70,9 @@ function partition(array, left, right, swapAnimations) {
 }
 
 function getQuickSortCodeString(){
-    let quickSortCodeString = `function quickSort(array) {
-	quickSortHelper(array, 0, array.length - 1)
-	return array
+    let quickSortCodeString = `function quickSort(array){
+  quickSortHelper(array, 0, array.length - 1);
+  return array;
 }
 function quickSortHelper(array, left, right){
   var index;

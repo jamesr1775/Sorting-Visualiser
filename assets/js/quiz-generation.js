@@ -1,45 +1,50 @@
 let allQuestions = {
     bubbleSort:{    
-                    questions: ["What is the average time complexity of the bubble sort algorithm with an array of length <em>n</em>?",
-                                "What is the space complexity of the bubble sort algorithm with an array of length <em>n</em>?",
-                                "The best case time complexity for bubble sort is O(<em>nlog(n)</em>)",
-                                "Bubble sort can also be known as:",
-                                "When asked  what is the best way to sort a million integers, who replied 'I think the bubble sort would be the wrong way to go'."
-                                ],
-                    answers: [["O(<em>n</em>)", "O(<em>log(n)</em>)", "O(<em>n<sup>2</sup></em>)", "O(<em>nlog(n)</em>)"],
-                              ["O(<em>n</em>)", "O(<em>log(n)</em>)", "O(<em>n<sup>2</sup></em>)", "O(<em>1</em>)"],
-                              ["True", "False"],
-                              ["Comparison sort", "Sinking sort", "Insertion sort", "Odd-even sort"],
-                              ["Barack Obama", "Dara Ó Briain", "Lebron James", "Alan Turing"],
+                questions: ["What is the average time complexity of the bubble sort algorithm with an array of length <em>n</em>?",
+                            "What is the space complexity of the bubble sort algorithm with an array of length <em>n</em>?",
+                            "The best case time complexity for bubble sort is O(<em>nlog(n)</em>)",
+                            "Bubble sort can also be known as:",
+                            "When asked  what is the best way to sort a million integers, who replied 'I think the bubble sort would be the wrong way to go'."
                             ],
-                    correctAnswers: ["option-2", "option-3", "option-1", "option-1", "option-0"], 
-                    answerExplanations: ["Bubble sort iterates over the array of n elements effectively twice. The inner loop does have the optimization of <em>n-i-1</em> iterations but this still equates to a time complexity of O(<em>n</em>)*O(<em>n-i-1</em>) which simplifies to O(<em>n<sup>2</sup></em>)",
-                                         "The original array is manipulated in place and only one temporary variable to do the swaps is needed so the space complexity is constant O(1)",
-                                         "Another optimization can be added to the algorithm to check if any swaps occured during the first pass through the array. If none occured you can terminate the algorithm as the array is already sorted. Thus the best case time complexity would be <em>n<sup>2</sup></em>",
-                                         "Bubble sort can be thought to bubble the smallest values to the top of the array, hence sinking sort sinks the largest values to the bottom of the array.",
-                                         "In an interview with former Google CEO Eric Schmidt, Barack Obama replied to this question. See it <a href='https://youtu.be/m4yVlPqeZwo?t=1398' target='_blank'>here</a>"
-                                        ],
-                    userScore:[0, 0, 0, 0, 0]
-                },
+                answers: [["O(<em>n</em>)", "O(<em>log(n)</em>)", "O(<em>n<sup>2</sup></em>)", "O(<em>nlog(n)</em>)"],
+                          ["O(<em>n</em>)", "O(<em>log(n)</em>)", "O(<em>n<sup>2</sup></em>)", "O(<em>1</em>)"],
+                          ["True", "False"],
+                          ["Comparison sort", "Sinking sort", "Insertion sort", "Odd-even sort"],
+                          ["Barack Obama", "Dara Ó Briain", "Lebron James", "Alan Turing"],
+                        ],
+                correctAnswers: ["option-2", "option-3", "option-1", "option-1", "option-0"], 
+                answerExplanations: ["Bubble sort iterates over the array of n elements effectively twice. The inner loop does have the optimization of <em>n-i-1</em>                                   iterations but this still equates to a time complexity of O(<em>n</em>)*O(<em>n-i-1</em>) which simplifies to O(<em>n<sup>2</sup></em>)",
+                                     "The original array is manipulated in place and only one temporary variable to do the swaps is needed so the space complexity \
+                                     is constant O(1)",
+                                     "Another optimization can be added to the algorithm to check if any swaps occured during the first pass through the array. \
+                                     If none occured you can terminate the algorithm as the array is already sorted. Thus the best case time complexity would be <em>n<sup>2</sup></em>",
+                                     "Bubble sort can be thought to bubble the smallest values to the top of the array, hence sinking sort sinks the largest values to the bottom of the array.",
+                                     "In an interview with former Google CEO Eric Schmidt, Barack Obama replied to this question. \
+                                     See it <a href='https://youtu.be/m4yVlPqeZwo?t=1398' target='_blank'>here</a>"
+                                    ],
+                userScore:[0, 0, 0, 0, 0]
+            },
     mergeSort:{    
                 questions: ["What is the average time complexity of the merge sort algorithm with an array of length <em>n</em>?",
                             "What is the space complexity of the merge sort algorithm with an array of length <em>n</em> that uses an auxilary array?",
                             "The best case time complexity for merge sort algorithm is <em>O(n)</em>?",
                             "Merge sort was invented in 1945 by who:",
                             "Is merge sort preferred to sort arrays instead of linked lists?"
-                            ],
-                answers: [  ["O(<em>n</em>)", "O(<em>nlog(n/2)</em>)", "O(<em>n<sup>2</sup></em>)", "O(<em>nlog(n)</em>)"],
-                            ["O(<em>n</em>)", "O(<em>log(n)</em>)", "O(<em>n<sup>2</sup></em>)", "O(<em>n<sup>2</sup>) - O(nlog(n))</em>"],
-                            ["True", "False"],
-                            ["Steve Wozniak", "Grace Hopper", "John von Neumann", "Steve Jobs"],
-                            ["True", "False"],
+                        ],
+                answers: [["O(<em>n</em>)", "O(<em>nlog(n/2)</em>)", "O(<em>n<sup>2</sup></em>)", "O(<em>nlog(n)</em>)"],
+                          ["O(<em>n</em>)", "O(<em>log(n)</em>)", "O(<em>n<sup>2</sup></em>)", "O(<em>n<sup>2</sup>) - O(nlog(n))</em>"],
+                          ["True", "False"],
+                          ["Steve Wozniak", "Grace Hopper", "John von Neumann", "Steve Jobs"],
+                          ["True", "False"],
                         ],
                 correctAnswers: ["option-3", "option-0", "option-1", "option-2", "option-1"], 
-                answerExplanations: [   "For each recursive call to the merge sort recursive helper we are dividing the number of elements we want to sort in to two, thus we have <em>log(n)</em> calls to the recursive helper. In each recursive call the do merge function iterates over its array which could be of length <em>n, n/2, n/4 etc.</em> and in time complexity analysis this will simplify to O(<em>n</em>). Thus the time complexity of log(n) calls with a loop of length n is O(<em>nlog(n)</em>)",
-                                        "In this algorithm because we create a copy of the original array we at the least have O(<em>n</em>) space complexity. Additionaly because of the recurion we have O(<em>log(n)</em>) calls on the call stack at worst. Thus the total time complexity could be O(<em>n</em>) + O(<em>log(n)</em>). Since the O(<em>n</em>) dominates we can simplify it to that.",
-                                        "The best case, average case and worst case are all the same with a time complexity of O(<em>nlog(n)</em>). We also will divide the array in to two <em>log(n)</em> times and go through those sub array lengths of <em>n, n/2, n/4 etc</em>",
-                                        "John von Neumann invented the algorithm in 1945.",
-                                        "Merge sort is considered best for sorting linked lists because it is more efficient then other algorithms such as quick sort which performs poorly for linked lists due to slow random access for this data type."
+                answerExplanations: ["For each recursive call to the merge sort recursive helper we are dividing the number of elements we want to sort in to two, \
+                                     thus we have <em>log(n)</em> calls to the recursive helper. In each recursive call the do merge function iterates over its array which could be of length <em>n, n/2, n/4 etc.</em> and in time complexity analysis this will simplify to O(<em>n</em>). \
+                                     Thus the time complexity of log(n) calls with a loop of length n is O(<em>nlog(n)</em>)",
+                                     "In this algorithm because we create a copy of the original array we at the least have O(<em>n</em>) space complexity. Additionaly because of the recurion we have O(<em>log(n)</em>) calls on the call stack at worst. Thus the total time complexity could be O(<em>n</em>) + O(<em>log(n)</em>). Since the O(<em>n</em>) dominates we can simplify it to that.",
+                                     "The best case, average case and worst case are all the same with a time complexity of O(<em>nlog(n)</em>). We also will divide the array in to two <em>log(n)</em> times and go through those sub array lengths of <em>n, n/2, n/4 etc</em>",
+                                     "John von Neumann invented the algorithm in 1945.",
+                                     "Merge sort is considered best for sorting linked lists because it is more efficient then other algorithms such as quick sort which performs poorly for linked lists due to slow random access for this data type."
                                     ],
                 userScore:[0, 0, 0, 0, 0]
             },
@@ -50,27 +55,37 @@ let allQuestions = {
                         "Quick sort was invented in 1959 by who:",
                         "Can using a second pivot element improve the efficiency of the quick sort algorithm?"
                         ],
-            answers: [  ["O(<em>nlog(n)</em>)", "O(<em>n</em>)", "O(<em>n<sup>2</sup></em>)", "O(<em>nlog(n/2)</em>)"],
-                        ["O(<em>n<sup>2</sup></em>)", "O(<em>n</em>)",  "O(<em>1</em>)", "O(<em>log(n)</em>)"],
-                        ["True", "False"],
-                        ["Bjarne Stroustrup", "Tony Hoare", "John von Neumann", "Bill Gates"],
-                        ["True", "False"],
+            answers: [["O(<em>nlog(n)</em>)", "O(<em>n</em>)", "O(<em>n<sup>2</sup></em>)", "O(<em>nlog(n/2)</em>)"],
+                      ["O(<em>n<sup>2</sup></em>)", "O(<em>n</em>)",  "O(<em>1</em>)", "O(<em>log(n)</em>)"],
+                      ["True", "False"],
+                      ["Bjarne Stroustrup", "Tony Hoare", "John von Neumann", "Bill Gates"],
+                      ["True", "False"],
                     ],
             correctAnswers: ["option-0", "option-3", "option-0", "option-1", "option-0"], 
-            answerExplanations: [   "Like merge sort, the goal is to work with sub arrays half the size of the array the quickSortHelper is called on. This on average should give us <em>log(n)</em> arrays to sort. Since the algorithm trys to sorts these arrays of lengths <em>n, n/2, n/4 etc.</em>) the overall time complexity can be written as O(<em>nlog(n)</em>).",
-                                    "The space complexity is O(<em>log(n)</em>). Quick sort algorithm sorts the array in place so no new arrays or sub arrays are needed to store values. Recursion is used however and at most we will have <em>log(n)</em> calls to the quickSortHelper on the stack at a given time.", 
-                                    "The worst case time complexity is O(<em>n<sup>2</sup>). This occurs when the pivot value selected is consistently the largest or smallest number in the array / sub arrays being sorted, thus making the partition return an index of <em>n-1</em> elements to rerun the algorithm on.",
-                                    "Tony Hoare invented the algorithm in 1959.",
-                                    "In 2009, Vladimir Yaroslavskiy proposed a new version of quick sort that uses two pivots. The average time complexity of this algorithm is O(<em>0.8*nlog(n)</em>)."
+            answerExplanations: ["Like merge sort, the goal is to work with sub arrays half the size of the array the quickSortHelper is called on. \
+                                 This on average should give us <em>log(n)</em> arrays to sort. Since the algorithm trys to sorts these arrays of lengths \
+                                 <em>n, n/2, n/4 etc.</em>) the overall time complexity can be written as O(<em>nlog(n)</em>).",
+                                 "The space complexity is O(<em>log(n)</em>). Quick sort algorithm sorts the array in place so no new arrays or sub arrays are needed to store values. Recursion is used however and at most we will have <em>log(n)</em> calls to the quickSortHelper on the stack at a given time.", 
+                                 "The worst case time complexity is O(<em>n<sup>2</sup>). This occurs when the pivot value selected is consistently the largest or smallest number in the array / sub arrays being sorted, thus making the partition return an index of <em>n-1</em> elements to rerun the algorithm on.",
+                                 "Tony Hoare invented the algorithm in 1959.",
+                                 "In 2009, Vladimir Yaroslavskiy proposed a new version of quick sort that uses two pivots. The average time complexity of this algorithm is O(<em>0.8*nlog(n)</em>)."
                                 ],
             userScore:[0, 0, 0, 0, 0]
         }
 }
+
 let questionsCounter = 0
 let currentQuestionsStruct = {}
-
 function getCurrentQuestionsStruct(currentSortAlgorithm){
-    return  currentQuestionsStruct = allQuestions[currentSortAlgorithm]
+    if(currentSortAlgorithm == "bubble-sort"){
+        return  currentQuestionsStruct = allQuestions["bubbleSort"]
+    } else if(currentSortAlgorithm == "merge-sort"){
+        return  currentQuestionsStruct = allQuestions["mergeSort"]
+    }else if(currentSortAlgorithm == "quick-sort"){
+        return  currentQuestionsStruct = allQuestions["quickSort"]
+    }else{
+        return null
+    }
 }
 
 function addQuizQuestionsToHtml(currentAlgorithm){
@@ -93,7 +108,6 @@ function addQuizQuestionsToHtml(currentAlgorithm){
                                     </div>`
     }
     answerChoiceBlock.innerHTML = answerChoiceBlockHTML + `</div>`
-    console.log("answerChoiceBlockHTML" + answerChoiceBlockHTML)
     navQuestionsBlock.innerHTML = `<button id="prev-question" class="btn btn-success button-text">Previous Question</button>
     <button id="next-question" class="btn btn-success button-text">Next Question</button>`
 }
@@ -152,14 +166,9 @@ $(document).on("click",'#answer-choices-block input[type=radio]', function() {
 });
 
 function answerSelectUpdate(currentCorrectAnswer){
-    console.log("answerSelectUpdate")
     let answers = document.getElementsByName("answers")
-    console.log("answers" + answers)
-    console.log("answers.length" + answers.length)
     for(let i=0; i< answers.length; i++){
         let radioAnswer = answers[i].getAttribute("value")
-        console.log("answers[i] " + answers[i])
-        console.log("radioAnswer " + radioAnswer)
         let selector = 'label[for=' + radioAnswer + ']';
         let label = document.querySelector(selector);
         if(radioAnswer === currentCorrectAnswer){

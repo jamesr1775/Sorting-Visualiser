@@ -1,8 +1,3 @@
-// import {bubbleSortAlgorithm, getBubbleSortCodeString, getBubbleSortInfoString} from './sortingAlgorithms/bubble-sort.js'
-// import {mergeSortAlgorithm,  getMergeSortCodeString, getMergeSortInfoString} from './sortingAlgorithms/merge-sort.js'
-// import {quickSortAlgorithm,  getQuickSortCodeString, getQuickSortInfoString} from './sortingAlgorithms/quick-sort.js'
-// import {addQuizQuestionsToHtml, getCurrentQuestionsStruct} from './quiz-generation.js'
-
 let currentSortAlgorithm = "None"
 let screenHeightMultiplier = 0.5
 let screenWidthMultiplier = 0.5
@@ -29,7 +24,6 @@ function generateBarChart(){
     let bars = document.getElementsByClassName("single-bar");
     let maxHeight = 0
     let newBarWidth = ((barChart.clientWidth - 20 - ((bars.length )*2))/(arraySize))
-    console.log('barChart.style.width ' + barChart.clientWidth)
     for(let bar of bars){
         let newHeight = Math.ceil(Math.random() * screen.height*screenHeightMultiplier)
         if (newHeight > maxHeight){
@@ -42,16 +36,13 @@ function generateBarChart(){
 }
 
 function playAnimations(animations , animationIdx){
-        console.log('animationCounter ' + animationCounter)
         let algorithmSpeed = 51 - $('#algorithmSpeed').val()
-        console.log('algorithmSpeed ' + algorithmSpeed)
         let currentAnimation = animations
         let currentBar = currentAnimation[0]
         let currentBarNewHeight = currentAnimation[1]
         let swapBar = currentAnimation[2]
         let swapColor = currentAnimation[3]
         let barInFinalPosition = currentAnimation[4]
-        console.log('currentBar: ' + currentBar  + ' newHeight: ' + currentBarNewHeight + ' swapBar: ' + swapBar)
         if(swapColor){
             setTimeout(function() {
                 if(flipColor){
@@ -117,19 +108,20 @@ var slider = document.getElementById("arraySize");
 slider.oninput = function() {
     generateBarChart()
 }
+
 $('#sortBars').click(function() {
     let sortBarsId = document.getElementById("sortBars")
     animationCounter = 0
     let swapAnimationsIdx = 0
     if(currentSortAlgorithm != "None"){
         if(swapAnimations.length === 0){
-            if(currentSortAlgorithm === "bubbleSort"){
+            if(currentSortAlgorithm === "bubble-sort"){
                 swapAnimations = bubbleSortAlgorithm();
             }
-            else if(currentSortAlgorithm === "mergeSort"){
+            else if(currentSortAlgorithm === "merge-sort"){
                 swapAnimations = mergeSortAlgorithm();
             }
-            else if(currentSortAlgorithm ==="quickSort"){
+            else if(currentSortAlgorithm ==="quick-sort"){
                 swapAnimations = quickSortAlgorithm();
             }
             else{
@@ -143,7 +135,6 @@ $('#sortBars').click(function() {
         }
         else if(unpaused){
             unpaused = false
-            console.log("swapAnimationsPlayed:" + swapAnimationsPlayed)
             const highestId = window.setTimeout(() => {
                 for (let i = highestId; i >= 0; i--) {
                     window.clearTimeout(i);
@@ -165,71 +156,84 @@ $('#sortBars').click(function() {
         $('#select-algorithm').modal('show');
     }
 })
+
 $('#generateBars').click(function() {
     let sortBarsId = document.getElementById("sortBars")
     sortBarsId.innerHTML = "Start Sorting"
     generateBarChart();
 });
+
 $('#bubbleSortSelect').click(function() {
     let selectAlgorithm = document.getElementById('selectAlgorithm')
     selectAlgorithm.innerHTML = "Bubble Sort"
-    currentSortAlgorithm = "bubbleSort"
+    currentSortAlgorithm = "bubble-sort"
     setupAlgorithmSelection(currentSortAlgorithm)
 
 })
+
 $('#mergeSortSelect').click(function() {
     let selectAlgorithm = document.getElementById('selectAlgorithm')
     selectAlgorithm.innerHTML = "Merge Sort"
-    currentSortAlgorithm = "mergeSort"
+    currentSortAlgorithm = "merge-sort"
     setupAlgorithmSelection(currentSortAlgorithm)
 })
+
 $('#quickSortSelect').click(function() {
     let selectAlgorithm = document.getElementById('selectAlgorithm')
     selectAlgorithm.innerHTML = "Quick Sort"
-    currentSortAlgorithm = "quickSort"
+    currentSortAlgorithm = "quick-sort"
     setupAlgorithmSelection(currentSortAlgorithm)
 })
 
-function setupAlgorithmSelection(currentSortAlgorithm){
-    let currentQuestions = getCurrentQuestionsStruct(currentSortAlgorithm)
-    addCodeToHtml(currentSortAlgorithm)
-    addQuizQuestionsToHtml(currentSortAlgorithm)
-    console.log("currentSortAlgorithm:" + currentSortAlgorithm)
-    let codeBlock = document.getElementById("algo-code-block")
-    let codeBlockDiv = document.getElementById("code-block")
-    let infoBlockDiv = document.getElementById("algo-info-block")
+function hideOtherAlgorithmCodeAndInfo(currentSortAlgorithm){
+    let validAlgorithms = ["quick-sort", "bubble-sort", "merge-sort"]
+    for(let algorithm of validAlgorithms){
+        if (algorithm != currentSortAlgorithm){
+            let algoInfoBlock = document.getElementById(algorithm + "-info-block")
+            let codeBlock = document.getElementById( algorithm + "-pre")
+            codeBlock.classList.add("display-none")
+            algoInfoBlock.classList.add("display-none")
+        }
+    }
+}
+
+function showCurrentAlgorithmCodeAndInfo(currentSortAlgorithm){
+    let containerBlock = document.getElementById(currentSortAlgorithm + "-pre")
+    let codeBlock = document.getElementById(currentSortAlgorithm + "-code-block")
+    let algoInfoBlock = document.getElementById(currentSortAlgorithm + "-info-block")
+    console.log("algoInfoBlock" +algoInfoBlock )
+    console.log("currentSortAlgorithm " +currentSortAlgorithm )
+    algoInfoBlock.classList.remove("display-none")
+    containerBlock.classList.remove("display-none")
     codeBlock.classList.remove("language-none")
     codeBlock.classList.add("language-js")
-    codeBlockDiv.classList.add("code-block-div")
-    infoBlockDiv.classList.add("algo-info-div")
     Prism.highlightElement(codeBlock)
 }
 
-$(document).ready(function() {
-    generateBarChart()
-    $('#instructions').modal('show');
-});
+function setupAlgorithmSelection(currentSortAlgorithm){
+    let currentQuestions = getCurrentQuestionsStruct(currentSortAlgorithm)
+    showCurrentAlgorithmCodeAndInfo(currentSortAlgorithm)
+    hideOtherAlgorithmCodeAndInfo(currentSortAlgorithm)
+    addQuizQuestionsToHtml(currentSortAlgorithm)
+    let infoBlockDiv = document.getElementById("algo-info-block")
+    let codeBlockDiv = document.getElementById("code-block")
+    codeBlockDiv.classList.add("code-block-div")
+    infoBlockDiv.classList.add("algo-info-div")
+}
 
-function addCodeToHtml(currentAlgorithm){  
-    console.log("currentAlgorithm" + currentAlgorithm)
-    let codeBlock = document.getElementById("algo-code-block")
-    let algoInfoBlock = document.getElementById("algo-info-block")
-    let codeString = ``
-    let codeInfoString = ``
-    if (currentAlgorithm==="bubbleSort"){
-        codeString = getBubbleSortCodeString()
-        codeInfoString = getBubbleSortInfoString()
-    }
-    else if(currentAlgorithm==="mergeSort"){
-        codeString = getMergeSortCodeString()
-        codeInfoString = getMergeSortInfoString()
-    }
-    else if(currentAlgorithm==="quickSort"){
-        codeString = getQuickSortCodeString()
-        codeInfoString = getQuickSortInfoString()
-    }
-    codeBlock.textContent = `${codeString}`
-    algoInfoBlock.innerHTML = `${codeInfoString}`
+function addCodeToHtml(){  
+    let bSortCodeBlock = document.getElementById("bubble-sort-code-block")
+    let mSortCodeBlock = document.getElementById("merge-sort-code-block")
+    let qSortCodeBlock = document.getElementById("quick-sort-code-block")
+    let bSortInfoBlock = document.getElementById("bubble-sort-info-block")
+    let mSortInfoBlock = document.getElementById("merge-sort-info-block")
+    let qSortInfoBlock = document.getElementById("quick-sort-info-block")
+    bSortCodeBlock.innerHTML = `${getBubbleSortCodeString()}`
+    mSortCodeBlock.innerHTML = `${getMergeSortCodeString()}`
+    qSortCodeBlock.innerHTML = `${getQuickSortCodeString()}`
+    bSortInfoBlock.innerHTML = `${getBubbleSortInfoString()}`
+    mSortInfoBlock.innerHTML = `${getMergeSortInfoString()}`
+    qSortInfoBlock.innerHTML = `${getQuickSortInfoString()}`
 }
 
 $('#tutorial-close-btn').click(function() {
@@ -244,5 +248,10 @@ $('#tutorial-close-btn').click(function() {
         $("#tutorial-arrow").fadeOut( "slow" )
             tutorialArrow.classList.remove("display-flex")
     }, 2500);
-
 })
+
+$(document).ready(function() {
+    generateBarChart()
+    addCodeToHtml(currentSortAlgorithm)
+    $('#instructions').modal('show');
+});

@@ -1,6 +1,5 @@
 function bubbleSortAlgorithm(){
     let numBars = document.getElementsByClassName("single-bar").length;
-    console.log('setting new heights: called')
     let barsArray = []
     let swapAnimations = []
     // create bar array with ids and heights
@@ -16,7 +15,6 @@ function bubbleSortAlgorithm(){
             let barTwo =  barsArray[j+1][0]
             let barOneHeight =  barsArray[j][1]
             let barTwoHeight =  barsArray[j+1][1]
-            console.log("barOne.height :" +barOneHeight)
 
             // push bar color changes to animation array
             // swapAnimations = [[barId, barHeightInteger, swapBars, swapColors, barInFinalPosition],...]
@@ -45,7 +43,6 @@ function bubbleSortAlgorithm(){
     // add barInFinalPosition color change to the first two bars
     swapAnimations.push(['#bar-' + 0, null, false, false, true])
     swapAnimations.push(['#bar-' + 1, null, false, false, true])
-    console.log('swapAnimations: ' + swapAnimations)
     return swapAnimations
 }
 
@@ -57,24 +54,24 @@ function swap(array, left, right){
 
 function getBubbleSortCodeString(){
     let bubbleSortCodeString = `function bubbleSortAlgorithm(arr){
-    // traverse through entire array
-    for(let i=0; i<arr.length - 1; i++){
-        let tempValue = null;
-        /* slight optimization to reduce 
-           inner loop iterations */
-        let innerLoopEnd = arr.length - i - 1;
-        /* swap values so the largest 
-           value shifts to right */
-        for(let j=0; j<innerLoopEnd; j++){
-            // Swap the heights if needed
-            if (arr[j]>arr[j+1]){
-                tempValue = arr[j];
-                arr[j] = arr[j+1];
-                arr[j+1] = tempValue;
-            }
-        }
+  // traverse through entire array
+  for(let i=0; i < arr.length - 1; i++){
+    let tempValue = null;
+    /* slight optimization to reduce 
+      inner loop iterations */
+    let innerLoopEnd = arr.length - i - 1;
+    /* swap values so the largest 
+      value shifts to right */
+    for(let j=0; j < innerLoopEnd; j++){
+      // Swap the heights if needed
+      if (arr[j] > arr[j+1]){
+          tempValue = arr[j];
+          arr[j] = arr[j+1];
+          arr[j+1] = tempValue;
+      }
     }
-    return arr;
+ }
+  return arr;
 }`
     return bubbleSortCodeString
 }

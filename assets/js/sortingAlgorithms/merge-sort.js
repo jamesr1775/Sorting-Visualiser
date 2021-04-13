@@ -13,7 +13,6 @@ function doMerge(array, leftIdx, midIdx, rightIdx, auxilaryArray, animations, fi
     let j = midIdx + 1
     while(i <= midIdx && j <= rightIdx){
         if (auxilaryArray[i][1] <= auxilaryArray[j][1]){
-            // swapAnimations = [[barId, barHeightInteger, swapBars, swapColors, barInFinalPosition],...]
             animations.push(['#bar-' + i, 0, false, true, false])
             animations.push(['#bar-' + k, auxilaryArray[i][1], true, false, false])
             animations.push(['#bar-' + i, 0, false, false, false])
@@ -77,35 +76,35 @@ function doMerge(array, leftIdx, midIdx, rightIdx, auxilaryArray, animations, fi
  function getMergeSortCodeString(){
     let mergeSortCodeString = `function mergeSortHelper(array, leftIdx, rightIdx, auxilaryArray){
   if (leftIdx === rightIdx) return;
-  let midIdx = Math.floor((leftIdx + rightIdx)/2)
-  mergeSortHelper(auxilaryArray, leftIdx, midIdx, array)
-  mergeSortHelper(auxilaryArray, midIdx + 1, rightIdx, array)
-  doMerge(array, leftIdx, midIdx, rightIdx, auxilaryArray)
+  let midIdx = Math.floor((leftIdx + rightIdx)/2);
+  mergeSortHelper(auxilaryArray, leftIdx, midIdx, array);
+  mergeSortHelper(auxilaryArray, midIdx + 1, rightIdx, array);
+  doMerge(array, leftIdx, midIdx, rightIdx, auxilaryArray);
 }
 
 function doMerge(array, leftIdx, midIdx, rightIdx, auxilaryArray){
-  let i = leftIdx
-  let k = leftIdx
-  let j = midIdx + 1
+  let i = leftIdx;
+  let k = leftIdx;
+  let j = midIdx + 1;
   while(i <= midIdx && j <= rightIdx){
     if (auxilaryArray[i] <= auxilaryArray[j]){
-      array[k] = auxilaryArray[i]
-      i++
+      array[k] = auxilaryArray[i];
+      i++;
     }else{
-       array[k] = auxilaryArray[j]
-      j++
+       array[k] = auxilaryArray[j];
+       j++;
     }
-    k++
+    k++;
   }
   while(i <= midIdx){
-    array[k] = auxilaryArray[i]
-    i++
-    k++
+    array[k] = auxilaryArray[i];
+    i++;
+    k++;
   }
   while(j <= rightIdx){
-    array[k] = auxilaryArray[j]
-    j++
-    k++
+    array[k] = auxilaryArray[j];
+    j++;
+    k++;
   }
 }
 
