@@ -86,6 +86,8 @@ The Technologies used in this project are the following:
     - GitHub is used to store the projects code with version control.
 8. [Prismjs](https://prismjs.com/)
     - Prism was used to highlight the code of the algorithms for easier readability.
+8. [Jasmine](https://jasmine.github.io/pages/getting_started.html)
+    - Jasmine used to unit test algorithms.
 ## Testing
 
 ### Testing User Stories
@@ -162,7 +164,8 @@ I followed the steps below to deploy my project:
 - The pointing green triangle to show the tutorial button css was got from [css-tricks](https://css-tricks.com/snippets/css/css-triangle/).
 - Learnt about FadeIn functions in jquery from [jquery](https://api.jquery.com/fadein/).
 - Made the gifs by doing a screen capture for video and converted the video to gifs using [ezgif](https://ezgif.com/).
-
+- My mentor gave me resources to add jasmine to my project. 
+- Learned more about jasmine unit testing from [Youtube Dylan Israel](https://www.youtube.com/watch?v=h2eWfvcAOTI&t=428s)
 ### Bugs/Issues Resolved
 - First few versions of bubble sort and trying to change the bar charts heights to perform sorting was difficult. The animation happened 
   all at once at the end of the function, or with the set timeout function the heights were not updated fast enough for the sorting algorithm and maybe only one or two 
