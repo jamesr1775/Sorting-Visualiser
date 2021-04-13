@@ -365,6 +365,25 @@ footer{
     padding: 0
 }
 
+/*********************** Select Algo Error Modal ***********************/
+#no-algo-header-modal{
+    color:snow;
+    background-color: #18A558;
+    font-family: "Roboto", sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+    padding: 10px;
+    text-align: center; 
+}
+#no-algo-body-modal{
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 20px;
+    margin: 2px;
+    border-radius: 10px;
+    text-align: center;
+}
 /*********************** Instructions Modal ***********************/
 .modal-body{
     padding: 0;
