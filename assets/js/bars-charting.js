@@ -1,3 +1,5 @@
+
+// Variables
 let currentSortAlgorithm = "None"
 let screenHeightMultiplier = 0.5
 let screenWidthMultiplier = 0.5
@@ -8,6 +10,10 @@ let unpaused = true;
 let animationCounter = 0
 let swapAnimationsPlayed = []
 
+/**
+ * generateBarChart() will generate a new set of bars to be displayed in the graph
+ * the number of which depends on the slider value.
+ **/
 function generateBarChart(){
     unpaused = true
     let barChart = document.getElementById('bar-chart')
@@ -35,6 +41,11 @@ function generateBarChart(){
     barChart.setAttribute("style", "min-height:" + (maxHeight + 20) + "px");
 }
 
+/**
+ * playAnimations(animations , animationIdx) takes in an array of animation data to be played
+ * and which is retrieved from a selected sorting algorithm. The animationIdx is tracked as
+ * when the animation is paused and started, the playAnimations can pick up where it left off.
+ **/
 function playAnimations(animations , animationIdx){
         let algorithmSpeed = 51 - $('#algorithmSpeed').val()
         let currentAnimation = animations
@@ -87,6 +98,10 @@ function setColor(barId, color){
     barOne.css("background", color)
 }
 
+/**
+ * The loop and loopStep recursion calls play animations 
+ * asynchronously so we are able to pause / not freeze the window.
+ **/
 function loopStep(swapAnimations, swapAnimationsIdx) {
     let currentAnimation = swapAnimations[swapAnimationsIdx]
     playAnimations(currentAnimation, swapAnimationsIdx)
@@ -104,11 +119,16 @@ function loop(swapAnimations, swapAnimationsIdx) {
 }
 
 var slider = document.getElementById("arraySize");
-// Update the current slider value (each time you drag the slider handle)
 slider.oninput = function() {
     generateBarChart()
 }
 
+/**
+ * Start Sorting button pressed will retrieve an array of animations from 
+ * the currently selected algorithm. Once started the button can be used
+ * to pause the animations. If no algorith is selected it will show
+ * the error modal
+ **/
 $('#sortBars').click(function() {
     let sortBarsId = document.getElementById("sortBars")
     animationCounter = 0
@@ -157,6 +177,9 @@ $('#sortBars').click(function() {
     }
 })
 
+/**
+ * Chart control buttons
+ **/
 $('#generateBars').click(function() {
     let sortBarsId = document.getElementById("sortBars")
     sortBarsId.innerHTML = "Start Sorting"
@@ -185,6 +208,10 @@ $('#quickSortSelect').click(function() {
     setupAlgorithmSelection(currentSortAlgorithm)
 })
 
+/**
+ * hideOtherAlgorithmCodeAndInfo(currentSortAlgorithm) will hide the code block and
+ * the algorithm information block for all algorithms except for the currentSortAlgorithm
+ **/
 function hideOtherAlgorithmCodeAndInfo(currentSortAlgorithm){
     let validAlgorithms = ["quick-sort", "bubble-sort", "merge-sort"]
     for(let algorithm of validAlgorithms){
@@ -197,6 +224,10 @@ function hideOtherAlgorithmCodeAndInfo(currentSortAlgorithm){
     }
 }
 
+/**
+ * showCurrentAlgorithmCodeAndInfo(currentSortAlgorithm) will show the code block and
+ * the algorithm information block for only the currentSortAlgorithm
+ **/
 function showCurrentAlgorithmCodeAndInfo(currentSortAlgorithm){
     let containerBlock = document.getElementById(currentSortAlgorithm + "-pre")
     let codeBlock = document.getElementById(currentSortAlgorithm + "-code-block")
@@ -210,6 +241,10 @@ function showCurrentAlgorithmCodeAndInfo(currentSortAlgorithm){
     Prism.highlightElement(codeBlock)
 }
 
+/**
+ * setupAlgorithmSelection(currentSortAlgorithm )  sets up the 
+ * code and algo info blocks and the quiz when an algorithm is chosen.
+ **/
 function setupAlgorithmSelection(currentSortAlgorithm){
     let currentQuestions = getCurrentQuestionsStruct(currentSortAlgorithm)
     showCurrentAlgorithmCodeAndInfo(currentSortAlgorithm)
@@ -221,6 +256,10 @@ function setupAlgorithmSelection(currentSortAlgorithm){
     infoBlockDiv.classList.add("algo-info-div")
 }
 
+/**
+ * addCodeToHtml() sets up all the algorithms code and algo 
+ * info blocks and on document ready.
+ **/
 function addCodeToHtml(){  
     let bSortCodeBlock = document.getElementById("bubble-sort-code-block")
     let mSortCodeBlock = document.getElementById("merge-sort-code-block")
@@ -236,6 +275,9 @@ function addCodeToHtml(){
     qSortInfoBlock.innerHTML = `${getQuickSortInfoString()}`
 }
 
+/**
+ * Instructions modal help button
+ **/
 $('#tutorial-close-btn').click(function() {
     let tutorialArrow = document.getElementById("tutorial-arrow")
     $("#tutorial-arrow").fadeIn( "slow" )

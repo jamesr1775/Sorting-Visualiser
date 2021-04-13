@@ -1,3 +1,9 @@
+
+/**
+ * mergeSortAlgorithm() kicks off the algorithm and mergeSortAlgorithmHelper() 
+ * implements the divide and conquer approach to sort the bars array.
+ * Algorithm steps are tracked and the animations array is populated.
+ **/
 function mergeSortAlgorithmHelper(array, leftIdx, rightIdx, auxilaryArray, animations, finalDoMerge){
     if (leftIdx === rightIdx){
         return
@@ -57,7 +63,7 @@ function doMerge(array, leftIdx, midIdx, rightIdx, auxilaryArray, animations, fi
         k++
     }
 }
- function mergeSortAlgorithm(){
+function mergeSortAlgorithm(){
     let leftIdx = 0
     let rightIdx = document.getElementsByClassName("single-bar").length - 1;
     let barsArray = []
