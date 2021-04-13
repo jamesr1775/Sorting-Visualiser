@@ -2,6 +2,29 @@
 The [sorting algorithm visualiser](https://jamesr1775.github.io/Sorting-Visualiser/.). See the algorithms that you use day to day under the hood to sort data and get a picture of how they operate to sort data. Why are some algorithms
 better than others? Test your knowledge and work out or learn the time and space complexities of the famous algorithms.
 
+## Table of Contents
+
+1. [**UX**](#ux)
+    - [**Project Goals**](#project-goals)
+    - [**User Stories**](#user-stories)
+    - [**Wireframe mock-ups**](#wireframe-mock-ups)
+2. [**Features**](#features)
+    - [**Home Page**](#home-page)
+    - [**Algorithm Code and Explanation**](#algorithm-code-and-explanation)
+    - [**Algorithm Quiz**](#algorithm-quiz)
+    - [**Source Code**](#source-code)
+    - [**Existing Features**](#existing-features)
+    - [**Features to implement in the future**](#features-to-implement-in-the-future)
+3. [**Technologies Used**](#technologies-used)
+4. [**Testing**](#testing)
+5. [**Deployment**](#deployment)
+6. [**Credits**](#credits)
+    - [**Media**](#media)
+    - [**Acknowledgements**](#acknowledgements)
+    - [**Bugs and Issues Resolved**](#bugs-and-issues-resolved)
+    
+
+
 ## UX
 ### Project Goals
 * The goal of this project is to be able to visualise sorting algorithms to be able to understand them better and to know their time and space compexity.
@@ -18,7 +41,7 @@ better than others? Test your knowledge and work out or learn the time and space
 4. As a potential user, I would like to generate data to sort and select a sorting algorithm to sort it.
 5. As a potential user, I would like to be able to increase and decrease the speed to see the algorithm in detail.
 6. As a potential user, I would like to take a quiz and test my knowledge of the algorithm.
-### Wireframe mock-ups: 
+### Wireframe mock-ups
 - [Home Page](https://github.com/jamesr1775/Sorting-Visualiser/blob/master/assets/wireframes/Home.png)
 - [Home Algorithm Selected](https://github.com/jamesr1775/Sorting-Visualiser/blob/master/assets/wireframes/Home-Algo-Selected.png)
 - [Home Algorithm Quiz](https://github.com/jamesr1775/Sorting-Visualiser/blob/master/assets/wireframes/Home-Algo-Quiz.png)
@@ -31,7 +54,7 @@ better than others? Test your knowledge and work out or learn the time and space
 3. The bar chart will be responsive to different screen sizes and adjust the width of the bars based on screen size.
 4. The algorithm should display the steps it takes visually.
 5. A user can pause and adjust the speed of the algorithm. 
-### Algorithm Code & Explanation
+### Algorithm Code and Explanation
 1. When an algorithm is selected, easy to understand, clean code will be presented to the user underneath the bar chart graph.
 2. The code will be syntaxed and have familiar highlights to that of IDE's so it looks pleasing and makes it easier to read.
 3. The user will also be given some explanation to how the algorithm operates.
@@ -44,7 +67,7 @@ better than others? Test your knowledge and work out or learn the time and space
 6. A running score of the correct answers will be tracked and then presented to the user when the final question is answered.
 7. When the user answers the final question and close the results screen. There will be two buttons generated. One that will allow them to view their score again.
    The second button will allow them to retake the quiz.
-### Footer
+### Source Code
 1. The footer will credit the developer.
 2. A link to the websites code will be available in the footer section
 ### Existing Features
@@ -89,31 +112,7 @@ The Technologies used in this project are the following:
 8. [Jasmine](https://jasmine.github.io/pages/getting_started.html)
     - Jasmine used to unit test algorithms.
 ## Testing
-
-### Testing User Stories
-
-### Manual Testing
-#### Home Page Header
-#### Bar chart
-##### Bar chart generation
-##### Algorithm Speed Slider
-##### Array Size Slider
-##### Algorithm Pause 
-#### Algorithms
-##### Bubble Sort
-##### Merge Sort
-##### Quick Sort
-#### Prism Code Block and Algo explanation
-#### Quiz
-##### Quiz Navigation & User Input
-##### Quiz results
-##### Quiz finished buttons
-#### Footer
-#### Further Testing
-
-#### Known Bugs
-1. Zooming in on chrome causes the bar chart to fold bars to next rows
-2. Discovered that the swapping heights chart jitter bug is only fixed for bubble sort and occurs in merge sort.
+Testing details can be viewed here [Testing.md](https://github.com/jamesr1775/Sorting-Visualiser/blob/master/Testing.md)
 
 ## Deployment
 ### GitHub Pages
@@ -166,7 +165,7 @@ I followed the steps below to deploy my project:
 - Made the gifs by doing a screen capture for video and converted the video to gifs using [ezgif](https://ezgif.com/).
 - My mentor gave me resources to add jasmine to my project. 
 - Learned more about jasmine unit testing from [Youtube Dylan Israel](https://www.youtube.com/watch?v=h2eWfvcAOTI&t=428s)
-### Bugs/Issues Resolved
+### Bugs and Issues Resolved
 - First few versions of bubble sort and trying to change the bar charts heights to perform sorting was difficult. The animation happened 
   all at once at the end of the function, or with the set timeout function the heights were not updated fast enough for the sorting algorithm and maybe only one or two 
   bars swapped back and forth. I found some information that helped me from [stackoverflow](https://stackoverflow.com/questions/48184493/update-element-with-ajax-dont-affect-until-for-loop-end/48184577). 
