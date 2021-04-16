@@ -123,7 +123,7 @@ function getQuickSortInfoString(){
                                 are then shifted depending on if they are greater or smaller then the pivot element. 
                                 <br><br>Quick sort is also a divide and conquer algorithm and thus after elements in the array have been shifted in relation to the pivot element,
                                 the process can repeat on the two subarrays to the left and right of the pivot</p>
-                                <div  class="horizontal-divider"><hr/></div>
+                                <div class="horizontal-divider"><hr></div>
                                 <h3 class="text-center">Algorithm Steps</h3>
                                 <ol>
                                     <li>Choose an element in the array that will become the first pivot element of the algorithm. i.e. the middle element in the array</li>
@@ -132,7 +132,7 @@ function getQuickSortInfoString(){
                                     <li>Recursively run the algorithm on the subarrays created using the left pointer value in step 3 as a starting and ending index for two calls to the quick sort helper calls.</li>
                                     <li>The algorithm will terminate when the array is sorted.</li>
                                 </ol>
-                                <div  class="horizontal-divider"><hr/></div>
+                                <div class="horizontal-divider"><hr></div>
                                 <h3 class="text-center">Complexity</h3>
                                 <p>Divide and conquer algorithms can be tricky to analyze their time and space complexities. Hint: Exponentially working with smaller and smaller array sizes, one math operater is particularly useful. With quick sort, there is also the problem of the random choice of pivot value. 
                                 <br><br>Picking a skewed pivot value can cause the algorithms performance to get worse drastically. Thus what will average and the worst case time complexity be? Take the quiz below to find out!</p>

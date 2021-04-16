@@ -53,7 +53,8 @@ describe('TS_004_Generate_Bar_Chart', function() {
         expect($("#bar-0").css('height')).toEqual(expectedHeight);
     });
 });
-    describe('TS_005_Setup_Algorithms', function() {
+
+describe('TS_005_Setup_Algorithms', function() {
 
     beforeEach(() => {
         setFixtures(
@@ -106,6 +107,10 @@ describe('TS_004_Generate_Bar_Chart', function() {
                             <div class="col-1 d-none d-sm-block"></div>
                         </div>
                     </div>`)
+          setStyleFixtures(`.display-none {
+                            display: none !important;
+                        }`)
+
     });
     it('TC_001_AddCodeToHtml_Bubble_Sort_Code', function() {
         let expectedCode = getBubbleSortCodeString()
@@ -128,5 +133,80 @@ describe('TS_004_Generate_Bar_Chart', function() {
         addCodeToHtml()
         expect($("#bubble-sort-info-block").html().toString()).toEqual(expectedCode)
     });
-    
+    it('TC_005_AddCodeToHtml_Merge_Sort_Info', function() {
+        let expectedCode = getMergeSortInfoString()
+        addCodeToHtml()
+        expect($("#merge-sort-info-block").html()).toEqual(expectedCode);
+    });
+    it('TC_006_AddCodeToHtml_Quick_Sort_Info', function() {
+        let expectedCode = getQuickSortInfoString()
+        addCodeToHtml()
+        expect($("#quick-sort-info-block").html()).toEqual(expectedCode);
+    });
+    it('TC_007_CodeInfo_Default_Not_Visible', function() {
+        addCodeToHtml()
+        expect($("#bubble-sort-info-block")).toHaveClass('display-none')
+        expect($("#merge-sort-info-block")).toHaveClass('display-none')
+        expect($("#bubble-sort-info-block")).toHaveClass('display-none')
+    });
+    it('TC_007_CodeInfo_BubbleSort_Visible', function() {
+        addCodeToHtml()
+        showCurrentAlgorithmCodeAndInfo("bubble-sort")
+        expect($("#bubble-sort-info-block").attr('class')).toEqual('')
+        expect($("#merge-sort-info-block")).toHaveClass('display-none')
+        expect($("#quick-sort-info-block")).toHaveClass('display-none')
+    });
+    it('TC_008_CodeInfo_MergeSort_Visible', function() {
+        addCodeToHtml()
+        showCurrentAlgorithmCodeAndInfo("merge-sort")
+        expect($("#merge-sort-info-block").attr('class')).toEqual('')
+        expect($("#bubble-sort-info-block")).toHaveClass('display-none')
+        expect($("#quick-sort-info-block")).toHaveClass('display-none')
+    });
+    it('TC_009_CodeInfo_QuickSort_Visible', function() {
+        addCodeToHtml()
+        showCurrentAlgorithmCodeAndInfo("quick-sort")
+        expect($("#quick-sort-info-block").attr('class')).toEqual('')
+        expect($("#bubble-sort-info-block")).toHaveClass('display-none')
+        expect($("#merge-sort-info-block")).toHaveClass('display-none')
+    });
+    it('TC_010_Hide_Quick_And_Merge', function() {
+        addCodeToHtml()
+        showCurrentAlgorithmCodeAndInfo("bubble-sort")
+        showCurrentAlgorithmCodeAndInfo("merge-sort")
+        showCurrentAlgorithmCodeAndInfo("quick-sort")
+        expect($("#bubble-sort-info-block").attr('class')).toEqual('')
+        expect($("#merge-sort-info-block").attr('class')).toEqual('')
+        expect($("#quick-sort-info-block").attr('class')).toEqual('')
+        hideOtherAlgorithmCodeAndInfo("bubble-sort")
+        expect($("#bubble-sort-info-block").attr('class')).toEqual('')
+        expect($("#merge-sort-info-block")).toHaveClass('display-none')
+        expect($("#quick-sort-info-block")).toHaveClass('display-none')
+    });
+    it('TC_011_Hide_Quick_And_Bubble', function() {
+        addCodeToHtml()
+        showCurrentAlgorithmCodeAndInfo("bubble-sort")
+        showCurrentAlgorithmCodeAndInfo("merge-sort")
+        showCurrentAlgorithmCodeAndInfo("quick-sort")
+        expect($("#bubble-sort-info-block").attr('class')).toEqual('')
+        expect($("#merge-sort-info-block").attr('class')).toEqual('')
+        expect($("#quick-sort-info-block").attr('class')).toEqual('')
+        hideOtherAlgorithmCodeAndInfo("merge-sort")
+        expect($("#merge-sort-info-block").attr('class')).toEqual('')
+        expect($("#bubble-sort-info-block")).toHaveClass('display-none')
+        expect($("#quick-sort-info-block")).toHaveClass('display-none')
+    });
+    it('TC_012_Hide_Merge_And_Bubble', function() {
+        addCodeToHtml()
+        showCurrentAlgorithmCodeAndInfo("bubble-sort")
+        showCurrentAlgorithmCodeAndInfo("merge-sort")
+        showCurrentAlgorithmCodeAndInfo("quick-sort")
+        expect($("#bubble-sort-info-block").attr('class')).toEqual('')
+        expect($("#merge-sort-info-block").attr('class')).toEqual('')
+        expect($("#quick-sort-info-block").attr('class')).toEqual('')
+        hideOtherAlgorithmCodeAndInfo("quick-sort")
+        expect($("#quick-sort-info-block").attr('class')).toEqual('')
+        expect($("#bubble-sort-info-block")).toHaveClass('display-none')
+        expect($("#merge-sort-info-block")).toHaveClass('display-none')
+    });
 });

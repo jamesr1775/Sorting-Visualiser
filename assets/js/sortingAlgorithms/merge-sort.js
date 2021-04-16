@@ -129,7 +129,7 @@ function getMergeSortInfoString(){
     let mergeSortInfoString = `<h2 id="algo-header" class="text-center mt-2">Merge Sort Algorithm</h2>
                                 <p>Merge sort is a divide and conquer algorithm that splits up the array of length <em>n</em> in to two sub arrays, and then these two sub arrays in to two additional sub arrays until there are <em>n</em> arrays with one element. 
                                 It will sort these sub arrays and then starting merging two sorted sub arrays back into one array. When the final 2 sub arrays are merged to form the sorted array the algorithm ends.</p>
-                                <div  class="horizontal-divider"><hr/></div>
+                                <div class="horizontal-divider"><hr></div>
                                 <h3 class="text-center mt-5">Algorithm Steps</h3>
                                 <ol>
                                     <li>Divide the array in to two sub arrays of length <em>n/2</em></li>
@@ -138,7 +138,7 @@ function getMergeSortInfoString(){
                                     <li>Repeat step 3 until you have an array of length <em>n</em></li>
                                     <li>This algorithm will terminate when the first two sub arrays of length <em>n/2</em> return, both sorted and the final merge occurs when we are left with a sorted array of length <em>n</em></li>
                                 </ol>
-                                <div  class="horizontal-divider"><hr/></div>
+                                <div class="horizontal-divider"><hr></div>
                                 <h3 class="text-center mt-5">Complexity</h3>
                                 <p>Divide and conquer algorithms can be tricky to analyze time and space complexities. Hint: Exponentially working with smaller and smaller array sizes, one math operater is particularly useful. Thus what will the time complexity be? Take the quiz below to find out!</p>
     `
