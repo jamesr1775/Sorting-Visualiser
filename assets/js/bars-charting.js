@@ -118,11 +118,6 @@ function loop(swapAnimations, swapAnimationsIdx) {
     swapAnimationsIdx++
 }
 
-var slider = document.getElementById("arraySize");
-slider.oninput = function() {
-    generateBarChart()
-}
-
 /**
  * Start Sorting button pressed will retrieve an array of animations from 
  * the currently selected algorithm. Once started the button can be used
@@ -191,7 +186,6 @@ $('#bubbleSortSelect').click(function() {
     selectAlgorithm.innerHTML = "Bubble Sort"
     currentSortAlgorithm = "bubble-sort"
     setupAlgorithmSelection(currentSortAlgorithm)
-
 })
 
 $('#mergeSortSelect').click(function() {
@@ -292,8 +286,13 @@ $('#tutorial-close-btn').click(function() {
     }, 2500);
 })
 
-$(document).ready(function() {
+// If bar chart exists
+if ($('#bar-chart').length > 0) {
     generateBarChart()
     addCodeToHtml(currentSortAlgorithm)
     $('#instructions').modal('show');
-});
+    var slider = document.getElementById("arraySize");
+    slider.oninput = function() {
+        generateBarChart()
+    }
+}

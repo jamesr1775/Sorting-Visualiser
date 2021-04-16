@@ -4,6 +4,7 @@ The deployed version of the Sorting Visualiser can be found at [github.io/Sortin
 The source code for the project can be viewed at [github](https://github.com/jamesr1775/Sorting-Visualiser).
 
 ## Testing
+### Jasmine Tests
 ### Testing User Stories
 ### Manual Testing
 #### Home Page Header
@@ -23,3 +24,6 @@ The source code for the project can be viewed at [github](https://github.com/jam
 ##### Quiz finished buttons
 #### Footer
 #### Further Testing
+### Bugs Found
+#### Bugs Fixed
+#### Unsolved Bugs

@@ -82,9 +82,9 @@ function getBubbleSortCodeString(){
 }
 
 function getBubbleSortInfoString(){
-    let bubbleSortInfoString = `<h2 id="algo-header" class="text-center">Bubble Sort Algorithm</h2>
+    let bubbleSortInfoString =`<h2 id="algo-header" class="text-center">Bubble Sort Algorithm</h2>
                                 <p>Bubble sort is an old and well known algorithm that sorts the array, usually in ascending order.</p>
-                                <div  class="horizontal-divider"><hr/></div>
+                                <div class="horizontal-divider"><hr></div>
                                 <h3 class="text-center">Algorithm Steps</h3>
                                 <ol>
                                     <li>It passes through the array of <em>n</em> values, comparing adjacent values to each other.</li>
@@ -93,10 +93,9 @@ function getBubbleSortInfoString(){
                                     <li>Repeat this procedure but now only iterating to the <em>n-i</em> positions.</li>
                                     <li>The algorithm will terminate when all the values are in their correct position.</li>
                                 </ol>
-                                <div  class="horizontal-divider"><hr/></div>
+                                <div class="horizontal-divider"><hr></div>
                                 <h3 class="text-center">Complexity</h3>
                                 <p>In the worst case scenario (the list is in reverse order), the inner for loop will run <em>n-1</em> times, 
-                                on the second iteration it will run <em>n-2</em> times. Thus what will the time complexity be? Take the quiz below to find out!</p>
-    `
+                                on the second iteration it will run <em>n-2</em> times. Thus what will the time complexity be? Take the quiz below to find out!</p>`
     return bubbleSortInfoString    
 }
