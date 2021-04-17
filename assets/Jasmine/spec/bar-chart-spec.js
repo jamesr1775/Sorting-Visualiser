@@ -58,8 +58,8 @@ describe('TS_005_Setup_Algorithms', function() {
 
     beforeEach(() => {
         setFixtures(
-            `<div id="bar-chart" class="col-10 no-padding"></div>
-            <div class="container-fluid code-info-container-bg-color">
+                    `<div id="bar-chart" class="col-10 no-padding"></div>
+                    <div class="container-fluid code-info-container-bg-color">
                         <div class="row">
                             <div class="col-1"></div>
                             <div id="code-block" class="col-lg-5 col-12 mt-5">
