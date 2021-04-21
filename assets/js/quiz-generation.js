@@ -76,23 +76,23 @@ let allQuestions = {
                                 ],
             userScore:[0, 0, 0, 0, 0]
         }
-}
+};
 
 /**
  * getCurrentQuestionsStruct(currentSortAlgorithm) will set the global
  * currentQuestionsStruct to the relevant algorithms questions.
  **/
-let questionsCounter = 0
-let currentQuestionsStruct = {}
+let questionsCounter = 0;
+let currentQuestionsStruct = {};
 function getCurrentQuestionsStruct(currentSortAlgorithm){
     if(currentSortAlgorithm == "bubble-sort"){
-        return  currentQuestionsStruct = allQuestions["bubbleSort"]
+        return  currentQuestionsStruct = allQuestions["bubbleSort"];
     } else if(currentSortAlgorithm == "merge-sort"){
-        return  currentQuestionsStruct = allQuestions["mergeSort"]
+        return  currentQuestionsStruct = allQuestions["mergeSort"];
     }else if(currentSortAlgorithm == "quick-sort"){
-        return  currentQuestionsStruct = allQuestions["quickSort"]
+        return  currentQuestionsStruct = allQuestions["quickSort"];
     }else{
-        return null
+        return null;
     }
 }
 
@@ -101,27 +101,27 @@ function getCurrentQuestionsStruct(currentSortAlgorithm){
  *  to the Take Quiz drop down.
  **/
 function addQuizQuestionsToHtml(){
-    questionsCounter = 0
-    let takeQuizBlock = document.getElementById("take-quiz-block")
-    takeQuizBlock.innerHTML = `<button id="take-quiz-btn" class="btn btn-success button-text" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Take Quiz</button>`
-    let quizResultsBlock = document.getElementById("quiz-results-block")
-    quizResultsBlock.innerHTML = ``
-    let answerRevealBlock = document.getElementById("answer-reveal-block")
-    answerRevealBlock.innerHTML = ``
-    let quizBlock = document.getElementById("question-block")
-    let answerChoiceBlock = document.getElementById("answer-choices-block")
-    let navQuestionsBlock = document.getElementById("nav-questions-block")
-    quizBlock.innerHTML = `<div id='question'>Question ${1}/${currentQuestionsStruct.questions.length}<br>${currentQuestionsStruct.questions[0]}</div>`
-    let answerChoiceBlockHTML = `<div class="row">`
+    questionsCounter = 0;
+    let takeQuizBlock = document.getElementById("take-quiz-block");
+    takeQuizBlock.innerHTML = `<button id="take-quiz-btn" class="btn btn-success button-text" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Take Quiz</button>`;
+    let quizResultsBlock = document.getElementById("quiz-results-block");
+    quizResultsBlock.innerHTML = ``;
+    let answerRevealBlock = document.getElementById("answer-reveal-block");
+    answerRevealBlock.innerHTML = ``;
+    let quizBlock = document.getElementById("question-block");
+    let answerChoiceBlock = document.getElementById("answer-choices-block");
+    let navQuestionsBlock = document.getElementById("nav-questions-block");
+    quizBlock.innerHTML = `<div id='question'>Question ${1}/${currentQuestionsStruct.questions.length}<br>${currentQuestionsStruct.questions[0]}</div>`;
+    let answerChoiceBlockHTML = `<div class="row">`;
     for(let i=0; i<currentQuestionsStruct.answers[0].length; i++){
         answerChoiceBlockHTML += `<div class= "col-sm-6 col-xs-12">
                                     <input id="option-${i}" type="radio" name="answers" value="option-${i}">
                                     <label for="option-${i}">${currentQuestionsStruct.answers[0][i]}</label>
-                                    </div>`
+                                    </div>`;
     }
-    answerChoiceBlock.innerHTML = answerChoiceBlockHTML + `</div>`
+    answerChoiceBlock.innerHTML = answerChoiceBlockHTML + `</div>`;
     navQuestionsBlock.innerHTML = `<button id="prev-question" class="btn btn-success button-text">Previous Question</button>
-    <button id="next-question" class="btn btn-success button-text">Next Question</button>`
+    <button id="next-question" class="btn btn-success button-text">Next Question</button>`;
 }
 
 /**
@@ -129,18 +129,18 @@ function addQuizQuestionsToHtml(){
  **/
 $(document).on('click','#prev-question', function(){
     if(questionsCounter != 0){
-        questionsCounter -= 1
+        questionsCounter -= 1;
     }
-    updateQuestionsDisplayed()
-})
+    updateQuestionsDisplayed();
+});
 
 $(document).on('click','#next-question',function(){
-    let answerRevealBlock = document.getElementById("answer-reveal-block")
-    answerRevealBlock.innerHTML = ``
+    let answerRevealBlock = document.getElementById("answer-reveal-block");
+    answerRevealBlock.innerHTML = ``;
     if(questionsCounter < currentQuestionsStruct.questions.length - 1){
-        questionsCounter += 1
+        questionsCounter += 1;
     }
-    updateQuestionsDisplayed()
+    updateQuestionsDisplayed();
 });
 
 /**
@@ -148,17 +148,17 @@ $(document).on('click','#next-question',function(){
  * retrieved using the questions counter
  **/
 function updateQuestionsDisplayed(){
-    let quizBlock = document.getElementById("question-block")
-    let answerChoiceBlock = document.getElementById("answer-choices-block")
-    quizBlock.innerHTML = `<div id='question'>Question ${questionsCounter + 1}/${currentQuestionsStruct.questions.length}<br>${currentQuestionsStruct.questions[questionsCounter]}</div>`
-    let answerChoiceBlockHTML = `<div class="row">`
+    let quizBlock = document.getElementById("question-block");
+    let answerChoiceBlock = document.getElementById("answer-choices-block");
+    quizBlock.innerHTML = `<div id='question'>Question ${questionsCounter + 1}/${currentQuestionsStruct.questions.length}<br>${currentQuestionsStruct.questions[questionsCounter]}</div>`;
+    let answerChoiceBlockHTML = `<div class="row">`;
     for(let i=0; i<currentQuestionsStruct.answers[questionsCounter].length; i++){
         answerChoiceBlockHTML += `<div class= "col-sm-6 col-xs-12">
                                     <input id="option-${i}" type="radio" class="answer-radio" name="answers" value="option-${i}">
                                     <label for="option-${i}">${currentQuestionsStruct.answers[questionsCounter][i]}</label>
-                                    </div>`
+                                    </div>`;
     }
-    answerChoiceBlock.innerHTML = answerChoiceBlockHTML
+    answerChoiceBlock.innerHTML = answerChoiceBlockHTML;
 }
 
 /**
@@ -167,23 +167,23 @@ function updateQuestionsDisplayed(){
  * question then the results are shown.
  **/
 $(document).on("click",'#answer-choices-block input[type=radio]', function() {
-    let currentCorrectAnswer = currentQuestionsStruct.correctAnswers[questionsCounter]
-    let answerRevealBlock = document.getElementById("answer-reveal-block")
-    let questionModalResult = document.getElementById("question-modal-result")
+    let currentCorrectAnswer = currentQuestionsStruct.correctAnswers[questionsCounter];
+    let answerRevealBlock = document.getElementById("answer-reveal-block");
+    let questionModalResult = document.getElementById("question-modal-result");
     if($(this).val() === currentCorrectAnswer){
-        questionModalResult.innerHTML = `Correct!  <span class="check-mark">&#9989;</span>`
-        currentQuestionsStruct.userScore[questionsCounter] = 1
+        questionModalResult.innerHTML = `Correct!  <span class="check-mark">&#9989;</span>`;
+        currentQuestionsStruct.userScore[questionsCounter] = 1;
     }
     else{
-        questionModalResult.innerHTML = `Incorrect!  <span class="cross-mark">&#9746;</span>`
-        currentQuestionsStruct.userScore[questionsCounter] = 0
+        questionModalResult.innerHTML = `Incorrect!  <span class="cross-mark">&#9746;</span>`;
+        currentQuestionsStruct.userScore[questionsCounter] = 0;
     }
-    answerSelectUpdate(currentCorrectAnswer)
+    answerSelectUpdate(currentCorrectAnswer);
     let answerRevealBlockHTML = `<p><button class="btn btn-success button-text" type="button" data-toggle="collapse" data-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3">Answer explanation</button></p>
-    <div class="row"><div class="col-12"><div class="collapse multi-collapse answer-reveal-text" id="multiCollapseExample3">${currentQuestionsStruct.answerExplanations[questionsCounter]}</div></div></div>`
-    answerRevealBlock.innerHTML = answerRevealBlockHTML
+    <div class="row"><div class="col-12"><div class="collapse multi-collapse answer-reveal-text" id="multiCollapseExample3">${currentQuestionsStruct.answerExplanations[questionsCounter]}</div></div></div>`;
+    answerRevealBlock.innerHTML = answerRevealBlockHTML;
     if(questionsCounter === currentQuestionsStruct.questions.length - 1){
-        presentUserQuizScore()
+        presentUserQuizScore();
     }else{
         $('#question-result').modal('show');
     }
@@ -194,16 +194,16 @@ $(document).on("click",'#answer-choices-block input[type=radio]', function() {
  * and incorrect answers green and red
  **/
 function answerSelectUpdate(currentCorrectAnswer){
-    let answers = document.getElementsByName("answers")
+    let answers = document.getElementsByName("answers");
     for(let i=0; i< answers.length; i++){
-        let radioAnswer = answers[i].getAttribute("value")
+        let radioAnswer = answers[i].getAttribute("value");
         let selector = 'label[for=' + radioAnswer + ']';
         let label = document.querySelector(selector);
         if(radioAnswer === currentCorrectAnswer){
-            label.classList.add("correct-answer")
+            label.classList.add("correct-answer");
         }
         else{
-            label.classList.add("incorrect-answer")
+            label.classList.add("incorrect-answer");
         }
     }
 }
@@ -214,39 +214,39 @@ function answerSelectUpdate(currentCorrectAnswer){
  * buttons are also displayed
  **/
 function presentUserQuizScore(){
-    let quizModalResults = document.getElementById("quiz-results-modal")
-    let quizModalHeader = document.getElementById("quiz-header-modal")
-    let quizModalResultsHTML = `<table id="results-table"><th class="text-center pl-3 pr-3">Question</th><th class="text-center pl-3 pr-3">Result</th></tr>`
-    let correctAnswerCounter = 0
+    let quizModalResults = document.getElementById("quiz-results-modal");
+    let quizModalHeader = document.getElementById("quiz-header-modal");
+    let quizModalResultsHTML = `<table id="results-table"><th class="text-center pl-3 pr-3">Question</th><th class="text-center pl-3 pr-3">Result</th></tr>`;
+    let correctAnswerCounter = 0;
     for(let i=0; i<currentQuestionsStruct.questions.length; i++){
-        let questionResult =  currentQuestionsStruct.userScore[i]? `<div class="text-center"><span class="check-mark">&#9989;</span></div>`: `<div class="text-center"><span class="cross-mark">&#9746;</span></div>`
-        correctAnswerCounter += currentQuestionsStruct.userScore[i]
-        quizModalResultsHTML += `<tr><td> ${currentQuestionsStruct.questions[i]} </td><td> ${questionResult} </td></tr>`
+        let questionResult =  currentQuestionsStruct.userScore[i]? `<div class="text-center"><span class="check-mark">&#9989;</span></div>`: `<div class="text-center"><span class="cross-mark">&#9746;</span></div>`;
+        correctAnswerCounter += currentQuestionsStruct.userScore[i];
+        quizModalResultsHTML += `<tr><td> ${currentQuestionsStruct.questions[i]} </td><td> ${questionResult} </td></tr>`;
     }
-    let algorithm = document.getElementById("algo-header").innerHTML
-    let percentCorrect = 100*(correctAnswerCounter/currentQuestionsStruct.questions.length)
-    quizModalResultsHTML += `</table><p id="score-fraction"><br>You scored ${percentCorrect}%.</p>`
-    quizModalResults.innerHTML = quizModalResultsHTML
-    quizModalHeader.innerHTML = `${algorithm} Quiz Results`
+    let algorithm = document.getElementById("algo-header").innerHTML;
+    let percentCorrect = 100*(correctAnswerCounter/currentQuestionsStruct.questions.length);
+    quizModalResultsHTML += `</table><p id="score-fraction"><br>You scored ${percentCorrect}%.</p>`;
+    quizModalResults.innerHTML = quizModalResultsHTML;
+    quizModalHeader.innerHTML = `${algorithm} Quiz Results`;
     $('#quiz-results').modal('show');
-    let quizResultsBlock = document.getElementById("quiz-results-block")
+    let quizResultsBlock = document.getElementById("quiz-results-block");
     let quizResultsBlockHTML = `<button id="view-results" type="button" class="dashboard-btn btn btn-success button-text" aria-label="View Score Button">View Score</button>
-    <button id="retake-quiz" type="button" class="dashboard-btn btn btn-success button-text" aria-label="Retake Quiz Button">Retake Quiz</button>`
-    quizResultsBlock.innerHTML = quizResultsBlockHTML
+    <button id="retake-quiz" type="button" class="dashboard-btn btn btn-success button-text" aria-label="Retake Quiz Button">Retake Quiz</button>`;
+    quizResultsBlock.innerHTML = quizResultsBlockHTML;
 }
 
 $(document).on('click','#view-results',function(){
     $('#quiz-results').modal('show');
-})
+});
 
 $(document).on('click','#retake-quiz',function(){
-    questionsCounter = 0
-    updateQuestionsDisplayed()
+    questionsCounter = 0;
+    updateQuestionsDisplayed();
     for(let i=0; i<currentQuestionsStruct.userScore.length; i++){
-        currentQuestionsStruct.userScore[i] = 0
+        currentQuestionsStruct.userScore[i] = 0;
     }
-    let quizResultsBlock = document.getElementById("quiz-results-block")
-    quizResultsBlock.innerHTML = ``
-    let answerRevealBlock = document.getElementById("answer-reveal-block")
-    answerRevealBlock.innerHTML = ``
-})
+    let quizResultsBlock = document.getElementById("quiz-results-block");
+    quizResultsBlock.innerHTML = ``;
+    let answerRevealBlock = document.getElementById("answer-reveal-block");
+    answerRevealBlock.innerHTML = ``;
+});
