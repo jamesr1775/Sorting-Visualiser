@@ -6,76 +6,76 @@
  **/
 function mergeSortAlgorithmHelper(array, leftIdx, rightIdx, auxilaryArray, animations, finalDoMerge){
     if (leftIdx === rightIdx){
-        return
+        return;
     }
     let midIdx = Math.floor((leftIdx + rightIdx)/2)
-    mergeSortAlgorithmHelper(auxilaryArray, leftIdx, midIdx, array, animations, false)
-    mergeSortAlgorithmHelper(auxilaryArray, midIdx + 1, rightIdx, array, animations, false)
-    doMerge(array, leftIdx, midIdx, rightIdx, auxilaryArray, animations, finalDoMerge)
+    mergeSortAlgorithmHelper(auxilaryArray, leftIdx, midIdx, array, animations, false);
+    mergeSortAlgorithmHelper(auxilaryArray, midIdx + 1, rightIdx, array, animations, false);
+    doMerge(array, leftIdx, midIdx, rightIdx, auxilaryArray, animations, finalDoMerge);
 }
 function doMerge(array, leftIdx, midIdx, rightIdx, auxilaryArray, animations, finalDoMerge){
-    let i = leftIdx
-    let k = leftIdx
-    let j = midIdx + 1
+    let i = leftIdx;
+    let k = leftIdx;
+    let j = midIdx + 1;
     while(i <= midIdx && j <= rightIdx){
         if (auxilaryArray[i][1] <= auxilaryArray[j][1]){
-            animations.push(['#bar-' + i, 0, false, true, false])
-            animations.push(['#bar-' + k, auxilaryArray[i][1], true, false, false])
-            animations.push(['#bar-' + i, 0, false, false, false])
+            animations.push(['#bar-' + i, 0, false, true, false]);
+            animations.push(['#bar-' + k, auxilaryArray[i][1], true, false, false]);
+            animations.push(['#bar-' + i, 0, false, false, false]);
             if(finalDoMerge){
-                animations.push(['#bar-' + i, 0, false, false, true])
+                animations.push(['#bar-' + i, 0, false, false, true]);
             }
-            array[k][1] = auxilaryArray[i][1] 
-            i++
+            array[k][1] = auxilaryArray[i][1];
+            i++;
         }
         else{
-            animations.push(['#bar-' + j, 0, false, true, false])
-            animations.push(['#bar-' + k, auxilaryArray[j][1], true, false, false])
-            animations.push(['#bar-' + j, 0, false, false, false])
+            animations.push(['#bar-' + j, 0, false, true, false]);
+            animations.push(['#bar-' + k, auxilaryArray[j][1], true, false, false]);
+            animations.push(['#bar-' + j, 0, false, false, false]);
             if(finalDoMerge){
-                animations.push(['#bar-' + j, 0, false, false, true])
+                animations.push(['#bar-' + j, 0, false, false, true]);
             }
-            array[k][1] = auxilaryArray[j][1]
-            j++
+            array[k][1] = auxilaryArray[j][1];
+            j++;
         }
-        k++
+        k++;
     }
     while(i <= midIdx){
-        animations.push(['#bar-' + i, 0, false, true, false])
-        animations.push(['#bar-' + k, auxilaryArray[i][1], true, false, false])
-        animations.push(['#bar-' + i, 0, false, false, false])
+        animations.push(['#bar-' + i, 0, false, true, false]);
+        animations.push(['#bar-' + k, auxilaryArray[i][1], true, false, false]);
+        animations.push(['#bar-' + i, 0, false, false, false]);
         if(finalDoMerge){
-            animations.push(['#bar-' + i, 0, false, false, true])
+            animations.push(['#bar-' + i, 0, false, false, true]);
         }
-        array[k][1] = auxilaryArray[i][1]
-        i++
-        k++
+        array[k][1] = auxilaryArray[i][1];
+        i++;
+        k++;
     }
     while(j <= rightIdx){
-        animations.push(['#bar-' + j, 0, false, true, false])
-        animations.push(['#bar-' + k, auxilaryArray[j][1], true, false, false])
-        animations.push(['#bar-' + j, 0, false, false, false])
+        animations.push(['#bar-' + j, 0, false, true, false]);
+        animations.push(['#bar-' + k, auxilaryArray[j][1], true, false, false]);
+        animations.push(['#bar-' + j, 0, false, false, false]);
         if(finalDoMerge){
-            animations.push(['#bar-' + j, 0, false, false, true])
+            animations.push(['#bar-' + j, 0, false, false, true]);
         }
-        array[k][1] = auxilaryArray[j][1]
-        j++
-        k++
+        array[k][1] = auxilaryArray[j][1];
+        j++;
+        k++;
     }
 }
 function mergeSortAlgorithm(){
-    let leftIdx = 0
+    let leftIdx = 0;
     let rightIdx = document.getElementsByClassName("single-bar").length - 1;
-    let barsArray = []
-    let swapAnimations = []
-    let auxilaryArray = []
+    let barsArray = [];
+    let swapAnimations = [];
+    let auxilaryArray = [];
     for(let i=0; i<=rightIdx; i++){
-        let bar =  $('#bar-' + i)
-        barsArray.push(['#bar-' + i, bar.height()])
-        auxilaryArray.push(['#bar-' + i, bar.height()])
+        let bar =  $('#bar-' + i);
+        barsArray.push(['#bar-' + i, bar.height()]);
+        auxilaryArray.push(['#bar-' + i, bar.height()]);
     }
-    mergeSortAlgorithmHelper(barsArray, leftIdx, rightIdx, auxilaryArray, swapAnimations, true)
-    return swapAnimations
+    mergeSortAlgorithmHelper(barsArray, leftIdx, rightIdx, auxilaryArray, swapAnimations, true);
+    return swapAnimations;
 }
 
 
@@ -121,8 +121,8 @@ function mergeSort(array){
   let auxilaryArray = array.slice();
   mergeSortHelper(array, leftIdx, rightIdx, auxilaryArray);
   return array;
-}`
-    return mergeSortCodeString
+}`;
+    return mergeSortCodeString;
 }
 
 function getMergeSortInfoString(){
@@ -141,6 +141,6 @@ function getMergeSortInfoString(){
                                 <div class="horizontal-divider"><hr></div>
                                 <h3 class="text-center mt-5">Complexity</h3>
                                 <p>Divide and conquer algorithms can be tricky to analyze time and space complexities. Hint: Exponentially working with smaller and smaller array sizes, one math operater is particularly useful. Thus what will the time complexity be? Take the quiz below to find out!</p>
-    `
-    return mergeSortInfoString    
+    `;
+    return mergeSortInfoString;   
 }

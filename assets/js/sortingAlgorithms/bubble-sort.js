@@ -5,50 +5,50 @@
  **/
 function bubbleSortAlgorithm(){
     let numBars = document.getElementsByClassName("single-bar").length;
-    let barsArray = []
-    let swapAnimations = []
+    let barsArray = [];
+    let swapAnimations = [];
     // create bar array with ids and heights
     for(let i=0; i<numBars; i++){
-        let bar =  $('#bar-' + i)
-        barsArray.push(['#bar-' + i, bar.height()])
+        let bar =  $('#bar-' + i);
+        barsArray.push(['#bar-' + i, bar.height()]);
     }
     // bubble sort algorithm
     for(let i=0; i<barsArray.length - 1; i++){
-        let innerLoopEnd = barsArray.length - i - 1
+        let innerLoopEnd = barsArray.length - i - 1;
         for(let j=0; j<innerLoopEnd; j++){
-            let barOne =  barsArray[j][0]
-            let barTwo =  barsArray[j+1][0]
-            let barOneHeight =  barsArray[j][1]
-            let barTwoHeight =  barsArray[j+1][1]
+            let barOne =  barsArray[j][0];
+            let barTwo =  barsArray[j+1][0];
+            let barOneHeight =  barsArray[j][1];
+            let barTwoHeight =  barsArray[j+1][1];
 
             // push bar color changes to animation array
             // swapAnimations = [[barId, barHeightInteger, swapBars, swapColors, barInFinalPosition],...]
-            swapAnimations.push(['#bar-' + j, barOneHeight, false, true, false])
-            swapAnimations.push(['#bar-' + (j + 1), barTwoHeight, false, true, false])
+            swapAnimations.push(['#bar-' + j, barOneHeight, false, true, false]);
+            swapAnimations.push(['#bar-' + (j + 1), barTwoHeight, false, true, false]);
             
             // Swap the heights if needed
             if (barOneHeight>barTwoHeight){
-                swapAnimations.push(['#bar-' + (j + 1), barOneHeight, true, false, false])
-                swapAnimations.push(['#bar-' + j, barTwoHeight, true, false, false])
-                swap(barsArray, j, j+1)
+                swapAnimations.push(['#bar-' + (j + 1), barOneHeight, true, false, false]);
+                swapAnimations.push(['#bar-' + j, barTwoHeight, true, false, false]);
+                swap(barsArray, j, j+1);
             }
             else{
-                swapAnimations.push(['#bar-' + j, barOneHeight, false, false])
-                swapAnimations.push(['#bar-' + (j + 1), barTwoHeight, false, false])
+                swapAnimations.push(['#bar-' + j, barOneHeight, false, false]);
+                swapAnimations.push(['#bar-' + (j + 1), barTwoHeight, false, false]);
             }
             // push undo bar color changes to animation array
-            swapAnimations.push(['#bar-' + j, barOneHeight, false, false, false])
-            swapAnimations.push(['#bar-' + (j + 1), barTwoHeight, false, false])
+            swapAnimations.push(['#bar-' + j, barOneHeight, false, false, false]);
+            swapAnimations.push(['#bar-' + (j + 1), barTwoHeight, false, false]);
             if(j === innerLoopEnd - 1){
                 // add barInFinalPosition color change
-                swapAnimations.push(['#bar-' + (j+1), barTwoHeight, false, false, true])
+                swapAnimations.push(['#bar-' + (j+1), barTwoHeight, false, false, true]);
             }
         }
     }
     // add barInFinalPosition color change to the first two bars
-    swapAnimations.push(['#bar-' + 0, null, false, false, true])
-    swapAnimations.push(['#bar-' + 1, null, false, false, true])
-    return swapAnimations
+    swapAnimations.push(['#bar-' + 0, null, false, false, true]);
+    swapAnimations.push(['#bar-' + 1, null, false, false, true]);
+    return swapAnimations;
 }
 
 function swap(array, left, right){
@@ -77,8 +77,8 @@ function getBubbleSortCodeString(){
     }
  }
   return arr;
-}`
-    return bubbleSortCodeString
+}`;
+    return bubbleSortCodeString;
 }
 
 function getBubbleSortInfoString(){
@@ -96,6 +96,6 @@ function getBubbleSortInfoString(){
                                 <div class="horizontal-divider"><hr></div>
                                 <h3 class="text-center">Complexity</h3>
                                 <p>In the worst case scenario (the list is in reverse order), the inner for loop will run <em>n-1</em> times, 
-                                on the second iteration it will run <em>n-2</em> times. Thus what will the time complexity be? Take the quiz below to find out!</p>`
-    return bubbleSortInfoString    
+                                on the second iteration it will run <em>n-2</em> times. Thus what will the time complexity be? Take the quiz below to find out!</p>`;
+    return bubbleSortInfoString;    
 }
