@@ -1,6 +1,6 @@
 # Sorting Visualiser
-The [sorting algorithm visualiser](https://jamesr1775.github.io/Sorting-Visualiser/.). See the algorithms that you use day to day under the hood to sort data and get a picture of how they operate to sort data. Why are some algorithms
-better than others? Test your knowledge and work out or learn the time and space complexities of the famous algorithms.
+The [sorting algorithm visualiser](https://jamesr1775.github.io/Sorting-Visualiser/.). Visualise the algorithms that programmers have studied and use day to day. Why are some algorithms
+better than others? Test your knowledge and solve and learn the time and space complexities of the sorting famous algorithms.
 
 ## Table of Contents
 
@@ -23,16 +23,22 @@ better than others? Test your knowledge and work out or learn the time and space
     - [**Acknowledgements**](#acknowledgements)
     - [**Bugs and Issues Resolved**](#bugs-and-issues-resolved)
     
-
-
 ## UX
 ### Project Goals
-* The goal of this project is to be able to visualise sorting algorithms to be able to understand them better and to know their time and space compexity.
-* The website will provide provide the user with a few sorting algorithms to choose from to sort bar chart data on the screen.
-* Users will be able to take a quiz on each algorithm to test themselves and learn.
-* This Website will be:
-    * Responsive on multiple platforms such as desktops, tablets and smartphones
-    * Provide the user with the sorting algorithm code so that they can try to understand it better along with the visualisation elements.
+* The primary goal of this project is to be able to visualise sorting algorithms and to be able to understand them better and to know their time and space compexity.
+* The website will provide provide the user with a sorting algorithms to choose from to sort bar chart data on the screen by their heights in pixels.
+* Users will be able to read some information on the algorithms alongside the javascript code implementation of the algorithm so they can reference it for quiz questions, implement it for themselves in their own project or walk through the code with the pseudo code to try and undertand it better. 
+* Users will be able to take a quiz on each algorithm to test themselves and learn something new about the sorting algorithm whether its their space and time complexities or some history.
+* This Website will:
+    * Be responsive on multiple platforms such as desktops, tablets and smartphones
+    * Give the user a tutorial on how to use the graph and sorting visualiser.
+    * Provide the user with the sorting algorithm code so that they can improve their understanding of the algorithms by using it alongside the visualisation elements.
+### Business & Developer Goals
+* Create a learning and tutorial website that teaches visitors difficult concepts in programming by making it visually awesome and interesting.
+* This website will be for users who are learning about programming and want to understand sorting algorithms.
+* Learn javascript, jasmine and interactive development by creating an exciting project vistiors would like to interact with.
+* Learn sorting algorithms and algorithm analysis. 
+* A challenging project for the developer.
 
 ### User Stories
 1. As a potential User I would like to be able to see sorting algorithms sort data in an intuitive way to help understanding.
@@ -40,7 +46,9 @@ better than others? Test your knowledge and work out or learn the time and space
 3. As a potential visitor, I want to be able to find the source code so I can see the javascript that was used in a sorting algorithm.
 4. As a potential user, I would like to generate data to sort and select a sorting algorithm to sort it.
 5. As a potential user, I would like to be able to increase and decrease the speed to see the algorithm in detail.
-6. As a potential user, I would like to take a quiz and test my knowledge of the algorithm.
+6. As a potential user, I would like to pause and start the algorithm.
+7. As a potential user, I would like to take test my knowledge and understanding of the algorithm.
+8. As a potential user, I would like to learn things I did not know about algorithms before, and see answers to questions about time and space complexity.
 ### Wireframe mock-ups
 - [Home Page](https://github.com/jamesr1775/Sorting-Visualiser/blob/master/assets/wireframes/Home.png)
 - [Home Algorithm Selected](https://github.com/jamesr1775/Sorting-Visualiser/blob/master/assets/wireframes/Home-Algo-Selected.png)
@@ -50,10 +58,11 @@ better than others? Test your knowledge and work out or learn the time and space
 ## Features
 ### Home Page
 1. The site logo will be at the top of the page and link back/ refresh the home page.
-2. There will be a menu bar that controls the bar chart generation, the array size, algorithm speed, sorting algorithm type, starting and stopping the algorithm.
-3. The bar chart will be responsive to different screen sizes and adjust the width of the bars based on screen size.
-4. The algorithm should display the steps it takes visually.
-5. A user can pause and adjust the speed of the algorithm. 
+2. Upon visiting the site, the user will be presented with a visual tutorial that explains the bar chart and controls available to them.
+3. There will be a menu bar that controls the bar chart generation, the array size, algorithm speed, sorting algorithm type, starting and stopping the algorithm.
+4. The bar chart will be responsive to different screen sizes and adjust the width of the bars based on screen size.
+5. The algorithm should display the steps it takes visually.
+6. A user can pause and adjust the speed of the algorithm. 
 ### Algorithm Code and Explanation
 1. When an algorithm is selected, easy to understand, clean code will be presented to the user underneath the bar chart graph.
 2. The code will be syntaxed and have familiar highlights to that of IDE's so it looks pleasing and makes it easier to read.
@@ -72,17 +81,44 @@ better than others? Test your knowledge and work out or learn the time and space
 2. A link to the websites code will be available in the footer section
 ### Existing Features
 - The header contains the sites logo that directs the user back to the home page.
+- Upon visiting the website a user is presented with tutorial modal popup that shows how to use the chart and the buttons associated with it.
+    <div align="center">
+    <img src="/assets/images/readme-images/tutorial-modal.jpg" alt="Tutorial modal" >
+    </div>
+
 - A bar chart that visually shows the sorting algorithms running is presented to the user.
-- Controls for the algorithm type, speed and array size are implemented above the graph.
-- The algorithm steps throught the sorting steps and visually updates the bar colors and heights to perform the swaps.
-- A user has the ability to pause and start the algorithm again if they wish and also change the speed of the sorting.
+    <div align="center">
+    <img src="/assets/images/algo-speed.gif" alt="Tutorial modal" >
+    </div>
+
+    - The algorithm steps throught the sorting steps and visually updates the bar colors and heights to perform the swaps.
+    - A user has the ability to pause and start the algorithm again if they wish and also change the speed of the sorting.
+    <div><br/></div>
+    <div align="center">
+    <img src="/assets/images/array-size.gif" alt="Tutorial modal" >
+    </div>
+
+    - Controls for the algorithm type, speed and array size are implemented above the graph.
+
 - The algorithm javascript code is shown to the user upon selecting an algorithm along with an explanation/ information on that algorithm.
+    <div align="center">
+    <img src="/assets/images/readme-images/algo-info.jpg" alt="algorithm code and information" >
+    </div>
 - The "Take Quiz" button drop down loads up the quiz navigation buttons and question and choice buttons.
-- The next and previous question buttons allows navigation through the algorithm questions.
-- Visual feedback of the correct answer and incorrect answers is provided to the user upon selecting an answer.
-- A drop down button is available that will allow the user to get more information on why the answer to a particular question is the one shown.
-- At the end of the quiz a modal pops up and gives the user a table of the questions asked along with their scores for each question and overall score.
-- At the end of the quiz, two buttons, retake quiz and view results appear to allow the user to pop back up the score summary modal or restart the quiz from scratch.
+    <div align="center">
+    <img src="/assets/images/readme-images/quiz.jpg" alt="multiple choice quiz" >
+    </div>
+
+    - The next and previous question buttons allows navigation through the algorithm questions.
+    - Visual feedback of the correct answer and incorrect answers is provided to the user upon selecting an answer.
+    - A drop down button is available that will allow the user to get more information on why the answer to a particular question is the one shown.
+    - At the end of the quiz a modal pops up and gives the user a table of the questions asked along with their scores for each question and overall score.
+            <div><br/></div>
+            <div align="center">
+            <img src="/assets/images/readme-images/quiz-modal.jpg" alt="quiz modal" >
+            </div>
+    - At the end of the quiz, two buttons, retake quiz and view results appear to allow the user to pop back up the score summary modal or restart the quiz from scratch.
+
 - The bottom of the site credits the developer and provides the websites repository/code.
 ### Features to implement in the future
 - An algorithm comparison page that pits a few algorithms against each other to display the speeds of the algorithms for different data lengths visually. i.e with an animated progress bar along with the bar chart that is already generated.
@@ -107,9 +143,9 @@ The Technologies used in this project are the following:
     - GitPod was used as my Editor/ Development Environment.
 7. [GitHub:](https://github.com/)
     - GitHub is used to store the projects code with version control.
-8. [Prismjs](https://prismjs.com/)
+8. [Prismjs:](https://prismjs.com/)
     - Prism was used to highlight the code of the algorithms for easier readability.
-8. [Jasmine](https://jasmine.github.io/pages/getting_started.html)
+8. [Jasmine:](https://jasmine.github.io/pages/getting_started.html)
     - Jasmine used to unit test algorithms.
 ## Testing
 Testing details can be viewed here [Testing.md](https://github.com/jamesr1775/Sorting-Visualiser/blob/master/Testing.md)
