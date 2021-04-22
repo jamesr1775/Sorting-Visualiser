@@ -150,6 +150,10 @@ The Technologies used in this project are the following:
     - Jasmine used to unit test algorithms.
 10. [JqueryUI](https://code.jquery.com/ui/)
     - Required to test some elements with jasmine testing.
+11. [responsivedesign](http://ami.responsivedesign.is/#)
+    - Used to generate the mockups.
+12. [ezgif](https://ezgif.com/video-to-gif)
+    - Used to generate gifs used throughtout testing, readme and tutorial.
 ## Testing
 Testing details can be viewed here [Testing.md](https://github.com/jamesr1775/Sorting-Visualiser/blob/master/Testing.md)
 

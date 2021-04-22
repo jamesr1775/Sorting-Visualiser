@@ -263,6 +263,8 @@ The majority of the javascript functions have had unit tests written in order to
 - Was getting "undefined $" error when setting up some jamine tests. The problem was the order of which some of the scripts were being added the the spec-runner.html file.
 - Was getting load/set Fixtures function undefined also and this question helped me solve it as it was again problems with the order adding scripts from [stackoverflow](https://stackoverflow.com/questions/24531674/jasmine-jquery-loadfixtures-is-not-defined).
 - Adding the bar-charting.js and quiz-generation.js into jasmine testing was causing issues because I had a document ready function being called and other functions being called in them which caused errors when testing. Got this information that helped me figure out what was causing the errors from [stackoverflow](https://stackoverflow.com/questions/8734168/preventing-document-ready-function-while-unit-testing). Added an if clause that checks if a bar-chart exists and it fixed this.
+- Fixed an error related to favicons not loading as I did not have any.  Got some information on them at [w3](https://www.w3.org/2005/10/howto-favicon).
+
 #### Unsolved Bugs
 1. Zooming in on chrome causes the bar chart to fold bars to next rows
 2. Discovered that the swapping heights chart jitter bug is only fixed for bubble sort and occurs in merge sort and quick sort.
