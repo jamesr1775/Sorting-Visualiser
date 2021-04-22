@@ -226,8 +226,6 @@ function showCurrentAlgorithmCodeAndInfo(currentSortAlgorithm){
     let containerBlock = document.getElementById(currentSortAlgorithm + "-pre");
     let codeBlock = document.getElementById(currentSortAlgorithm + "-code-block");
     let algoInfoBlock = document.getElementById(currentSortAlgorithm + "-info-block");
-    console.log("algoInfoBlock" +algoInfoBlock );
-    console.log("currentSortAlgorithm " +currentSortAlgorithm );
     algoInfoBlock.classList.remove("display-none");
     containerBlock.classList.remove("display-none");
     codeBlock.classList.remove("language-none");
