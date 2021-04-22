@@ -145,8 +145,10 @@ The Technologies used in this project are the following:
     - GitHub is used to store the projects code with version control.
 8. [Prismjs:](https://prismjs.com/)
     - Prism was used to highlight the code of the algorithms for easier readability.
-8. [Jasmine:](https://jasmine.github.io/pages/getting_started.html)
+9. [Jasmine:](https://jasmine.github.io/pages/getting_started.html)
     - Jasmine used to unit test algorithms.
+10. [JqueryUI](https://code.jquery.com/ui/)
+    - Required to test some elements with jasmine testing.
 ## Testing
 Testing details can be viewed here [Testing.md](https://github.com/jamesr1775/Sorting-Visualiser/blob/master/Testing.md)
 
@@ -201,3 +203,6 @@ I followed the steps below to deploy my project:
 - Made the gifs by doing a screen capture for video and converted the video to gifs using [ezgif](https://ezgif.com/).
 - My mentor gave me resources to add jasmine to my project. 
 - Learned more about jasmine unit testing from [Youtube Dylan Israel](https://www.youtube.com/watch?v=h2eWfvcAOTI&t=428s)
+- Got some information for functions like beforeAll in jasmine testing from [jasmine.github.io](https://jasmine.github.io/api/3.7/global)
+- Learned about setting style fixtures to test classes from [itsmycodeblog](https://www.itsmycodeblog.com/2015-4-22-jasmine-jquery-testing-css/2015-4-22-jasmine-jquery-testing-css/)
+- Wanted to click input tags in jasmine testing. Got help from [stackoverflow](https://stackoverflow.com/questions/871063/how-to-set-radio-option-checked-onload-with-jquery)
