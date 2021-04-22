@@ -1,6 +1,7 @@
-# Sorting Visualiser
+#     <div align="center"><img src="/assets/images/Sorting-Visualiser-Logo.png" alt="Site Mock ups"></div>
 The [sorting algorithm visualiser](https://jamesr1775.github.io/Sorting-Visualiser/.). Visualise the algorithms that programmers have studied and use day to day. Why are some algorithms
-better than others? Test your knowledge and solve and learn the time and space complexities of the sorting famous algorithms.
+better than others? Test your knowledge and solve and learn the time and space complexities of these famous algorithms.
+<h2 align="center"><img src="/assets/images/readme-images/mockups.gif" alt="Site Mock ups"></h2>
 
 ## Table of Contents
 
