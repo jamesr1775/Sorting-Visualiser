@@ -494,6 +494,9 @@ footer{
     .slidecontainer{
         width: 96.5%;
     }
+    #nav-questions-block{
+        margin-left: calc(50% - 149px);
+    }
 }
 /*********** Tablets ***********/
 @media screen and (max-width:991px) and (min-width: 768px){
