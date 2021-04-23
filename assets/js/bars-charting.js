@@ -48,6 +48,7 @@ function generateBarChart(){
  **/
 function playAnimations(animations , animationIdx){
         let algorithmSpeed = 51 - $('#algorithmSpeed').val();
+        let sortBarsId = document.getElementById("sortBars");
         let currentAnimation = animations;
         let currentBar = currentAnimation[0];
         let currentBarNewHeight = currentAnimation[1];
@@ -86,6 +87,12 @@ function playAnimations(animations , animationIdx){
             }, algorithmSpeed*animationCounter);
         }
     animationCounter += 1;
+    if(animationIdx === swapAnimations.length - 1){
+        setTimeout(function() {
+            toggleControlButtons(false)
+            sortBarsId.innerHTML = "Start Sorting";
+        }, algorithmSpeed*animationCounter)
+    }
 }
 
 function setHeight(barId, newHeight){
@@ -117,6 +124,21 @@ function loop(swapAnimations, swapAnimationsIdx) {
     }, 0);
     swapAnimationsIdx++;
 }
+function checkIfSorted(){
+    let bars = document.getElementsByClassName("single-bar");
+    for(let i=0; i< bars.length - 1; i++){
+        let barOne = document.getElementById("bar-" + i);
+        let barTwo = document.getElementById("bar-" + (i + 1));
+        let checkBarOneColor = barOne.style.backgroundColor === "cornflowerblue"
+        let checkBarTwoColor = barTwo.style.backgroundColor === "cornflowerblue"
+        if(barOne.clientHeight <= barTwo.clientHeight && checkBarOneColor && checkBarTwoColor){
+            continue
+        }else{
+            return false
+        }
+    }
+    return true
+}
 
 /**
  * Start Sorting button pressed will retrieve an array of animations from 
@@ -147,8 +169,9 @@ $('#sortBars').click(function() {
                 swapAnimationsPlayed[i] = false;
             }
             sortBarsId.innerHTML = "Pause";
+            toggleControlButtons(true)
         }
-        else if(unpaused){
+        else if(unpaused || checkIfSorted()){
             unpaused = false;
             const highestId = window.setTimeout(() => {
                 for (let i = highestId; i >= 0; i--) {
@@ -156,11 +179,13 @@ $('#sortBars').click(function() {
                 }
             }, 0);
             sortBarsId.innerHTML = "Start Sorting";
+            toggleControlButtons(false)
         }
         else{
             unpaused = true;
+            toggleControlButtons(true)
             while(swapAnimationsPlayed[swapAnimationsIdx] === true){
-                    swapAnimationsIdx++;
+                swapAnimationsIdx++;
             }
             sortBarsId.innerHTML = "Pause";
         }
@@ -171,6 +196,20 @@ $('#sortBars').click(function() {
         $('#select-algorithm').modal('show');
     }
 });
+
+function toggleControlButtons(state){
+    $("#algorithmSpeed").prop("disabled",state);
+    $("#generateBars").prop("disabled",state);
+    $("#arraySize").prop("disabled",state);
+    $("#selectAlgorithm").prop("disabled",state);
+    if (state){
+        $("#algorithmSpeedDiv").addClass("disabled-div");
+        $("#arraySizeDiv").addClass("disabled-div")
+    }else{
+        $("#algorithmSpeedDiv").removeClass("disabled-div");
+        $("#arraySizeDiv").removeClass("disabled-div")
+    }
+}
 
 /**
  * Chart control buttons

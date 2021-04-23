@@ -129,6 +129,10 @@ The majority of the javascript functions have had unit tests written in order to
 - When an algorithm is selected the start sorting button starts the sorting and visualisation animations. The button then changes to a pause button.
 - While a sorting algorithm is running the pause button is present and pauses the current sorting if clicked.
 - Changing the speed slider while paused and starting the algorithm again does increase/ decrease the animation speed.
+- Tested rapidly clicking start/pause button and it behaved as expected.
+- When the sorting animations are playing the buttons are disabled except for the pause button so glitches when the speed and generate bars button do not occur.
+- Tested that when the chart is in a sorted state, the start button remains as a start button and does not change to pause and disable the other buttons.
+- Tested that when the algorithm finishes sorting the last timeout enables the buttons and changes the button from a pause button back to a start button.
     <div><br/></div>
     <div align="center">
     <img src="/assets/images/start-stop.gif" alt="Testing Bar Chart">
@@ -264,10 +268,10 @@ The majority of the javascript functions have had unit tests written in order to
 - Was getting load/set Fixtures function undefined also and this question helped me solve it as it was again problems with the order adding scripts from [stackoverflow](https://stackoverflow.com/questions/24531674/jasmine-jquery-loadfixtures-is-not-defined).
 - Adding the bar-charting.js and quiz-generation.js into jasmine testing was causing issues because I had a document ready function being called and other functions being called in them which caused errors when testing. Got this information that helped me figure out what was causing the errors from [stackoverflow](https://stackoverflow.com/questions/8734168/preventing-document-ready-function-while-unit-testing). Added an if clause that checks if a bar-chart exists and it fixed this.
 - Fixed an error related to favicons not loading as I did not have any.  Got some information on them at [w3](https://www.w3.org/2005/10/howto-favicon).
+- Fixed a bug where the user can change the speed by disabling buttons when the algorithm is running.
+- Fixed a bug where the user can change the array size by disabling buttons when the algorithm is running.
+- Fixed a bug where the user can click the generate bars button by disabling buttons when the algorithm is running.
 
 #### Unsolved Bugs
 1. Zooming in on chrome causes the bar chart to fold bars to next rows
 2. Discovered that the swapping heights chart jitter bug is only fixed for bubble sort and occurs in merge sort and quick sort.
-3. The user can change the speed when the algorithm is running.
-4. The user can change the array size when the algorithm is running.
-5. The user can click the generate bars button when the algorithm is running.
