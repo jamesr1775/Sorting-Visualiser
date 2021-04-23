@@ -176,6 +176,11 @@ I followed the steps below to deploy my project:
     - [Free Logo Design](https://www.freelogodesign.org/) - Created the sorting visualiser logo.
 
 ### Acknowledgements
+- Initial inspiration for the project came from watching a sorting visualiser video from youtube here [Timo Bingmann's Channel](https://www.youtube.com/watch?v=kPRA0W1kECg)
+    - I wanted to create my own version that was interactive on deployed on my github.
+    - I also wanted to refresh my memory of these algorithms and this project definetly allowed me to do that.
+    - I wanted a challenging project that looks cool.
+- Thanks to mentor Miguel Martinez with great feedback and help throughout the project. He pushed me to add a little more to it for new users to undestand it better so the tutorial was created, helped me setting up Jasmine testing in my project and much more.
 - Refreshed my memory of javascript objects from [w3schools](https://www.w3schools.com/js/js_objects.asp)
 - Used bootstraps collapse webpage to build my own for the quiz [getbootstrap](https://getbootstrap.com/docs/4.1/components/collapse/)
 - Template literals information helped me out from [developer.mozilla](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Strings)  and [developer.mozilla](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
