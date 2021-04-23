@@ -158,7 +158,12 @@
     vertical-align: middle;
     padding: .375rem .75rem;
 }
-
+.disabled-div{
+    color: #fff;
+    background-color: #198754;
+    border-color: #198754;
+    opacity: .65;
+}
 /*********************** Code Section ***********************/
 .code-block-div{
     padding: 10px;
