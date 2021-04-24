@@ -19,10 +19,10 @@ better than others? Test your knowledge and solve and learn the time and space c
 3. [**Technologies Used**](#technologies-used)
 4. [**Testing**](#testing)
 5. [**Deployment**](#deployment)
-6. [**Credits**](#credits)
+6. [**Bugs and Issues Resolved**](#bugs-and-issues-resolved)
+7. [**Credits**](#credits)
     - [**Media**](#media)
     - [**Acknowledgements**](#acknowledgements)
-    - [**Bugs and Issues Resolved**](#bugs-and-issues-resolved)
     
 ## UX
 ### Project Goals
@@ -169,6 +169,9 @@ I followed the steps below to deploy my project:
 ### Creating your own local copy
 1. To get a copy of this repo, go to [Sorting Visualiser Repo](https://github.com/jamesr1775/Sorting-Visualiser), make sure your logged in. 
 2. In the top right hand corner, click the fork button which will create a copy of the repo into your account.
+
+## Bugs and Issues Resolved
+This section can be located in the [Testing.md File](https://github.com/jamesr1775/Sorting-Visualiser/blob/master/Testing.md).
 
 ## Credits
 ### Media

@@ -3,7 +3,25 @@ The deployed version of the Sorting Visualiser can be found at [github.io/Sortin
 
 The source code for the project can be viewed at [github](https://github.com/jamesr1775/Sorting-Visualiser).
 
+## Table of Contents
+
+1. [**Testing**](#testing)
+    - [**Code Validation**](#code-validation)
+    - [**Jasmine Testing**](#jasmine-tests)
+2. [**User Stories Tests**](#testing-user-stories)
+3. [**Manual Testing**](#manual-testing)
+    - [**Home Page Header**](#home-page-Header)
+    - [**Tutorial Modal**](#tutorial-modal)
+    - [**Bar Chart Controls**](#bar-chart-controls)
+    - [**Algorithm Information and Code**](#algorithm-information-and-code)
+    - [**Quiz**](#quiz)
+    - [**Footer**](#footer)
+4. [**Further Testing**](#further-testing)
+5. [**Bugs and Issues Resolved**](#bugs-and-issues-resolved)
+6. [**Unsolved Bugs**](#unsolved-bugs)
+
 ## Testing
+### Code Validation
 * The HTML passed and showed no errors in the [W3C Markup Validation](https://validator.w3.org/)
 * The CSS passed and showed no errors in the [W3C CSS validation ](https://jigsaw.w3.org/css-validator/validator)
 * The Java Script was tested and no errors were found using [JSHint](https://jshint.com/)
@@ -153,7 +171,7 @@ As a Student or Individual studying  programming & algorithms I would like:
     <img src="/assets/images/start-stop.gif" alt="Testing Bar Chart">
     </div>
 
-#### Algorithm Information & Code
+#### Algorithm Information and Code
 
 ##### Device Specific Layout Changes
 1. On Laptops and desktops, the algorithm code block and information block are displayed in the same row side by side
@@ -250,6 +268,8 @@ As a Student or Individual studying  programming & algorithms I would like:
 - The github icon opens up the source code for the project into a new tab.
 
 #### Further Testing
+- I asked friends and family to test and interact with the site on their own devices which included ipads, iphones and samsung phones.
+- Tested myself on a physical devices laptop, desktop, ipad, samsung phone, iphone.
 ### Bugs and Issues Resolved
 - First few versions of bubble sort and trying to change the bar charts heights to perform sorting was difficult. The animation happened 
   all at once at the end of the function, or with the set timeout function the heights were not updated fast enough for the sorting algorithm and maybe only one or two 
