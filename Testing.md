@@ -106,7 +106,7 @@ The majority of the javascript functions have had unit tests written in order to
     - Used the Jquery command $('.single-bar').length to also check the number of divs / bars created is correct.
     - The bar chart remains centered on the screen throughtout varying the number of bars.
 - The responsiveness of the chart has been tested on various screen sizes. An example of the testing is below. 
-    - When changing the screen size, the bars will fold on to a new row which is expected as the generate bars function is called prior to the screen resolution change.
+    - When changing the screen size, the bars width should adjust as the screen size is changing in order to keep all the bars centered and on the same row.
     - When the generate bars button or the array slider is pressed the bar chart fits into one row for that screen size as expected. 
     - The button controls update to the expected layout for tablets and smartphone screen sizes.
     - The tutorial button remains in the top right corner of the chart aligned with the end of the array size slider.
@@ -271,7 +271,7 @@ The majority of the javascript functions have had unit tests written in order to
 - Fixed a bug where the user can change the speed by disabling buttons when the algorithm is running.
 - Fixed a bug where the user can change the array size by disabling buttons when the algorithm is running.
 - Fixed a bug where the user can click the generate bars button by disabling buttons when the algorithm is running.
-
+- My Mentor helped me fix a bug where changing the screen size would cause the bars to fold on to the next row and pointed me to the right solution. I found information on resize  listeners here [stackoverflow](https://stackoverflow.com/questions/641857/javascript-window-resize-event)
 #### Unsolved Bugs
 1. Zooming in on chrome causes the bar chart to fold bars to next rows
 2. Discovered that the swapping heights chart jitter bug is only fixed for bubble sort and occurs in merge sort and quick sort.

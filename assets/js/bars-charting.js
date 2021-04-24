@@ -47,7 +47,7 @@ function generateBarChart(){
  * when the animation is paused and started, the playAnimations can pick up where it left off.
  **/
 function playAnimations(animations , animationIdx){
-        let algorithmSpeed = 51 - $('#algorithmSpeed').val();
+        let algorithmSpeed = 75 - $('#algorithmSpeed').val();
         let sortBarsId = document.getElementById("sortBars");
         let currentAnimation = animations;
         let currentBar = currentAnimation[0];
@@ -332,4 +332,18 @@ if ($('#bar-chart').length > 0) {
     slider.oninput = function() {
         generateBarChart();
     };
+}
+
+window.onresize = function(event) {
+    resizeBarChart()        
+};
+
+function resizeBarChart(){
+    let barChart = document.getElementById('bar-chart');
+    let bars = document.getElementsByClassName("single-bar");
+    let arraySize = $('#arraySize').val();
+    let newBarWidth = ((barChart.clientWidth - 20 - ((bars.length )*2))/(arraySize));
+    for(let bar of bars){
+        bar.style.width = newBarWidth + "px";
+    }
 }
