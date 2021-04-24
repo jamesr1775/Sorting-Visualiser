@@ -126,6 +126,7 @@ As a Student or Individual studying  programming & algorithms I would like:
 - Video lessons to accompany the algorithm code shown, along with videos on analyzing time and space complexities of algorithms in general so users can get tools to answer some of the questions in the quiz while analyzing the code provided to them above it.
 - Add a few more sorting algorithms such as heap sort.
 - Implement a test/quiz playground where users could be asked to implement a random algorithm to sort certain data. The code the right could be tested to see if it works and give them feedback if all the tests pass (like leetcode) 
+- I would like to add a difficulty option to the quiz so that different questions could be asked depending on what the difficulty the user would select. This would add potential for non programming students/users to get questions that don't require a software background.
 ## Technologies Used
 The Technologies used in this project are the following:
 1. [Bootstrap 5.0:](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
