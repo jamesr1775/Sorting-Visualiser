@@ -5,20 +5,33 @@
  * Algorithm steps are tracked and the animations array is populated.
  **/
 function mergeSortAlgorithmHelper(array, leftIdx, rightIdx, auxilaryArray, animations, finalDoMerge){
+    // Base case for recursion to end.
     if (leftIdx === rightIdx){
         return;
     }
+
     let midIdx = Math.floor((leftIdx + rightIdx)/2)
+    // Arrays divided in to two sub arrays. Auxilary array and array will be swapped on each recursive call.
     mergeSortAlgorithmHelper(auxilaryArray, leftIdx, midIdx, array, animations, false);
     mergeSortAlgorithmHelper(auxilaryArray, midIdx + 1, rightIdx, array, animations, false);
+    // Final do merge call to merge the two sub arrays sorted above into one array that is sorted.
     doMerge(array, leftIdx, midIdx, rightIdx, auxilaryArray, animations, finalDoMerge);
 }
+
+/**
+ * doMerge() does all the heavy lifting of swapping values in the arrays.
+ **/
 function doMerge(array, leftIdx, midIdx, rightIdx, auxilaryArray, animations, finalDoMerge){
     let i = leftIdx;
     let k = leftIdx;
     let j = midIdx + 1;
+    
     while(i <= midIdx && j <= rightIdx){
+        // compare left idx value to right idx value of the aux array
+        // and make swaps in array until loop exit condition reached.
         if (auxilaryArray[i][1] <= auxilaryArray[j][1]){
+            // push bar color changes/ swaps to animation array
+            // swapAnimations = [[barId, barHeightInteger, swapBars, swapColors, barInFinalPosition],...]
             animations.push(['#bar-' + i, 0, false, true, false]);
             animations.push(['#bar-' + k, auxilaryArray[i][1], true, false, false]);
             animations.push(['#bar-' + i, 0, false, false, false]);
@@ -29,6 +42,8 @@ function doMerge(array, leftIdx, midIdx, rightIdx, auxilaryArray, animations, fi
             i++;
         }
         else{
+            // push bar color changes/ swaps to animation array
+            // swapAnimations = [[barId, barHeightInteger, swapBars, swapColors, barInFinalPosition],...]
             animations.push(['#bar-' + j, 0, false, true, false]);
             animations.push(['#bar-' + k, auxilaryArray[j][1], true, false, false]);
             animations.push(['#bar-' + j, 0, false, false, false]);
@@ -40,6 +55,9 @@ function doMerge(array, leftIdx, midIdx, rightIdx, auxilaryArray, animations, fi
         }
         k++;
     }
+
+    // If while loop above ended due to j > rightIdx then we can update the remaining
+    // values in the left half to the array
     while(i <= midIdx){
         animations.push(['#bar-' + i, 0, false, true, false]);
         animations.push(['#bar-' + k, auxilaryArray[i][1], true, false, false]);
@@ -51,6 +69,8 @@ function doMerge(array, leftIdx, midIdx, rightIdx, auxilaryArray, animations, fi
         i++;
         k++;
     }
+    // If while loop above ended due to i > midIdx then we can update the remaining
+    // values in the right half to the array
     while(j <= rightIdx){
         animations.push(['#bar-' + j, 0, false, true, false]);
         animations.push(['#bar-' + k, auxilaryArray[j][1], true, false, false]);
@@ -63,6 +83,11 @@ function doMerge(array, leftIdx, midIdx, rightIdx, auxilaryArray, animations, fi
         k++;
     }
 }
+
+/**
+ * mergeSortAlgorithm() sets up for the call to the recursive helper. It creates the array and auxilary array
+ * and passed it to the helper function with the initial indexes.
+ **/
 function mergeSortAlgorithm(){
     let leftIdx = 0;
     let rightIdx = document.getElementsByClassName("single-bar").length - 1;
@@ -78,7 +103,10 @@ function mergeSortAlgorithm(){
     return swapAnimations;
 }
 
-
+/**
+ * getMergeSortCodeString() returns the code that prism.js will highlight and then present to the user.
+ * Formating(aligning with tabs/spaces) this string will disrupt how its showed currently.
+ **/
  function getMergeSortCodeString(){
     let mergeSortCodeString = `function mergeSortHelper(array, leftIdx, rightIdx, auxilaryArray){
   if (leftIdx === rightIdx) return;
@@ -125,6 +153,9 @@ function mergeSort(array){
     return mergeSortCodeString;
 }
 
+/**
+ * getMergeSortInfoString() returns algorithm information and explanation text to present it to the user.
+ **/
 function getMergeSortInfoString(){
     let mergeSortInfoString = `<h2 id="algo-header" class="text-center mt-2">Merge Sort Algorithm</h2>
                                 <p>Merge sort is a divide and conquer algorithm that splits up the array of length <em>n</em> in to two sub arrays, and then these two sub arrays in to two additional sub arrays until there are <em>n</em> arrays with one element. 

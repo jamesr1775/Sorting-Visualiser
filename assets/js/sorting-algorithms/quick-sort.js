@@ -15,37 +15,61 @@ function quickSortAlgorithm() {
     quickSortHelper(barsArray, leftIdx, rightIdx, swapAnimations);
     return swapAnimations;
 }
+
+/**
+ * quickSortHelper(array, left, right, swapAnimations) implements the divide and conquer recursion
+ * using sub arrays using the index returned by partition.
+ **/
 function quickSortHelper(array, left, right, swapAnimations){
     var index;
     if (array.length > 1) {
-        index = partition(array, left, right, swapAnimations); //index returned from partition
-        if (left < index - 1) { //more elements on the left side of the pivot
+        //index returned from partition to create sub arrays below
+        index = partition(array, left, right, swapAnimations);
+
+        if (left < index - 1) { 
+            //more elements on the left side of the pivot
             quickSortHelper(array, left, index - 1, swapAnimations);
         }else{
+            // final color animation
             swapAnimations.push(['#bar-' + left, 0, false, false, true]);
         }
-        if (index < right) { //more elements on the right side of the pivot
+
+        if (index < right) { 
+            //more elements on the right side of the pivot
             quickSortHelper(array, index, right, swapAnimations);
         }
         else{
+            // final color animation
             swapAnimations.push(['#bar-' + right, 0, false, false, true]);
         }
     }	
 }
+
+/**
+ * partition(array, left, right, swapAnimations) swaps values with the pointers left, right and pivotIdx. 
+ **/
 function partition(array, left, right, swapAnimations) {
     let pivot = array[Math.floor((right + left) / 2)][1]; //middle element
     let pivotIdx = Math.floor((right + left) / 2);
     let i = left; //left pointer
     let j = right; //right pointer
+
+    
     while (i <= j) {
+        // get i index when array value at i is greater than the pivot value
         while (array[i][1] < pivot) {
+            // push bar color changes/ swaps to animation array
+            // swapAnimations = [[barId, barHeightInteger, swapBars, swapColors, barInFinalPosition],...]
             swapAnimations.push(['#bar-' + pivotIdx, 0, false, true, false]);
             swapAnimations.push(['#bar-' + i, 0, false, true, false]);
             swapAnimations.push(['#bar-' + pivotIdx, 0, false, false, false]);
             swapAnimations.push(['#bar-' + i, 0, false, false, false]);
             i++;
         }
+        // get j index when array value at j is less than the pivot value
         while (array[j][1] > pivot) {
+            // push bar color changes/ swaps to animation array
+            // swapAnimations = [[barId, barHeightInteger, swapBars, swapColors, barInFinalPosition],...]
             swapAnimations.push(['#bar-' + pivotIdx, 0, false, true, false]);
             swapAnimations.push(['#bar-' + j, 0, false, true, false]);
             swapAnimations.push(['#bar-' + pivotIdx, 0, false, false, false]);
@@ -53,27 +77,33 @@ function partition(array, left, right, swapAnimations) {
             j--;
 
         }
-
+        // swap j and i values to move values to correct side of the pivot.
         if (i <= j) {
+            // push bar color changes/ swaps to animation array
+            // swapAnimations = [[barId, barHeightInteger, swapBars, swapColors, barInFinalPosition],...]
             swapAnimations.push(['#bar-' + i, 0, false, true, false]);
             swapAnimations.push(['#bar-' + j, 0, false, true, false]);
             swapAnimations.push(['#bar-' + i, array[j][1], true, false, false]);
             swapAnimations.push(['#bar-' + j, array[i][1], true, false, false]);
             swapAnimations.push(['#bar-' + i, 0, false, false, false]);
             swapAnimations.push(['#bar-' + j, 0, false, false, false]);
-            swap(array, i, j); //swapping two elements
-            
+            swap(array, i, j); //swapping two elements 
             i++;
             j--;
         }
     }
     if(right - left === 1){
+        // final color swap animations for last two bars
         swapAnimations.push(['#bar-' + left, 0, false, false, true]);
         swapAnimations.push(['#bar-' + right, 0, false, false, true]);
     }
     return i;
 }
 
+/**
+ * getQuickSortCodeString() returns the code that prism.js will highlight and then present to the user.
+ * Formating(aligning with tabs/spaces) this string will disrupt how its showed currently.
+ **/
 function getQuickSortCodeString(){
     let quickSortCodeString = `function quickSort(array){
   quickSortHelper(array, 0, array.length - 1);
@@ -117,6 +147,9 @@ function swap(array, left, right){
     return quickSortCodeString;
 }
 
+/**
+ * getQuickSortInfoString() returns algorithm information and explanation text to present it to the user.
+ **/
 function getQuickSortInfoString(){
     let quickSortInfoString = `<h2 id="algo-header" class="text-center">Quick Sort Algorithm</h2>
                                 <p>Quick sort is one of the most popular sorting algorithms used today. The algorithm usually selects a random element in the array is usually chosen as a pivot point in the array. The elements to the left and right of this pivot element

@@ -51,12 +51,19 @@ function bubbleSortAlgorithm(){
     return swapAnimations;
 }
 
+/**
+ * swap(array, left, right) function will swap two values in the array located with the left and right pointers
+ **/
 function swap(array, left, right){
     var temp = array[left][1];
     array[left][1] = array[right][1];
     array[right][1] = temp;
 }
 
+/**
+ * getBubbleSortCodeString() returns the code that prism.js will highlight and then present to the user.
+ * Formating(aligning with tabs/spaces) this string will disrupt how its showed currently.
+ **/
 function getBubbleSortCodeString(){
     let bubbleSortCodeString = `function bubbleSortAlgorithm(arr){
   // traverse through entire array
@@ -81,6 +88,9 @@ function getBubbleSortCodeString(){
     return bubbleSortCodeString;
 }
 
+/**
+ * getBubbleSortInfoString() returns algorithm information and explanation text to present it to the user.
+ **/
 function getBubbleSortInfoString(){
     let bubbleSortInfoString =`<h2 id="algo-header" class="text-center">Bubble Sort Algorithm</h2>
                                 <p>Bubble sort is an old and well known algorithm that sorts the array, usually in ascending order.</p>

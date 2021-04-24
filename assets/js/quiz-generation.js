@@ -104,10 +104,14 @@ function addQuizQuestionsToHtml(){
     questionsCounter = 0;
     let takeQuizBlock = document.getElementById("take-quiz-block");
     takeQuizBlock.innerHTML = `<button id="take-quiz-btn" class="btn btn-success button-text" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Take Quiz</button>`;
+
+    // Remove answer and results block buttons and text as they are added later on when taking the quiz. 
     let quizResultsBlock = document.getElementById("quiz-results-block");
     quizResultsBlock.innerHTML = ``;
     let answerRevealBlock = document.getElementById("answer-reveal-block");
     answerRevealBlock.innerHTML = ``;
+
+    // Update the question and the choices to the correct algorithm and question counter values.
     let quizBlock = document.getElementById("question-block");
     let answerChoiceBlock = document.getElementById("answer-choices-block");
     let navQuestionsBlock = document.getElementById("nav-questions-block");
@@ -125,7 +129,7 @@ function addQuizQuestionsToHtml(){
 }
 
 /**
- * previous and next question buttons 
+ * previous and next question buttons to navigate through the questions in the selected quiz .
  **/
 $(document).on('click','#prev-question', function(){
     if(questionsCounter != 0){
@@ -182,6 +186,8 @@ $(document).on("click",'#answer-choices-block input[type=radio]', function() {
     let answerRevealBlockHTML = `<p><button class="btn btn-success button-text" type="button" data-toggle="collapse" data-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3">Answer explanation</button></p>
     <div class="row"><div class="col-12"><div class="collapse multi-collapse answer-reveal-text" id="multiCollapseExample3">${currentQuestionsStruct.answerExplanations[questionsCounter]}</div></div></div>`;
     answerRevealBlock.innerHTML = answerRevealBlockHTML;
+
+    // If final answer pressed, show the user their score otherwise the current question result modal.
     if(questionsCounter === currentQuestionsStruct.questions.length - 1){
         presentUserQuizScore();
     }else{
@@ -218,27 +224,41 @@ function presentUserQuizScore(){
     let quizModalHeader = document.getElementById("quiz-header-modal");
     let quizModalResultsHTML = `<table id="results-table"><th class="text-center pl-3 pr-3">Question</th><th class="text-center pl-3 pr-3">Result</th></tr>`;
     let correctAnswerCounter = 0;
+
+    // Build uo table with questions and results.
     for(let i=0; i<currentQuestionsStruct.questions.length; i++){
         let questionResult =  currentQuestionsStruct.userScore[i]? `<div class="text-center"><span class="check-mark">&#9989;</span></div>`: `<div class="text-center"><span class="cross-mark">&#9746;</span></div>`;
         correctAnswerCounter += currentQuestionsStruct.userScore[i];
         quizModalResultsHTML += `<tr><td> ${currentQuestionsStruct.questions[i]} </td><td> ${questionResult} </td></tr>`;
     }
+
     let algorithm = document.getElementById("algo-header").innerHTML;
     let percentCorrect = 100*(correctAnswerCounter/currentQuestionsStruct.questions.length);
     quizModalResultsHTML += `</table><p id="score-fraction"><br>You scored ${percentCorrect}%.</p>`;
     quizModalResults.innerHTML = quizModalResultsHTML;
     quizModalHeader.innerHTML = `${algorithm} Quiz Results`;
+
+    // Show modal of results to user
     $('#quiz-results').modal('show');
+
+    // Add a retake quiz and view results button.
     let quizResultsBlock = document.getElementById("quiz-results-block");
     let quizResultsBlockHTML = `<button id="view-results" type="button" class="dashboard-btn btn btn-success button-text" aria-label="View Score Button">View Score</button>
     <button id="retake-quiz" type="button" class="dashboard-btn btn btn-success button-text" aria-label="Retake Quiz Button">Retake Quiz</button>`;
     quizResultsBlock.innerHTML = quizResultsBlockHTML;
 }
 
+
+/**
+ * View Results button pressed. Show overall results modal.
+ **/
 $(document).on('click','#view-results',function(){
     $('#quiz-results').modal('show');
 });
 
+/**
+ * Retake Quiz button pressed. Reset quiz.
+ **/
 $(document).on('click','#retake-quiz',function(){
     questionsCounter = 0;
     updateQuestionsDisplayed();

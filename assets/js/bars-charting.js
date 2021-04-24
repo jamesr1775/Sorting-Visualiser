@@ -21,6 +21,8 @@ function generateBarChart(){
     let spacerContainer = '<div class="col-1"></div>';
     let allBars = "";
     swapAnimations = [];
+
+    // Generate all bar divs inside a string literal.
     for(let i=0; i<arraySize; i++){
         let singleBar = '<div id="bar-' + i + '" class="single-bar"></div>';
         allBars += singleBar;
@@ -30,6 +32,8 @@ function generateBarChart(){
     let bars = document.getElementsByClassName("single-bar");
     let maxHeight = 0;
     let newBarWidth = ((barChart.clientWidth - 20 - ((bars.length )*2))/(arraySize));
+
+    // Set new random heights to the bars in the barsContainer.
     for(let bar of bars){
         let newHeight = Math.ceil(Math.random() * screen.height*screenHeightMultiplier);
         if (newHeight > maxHeight){
@@ -55,6 +59,7 @@ function playAnimations(animations , animationIdx){
         let swapBar = currentAnimation[2];
         let swapColor = currentAnimation[3];
         let barInFinalPosition = currentAnimation[4];
+        // Swap Bar colors animation to highlight two bars yellow and red
         if(swapColor){
             setTimeout(function() {
                 if(flipColor){
@@ -68,18 +73,21 @@ function playAnimations(animations , animationIdx){
                 flipColor = !flipColor;
             }, algorithmSpeed*animationCounter);
         }
+        // Swap Bar heights animation to swap a bars height to a new height.
         else if(swapBar){
             setTimeout(function() {
                 setHeight(currentBar, currentBarNewHeight);
                 swapAnimationsPlayed[animationIdx] = true;
             }, algorithmSpeed*animationCounter);
         }
+        // Color bar blue if its in the correct position animation.
         else if(barInFinalPosition){
             setTimeout(function() {
                 setColor(currentBar, "cornflowerblue");
                 swapAnimationsPlayed[animationIdx] = true;
             }, algorithmSpeed*animationCounter);
         }
+        // Otherwise Change bar back to default green color.
         else{
             setTimeout(function() {
                 setColor(currentBar, "#198754");
@@ -87,6 +95,7 @@ function playAnimations(animations , animationIdx){
             }, algorithmSpeed*animationCounter);
         }
     animationCounter += 1;
+    // If all animations played then we can enable the controls.
     if(animationIdx === swapAnimations.length - 1){
         setTimeout(function() {
             toggleControlButtons(false)
@@ -95,11 +104,17 @@ function playAnimations(animations , animationIdx){
     }
 }
 
+/**
+ * setHeight(barId, newHeight) sets a divs height with id barId to the newHeight variable.
+ **/
 function setHeight(barId, newHeight){
     let barOne =  $(barId);
     barOne.css("height", newHeight);
 }
 
+/**
+ * setColor(barId, color) sets a divs background with id barId to the color variable.
+ **/
 function setColor(barId, color){
     let barOne =  $(barId);
     barOne.css("background", color);
@@ -115,6 +130,7 @@ function loopStep(swapAnimations, swapAnimationsIdx) {
 }
 
 function loop(swapAnimations, swapAnimationsIdx) {
+    // If we have played all animations or we are paused stop looping.
     if (swapAnimationsIdx >= swapAnimations.length || unpaused === false){
         return;
     }
@@ -124,6 +140,11 @@ function loop(swapAnimations, swapAnimationsIdx) {
     }, 0);
     swapAnimationsIdx++;
 }
+
+/**
+ * checkIfSorted() returns a boolean as to wheter the chart is sorted and the bars have updated their
+ * colors to the correct position color.
+ **/
 function checkIfSorted(){
     let bars = document.getElementsByClassName("single-bar");
     for(let i=0; i< bars.length - 1; i++){
@@ -151,6 +172,7 @@ $('#sortBars').click(function() {
     animationCounter = 0;
     let swapAnimationsIdx = 0;
     if(currentSortAlgorithm != "None"){
+        // Check if we have animations to play otherwise get them for the selected algorithm.
         if(swapAnimations.length === 0){
             if(currentSortAlgorithm === "bubble-sort"){
                 swapAnimations = bubbleSortAlgorithm();
@@ -171,6 +193,7 @@ $('#sortBars').click(function() {
             sortBarsId.innerHTML = "Pause";
             toggleControlButtons(true)
         }
+        // The pause button was pressed or we are already sorted so enter to enable buttons and update pause to start text 
         else if(unpaused || checkIfSorted()){
             unpaused = false;
             const highestId = window.setTimeout(() => {
@@ -181,6 +204,7 @@ $('#sortBars').click(function() {
             sortBarsId.innerHTML = "Start Sorting";
             toggleControlButtons(false)
         }
+        // The Start sorting button was pressed.
         else{
             unpaused = true;
             toggleControlButtons(true)
@@ -191,12 +215,17 @@ $('#sortBars').click(function() {
         }
         loop(swapAnimations, swapAnimationsIdx);
     }
+    // If no algorithm is selected , show modal.
     else{
         event.preventDefault();
         $('#select-algorithm').modal('show');
     }
 });
 
+/**
+ * toggleControlButtons(state) will enable and disable the control 
+ * buttons depending on the boolean value of the state variable.
+ **/
 function toggleControlButtons(state){
     $("#algorithmSpeed").prop("disabled",state);
     $("#generateBars").prop("disabled",state);
@@ -212,7 +241,7 @@ function toggleControlButtons(state){
 }
 
 /**
- * Chart control buttons
+ * Generate Chart Control Button
  **/
 $('#generateBars').click(function() {
     let sortBarsId = document.getElementById("sortBars");
@@ -220,6 +249,9 @@ $('#generateBars').click(function() {
     generateBarChart();
 });
 
+/**
+ * Bubble Sort Select Control Button
+ **/
 $('#bubbleSortSelect').click(function() {
     let selectAlgorithm = document.getElementById('selectAlgorithm');
     selectAlgorithm.innerHTML = "Bubble Sort";
@@ -227,6 +259,9 @@ $('#bubbleSortSelect').click(function() {
     setupAlgorithmSelection(currentSortAlgorithm);
 });
 
+/**
+ * Merge Sort Select Control Button
+ **/
 $('#mergeSortSelect').click(function() {
     let selectAlgorithm = document.getElementById('selectAlgorithm');
     selectAlgorithm.innerHTML = "Merge Sort";
@@ -234,6 +269,9 @@ $('#mergeSortSelect').click(function() {
     setupAlgorithmSelection(currentSortAlgorithm);
 });
 
+/**
+ * Quick Sort Select Control Button
+ **/
 $('#quickSortSelect').click(function() {
     let selectAlgorithm = document.getElementById('selectAlgorithm');
     selectAlgorithm.innerHTML = "Quick Sort";
@@ -307,7 +345,7 @@ function addCodeToHtml(){
 }
 
 /**
- * Instructions modal help button
+ * Instructions modal help button.
  **/
 $('#tutorial-close-btn').click(function() {
     let tutorialArrow = document.getElementById("tutorial-arrow");
@@ -323,7 +361,9 @@ $('#tutorial-close-btn').click(function() {
     }, 2500);
 });
 
-// If bar chart exists
+/**
+ * If bar chart div exists generate a bars in the chart and add the code and info to html but hidden.
+ **/
 if ($('#bar-chart').length > 0) {
     generateBarChart();
     addCodeToHtml(currentSortAlgorithm);
@@ -334,10 +374,16 @@ if ($('#bar-chart').length > 0) {
     };
 }
 
+/**
+ * On Window size event call the resizeBarChart() function.
+**/
 window.onresize = function(event) {
     resizeBarChart()        
 };
 
+/**
+ * resizeBarChart() will adjust the width of the bars based on the current resolution of the window.
+**/
 function resizeBarChart(){
     let barChart = document.getElementById('bar-chart');
     let bars = document.getElementsByClassName("single-bar");
