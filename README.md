@@ -1,4 +1,4 @@
-#     <div align="center"><img src="/assets/images/Sorting-Visualiser-Logo.png" alt="Site Mock ups"></div>
+#     <div align="center"><img src="/assets/images/sorting-visualiser-logo.png" alt="Site Mock ups"></div>
 The [sorting algorithm visualiser](https://jamesr1775.github.io/Sorting-Visualiser/.). Visualise the algorithms that programmers have studied and use day to day. Why are some algorithms
 better than others? Test your knowledge and solve and learn the time and space complexities of these famous algorithms.
 <h2 align="center"><img src="/assets/images/readme-images/mockups.gif" alt="Site Mock ups"></h2>
@@ -42,19 +42,19 @@ better than others? Test your knowledge and solve and learn the time and space c
 * A challenging project for the developer.
 
 ### User Stories
-1. As a potential User I would like to be able to see sorting algorithms sort data in an intuitive way to help understanding.
-2. As a new visitor, I would like to seamlessly navigate the website and understand and use the interactive parts easily.
-3. As a potential visitor, I want to be able to find the source code so I can see the javascript that was used in a sorting algorithm.
-4. As a potential user, I would like to generate data to sort and select a sorting algorithm to sort it.
-5. As a potential user, I would like to be able to increase and decrease the speed to see the algorithm in detail.
-6. As a potential user, I would like to pause and start the algorithm.
-7. As a potential user, I would like to take test my knowledge and understanding of the algorithm.
-8. As a potential user, I would like to learn things I did not know about algorithms before, and see answers to questions about time and space complexity.
+As a Student or Individual studying  programming & algorithms I would like:
+1. To be able to see sorting algorithms sort data in an intuitive way, so that I can better my understanding of them.
+2. To seamlessly navigate the website and the chart controls, so that I can understand and use the controls easily.
+3. The ability to find the code of a selected algorithm, so I can see the javascript that was used in a sorting algorithm and use it myself in my own project.
+4. To control the amount of data to sort, so that I can get a better feel for the improvements algorithms like quick sort and merge sort brought to programming.
+5. To control the speed of the algorithm sorting so that I can slow it down to see it in more detail or speed it up for large data sets.
+6. The ability to test my knowledge on algorithms, so that I can get feedback on my time and space complexity analysis.
+7. To learn things I did not know about algorithms before and see answers to questions, so that I can prepare for exams, interviews or just improve my programming algorithm knowledge.
 ### Wireframe mock-ups
-- [Home Page](https://github.com/jamesr1775/Sorting-Visualiser/blob/master/assets/wireframes/Home.png)
-- [Home Algorithm Selected](https://github.com/jamesr1775/Sorting-Visualiser/blob/master/assets/wireframes/Home-Algo-Selected.png)
-- [Home Algorithm Quiz](https://github.com/jamesr1775/Sorting-Visualiser/blob/master/assets/wireframes/Home-Algo-Quiz.png)
-- [Home Algorithm Selected](https://github.com/jamesr1775/Sorting-Visualiser/blob/master/assets/wireframes/Home-Quiz-Results.png)
+- [Home Page](https://github.com/jamesr1775/Sorting-Visualiser/blob/master/assets/wireframes/home.png)
+- [Home Algorithm Selected](https://github.com/jamesr1775/Sorting-Visualiser/blob/master/assets/wireframes/home-algo-selected.png)
+- [Home Algorithm Quiz](https://github.com/jamesr1775/Sorting-Visualiser/blob/master/assets/wireframes/home-algo-quiz.png)
+- [Home Algorithm Selected](https://github.com/jamesr1775/Sorting-Visualiser/blob/master/assets/wireframes/home-quiz-results.png)
 
 ## Features
 ### Home Page

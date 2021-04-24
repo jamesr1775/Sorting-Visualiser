@@ -31,38 +31,53 @@ The majority of the javascript functions have had unit tests written in order to
 5. If all tests pass you will see something like below.
     <div><br/></div>
     <div align="center">
-    <img src="/assets/images/testing-images/jasmine-testing.gif" alt="Testing Bar Chart">
+    <img style="width:90%;"  src="/assets/images/testing-images/jasmine-testing.gif" alt="Testing Bar Chart">
     </div>
 
 ### Testing User Stories
-1. As a potential User I would like to be able to see sorting algorithms sort data in an intuitive way to help understanding.
+As a Student or Individual studying  programming & algorithms I would like:
+1. To be able to see sorting algorithms sort data in an intuitive way, so that I can better my understanding of them.
     - A bar chart that can visually show itself getting sorted via different algorithms is presented to the user on visiting the home page.
     - The user has three of the most famous sorting algorithms to choose from.
     - The bars update color when they get sorted into their correct position.
     - The bars getting compared are are shown in different colors also.
-2. As a new visitor, I would like to seamlessly navigate the website and understand and use the interactive parts easily.
+    <div><br/></div>
+    <div align="center">
+    <img style="width:70%;"  src="/assets/images/testing-images/user-story-1-4-5.png" alt="User Story 1,4,5">
+    </div>
+2. To seamlessly navigate the website and the chart controls, so that I can understand and use the controls easily.
     - For the bar chart controls, there is a tutorial modal that shows the user how to use and interact with the chart controls.
     - The quiz buttons and chart controls all have hover css to improve user feedback when interacting with them.
     - The toggle buttons hide and show quiz and answer explanation.
-3. As a potential visitor, I want to be able to find the source code so I can see the javascript that was used in a sorting algorithm.
+    <div><br/></div>
+    <div align="center">
+    <img style="width:70%;"  src="/assets/images/testing-images/user-story-2.png" alt="User Story 2">
+    </div>
+3. The ability to find the code of a selected algorithm, so I can see the javascript that was used in a sorting algorithm and use it myself in my own project.
     - Upon selecting an algorithm, the code that implements that algorithm is displayed to the user underneath the bar chart.
     - Also presented is the algorithm steps / pseudo explanation to help the user understand what the algorithm / code is doing.
-4. As a potential user, I would like to generate data to sort and select a sorting algorithm to sort it.
+    <div><br/></div>
+    <div align="center">
+    <img style="width:70%;" src="/assets/images/testing-images/user-story-3.png" alt="User Story 3">
+    </div>
+4. To control the amount of data to sort, so that I can get a better feel for the improvements algorithms like quick sort and merge sort brought to programming.
     - The generate bars button will refresh the chart with new bars of different heights.
     - There is drop down menu that allows the user to select an algorithm.
     - The array size slider will also update the chart and increase / decrease the number of bars displayed.
-5. As a potential user, I would like to be able to increase and decrease the speed to see the algorithm in detail.
-    - A slider that controls the speed is available to the user so that they can increase or decrease the animations playing speed.
+5. To control the speed of the algorithm sorting so that I can slow it down to see it in more detail or speed it up for large data sets.
+    - A slider that controls the speed (see image in point 1) is available to the user so that they can increase or decrease the animations playing speed.
     - They are also able to pause the current sorting and adjust the speed as required.
-6. As a potential user, I would like to pause and start the algorithm.
-    - The user can pause and start the sorting animations by clicking the start / pause button.
-7. As a potential user, I would like to take test my knowledge and understanding of the algorithm.
+6. The ability to test my knowledge on algorithms, so that I can get feedback on my time and space complexity analysis.
     - A quiz is available upon clicking the Take Quiz button. Each quiz has questions related to the selected algorithm some of which include space and time complexity analysis questions.
     - The quiz provide feedback to the user as to whether or not they chose the correct answer via a modal popup and also color styling.
     - At the end of a quiz the user gets a score card that shows them which questions they answered correctly and their overall score.
-8. As a potential user, I would like to learn things I did not know about algorithms before, and see answers to questions about time and space complexity.
-    - When an answer is selected the user can choose to see more information on the answer by clicking on the answer explanation button to help them understand the correct answer.
-    -A mix of general knowledge / trivia and algorithm analysis questions are presented to provide more learning of the history and background behind the algorithms not just algorithm analysis.
+    <div><br/></div>
+    <div align="center">
+    <img style="width:70%;" src="/assets/images/testing-images/user-story-6-7.png" alt="User Story 7">
+    </div>
+7. To learn things I did not know about algorithms before and see answers to questions, so that I can prepare for exams, interviews or just improve my programming algorithm knowledge.
+    - When an answer is selected the user can choose to see more information on the answer by clicking on the answer explanation button to help them understand the correct answer. (see image in point 6)
+    - A mix of general knowledge / trivia and algorithm analysis questions are presented to provide more learning of the history and background behind the algorithms not just algorithm analysis.
 
 ### Manual Testing
 * All manual tests below:
