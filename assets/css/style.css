@@ -124,7 +124,7 @@
     border-radius: .25rem;
 }
 .slider:hover {
-    opacity: 1;
+    opacity: 0.7;
 }
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
@@ -209,20 +209,20 @@
     background-color: cornflowerblue;
     color: snow;
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 900;
     font-family: "Roboto", sans-serif;
     width: 100%;
     cursor: grab;
     border-radius:5px;
 }
 .correct-answer{
-    background: green !important;
+    background: rgb(0, 135, 35) !important;
 }
 .incorrect-answer{
-    background: red !important;
+    background: rgb(255, 70, 70) !important;
 }
 #answer-choices-block label:hover {
-    background: powderblue;
+    background: coral;
 }
 #answer-choices-block input[type=radio]:checked + label {
     background: darkcyan;
@@ -254,13 +254,13 @@
     padding:2px;
     width: 150px;
     box-shadow: 2px 2px darkslategray;
-    margin-right: 1px;
+    margin-right: 5px;
 }
 #next-question{
     padding:2px;
     width: 150px;
     box-shadow: 2px 2px darkslategray;
-    margin-left: 1px;
+    margin-left: 5px;
 }
 #answer-reveal-block{
     font-family: "Roboto", sans-serif;
@@ -284,7 +284,7 @@
     font-family: "Roboto", sans-serif;
     display: flex;
     margin-bottom: 10px;
-    margin-left: calc(50% - 200px);
+    margin-left: calc(50% - 210px);
 }
 #quiz-results-block button{
     font-size: 20px;
@@ -368,6 +368,10 @@ footer{
     margin-bottom: 10px;
     margin-top: 10px;
     padding: 0
+}
+.hover-buttons:hover {
+  background-color: cornflowerblue;
+  border-radius: 1rem;
 }
 
 /*********************** Select Algo Error Modal ***********************/
@@ -491,7 +495,7 @@ footer{
         width: 96.5%;
     }
     #quiz-results-block{
-        margin-left: calc(50% - 150px);
+        margin-left: calc(50% - 160px);
     }
     #quiz-results-block button{
         width: 150px;
@@ -500,9 +504,45 @@ footer{
         width: 96.5%;
     }
     #nav-questions-block{
-        margin-left: calc(50% - 149px);
+        margin-left: calc(50% - 155px);
+    }
+    #bubble-sort-pre, #merge-sort-pre , #quick-sort-pre{
+        background: none;
     }
 }
+@media screen and (max-width:400px){
+    #nav-questions-block{
+        margin-left: calc(50% - 105px);
+    }
+    #prev-question{
+        width: 100px;
+
+    }
+    #next-question{
+        width: 100px;
+    }
+    .algo-info-div{
+        font-size: 15px;
+        line-height: 1.5;
+        width: 95%;
+        margin: 2.5%;
+    }
+    .code-block-div{
+        width: 95%;
+        margin: 2.5%;
+    }
+    #question{
+        font-size: 15px;
+    }
+    #quiz-results-block{
+        margin-left: calc(50% - 110px);
+    }
+    #quiz-results-block button{
+        width: 100px;
+        font-size: 15px;
+    }
+}
+
 /*********** Tablets ***********/
 @media screen and (max-width:991px) and (min-width: 768px){
     #bar-chart {
@@ -544,7 +584,7 @@ footer{
         margin-left: 5px;
     }
     #nav-questions-block{
-        margin-left: calc(50% - 195px);
+        margin-left: calc(50% - 205px);
     }
 }
 @media screen and (min-width:992px){
