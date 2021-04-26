@@ -26,7 +26,7 @@ The source code for the project can be viewed at [github](https://github.com/jam
 * The CSS passed and showed no errors in the [W3C CSS validation ](https://jigsaw.w3.org/css-validator/validator)
 * The Java Script was tested and no errors were found using [JSHint](https://jshint.com/)
 ### Jasmine Tests
-The majority of the javascript functions have had unit tests written in order to test some core functionality of the project and the features the functions are trying to implement. All tests were checked against invalid successes by changing the expected value / result to guarantee the test to fail. Due to the complexity and the asynchronous behaviour of the animations alot of test testing for the bar chart was done manually.
+The majority of the javascript functions have had unit tests written in order to test some core functionality of the project and the features the functions are trying to implement. All tests were checked against invalid successes by changing the expected value / result to guarantee the test to fail. Due to the complexity and the asynchronous behaviour of the animations a lot of testing for the bar chart was done manually.
 #### Test Suites
 1. TS_001_MergeSort
     - Merge Sort suite of test cases to test the sorting algorithm with various input arrays
@@ -35,7 +35,7 @@ The majority of the javascript functions have had unit tests written in order to
 3. TS_003_BubbleSort
     - Bubble Sort suite of test cases to test the sorting algorithm with various input arrays
 4. TS_004_Generate_Bar_Chart
-    - Suite of test cases that test the functions that change the number of bars, bar colors and heights.
+    - Suite of test cases that test the functions that change the number of bars, bar colors and heights etc.
 5. TS_005_Setup_Algorithms
     - Test suite to check that the algorithm info and code presented to the user is correct and that the hide and show behaviour upon selecting an algorithm is correct.
 6. TS_006_Quiz_Generation
@@ -58,7 +58,7 @@ As a Student or Individual studying  programming & algorithms I would like:
     - A bar chart that can visually show itself getting sorted via different algorithms is presented to the user on visiting the home page.
     - The user has three of the most famous sorting algorithms to choose from.
     - The bars update color when they get sorted into their correct position.
-    - The bars getting compared are are shown in different colors also.
+    - The bars getting compared are are shown in different colors also (yellow and red).
     <div><br/></div>
     <div align="center">
     <img style="width:70%;"  src="/assets/images/testing-images/user-story-1-4-5.png" alt="User Story 1,4,5">
@@ -67,6 +67,7 @@ As a Student or Individual studying  programming & algorithms I would like:
     - For the bar chart controls, there is a tutorial modal that shows the user how to use and interact with the chart controls.
     - The quiz buttons and chart controls all have hover css to improve user feedback when interacting with them.
     - The toggle buttons hide and show quiz and answer explanation.
+    - When the algorithm is running, buttons are disabled visually to stop bugs.
     <div><br/></div>
     <div align="center">
     <img style="width:70%;"  src="/assets/images/testing-images/user-story-2.png" alt="User Story 2">
@@ -100,8 +101,8 @@ As a Student or Individual studying  programming & algorithms I would like:
 ### Manual Testing
 * All manual tests below:
     - were ran on chrome and firefox.
-    - were repeated on various screen resolutions using the chrome and firefox developer tools that include desktops, ipad, ipad pro, iphone X, 6 ,7 , 8 and the plus models.
-    - were repeated on the developers own smartphone (samsung) and tablet (ipad).
+    - were repeated on various screen resolutions using the chrome and firefox developer tools that include desktops, ipad, ipad pro, iphone X, 5, 6 ,7 , 8 and the plus models.
+    - were repeated on the developers own smartphone (samsung) and tablet (ipad), desktop and laptop.
 
 #### Home Page Header
 - The Header responsiveness was tested by varying the screen size to see that the icon image remained centered and undistorted.
@@ -114,7 +115,7 @@ As a Student or Individual studying  programming & algorithms I would like:
 - The carousel navigation works and can be used to go through the tutorial steps and cycle back to the start or vice versa depending on the arrow clicked.
 - The close button closes the modal.
 - The modal tutorial can be reopened by clicking the question mark on the top right of the chart.
-- When the modal closes, an indicator points to the question mark button , to show thats where the tutorial is to reopen it. 
+- When the modal closes, an indicator points to the question mark button , to show thats where the tutorial is so they can to reopen it. 
 - The indicator disappears after a few seconds.
     <div><br/></div>
     <div align="center">
@@ -126,18 +127,18 @@ As a Student or Individual studying  programming & algorithms I would like:
 ##### Device Specific Layout Changes
 1. On Laptops and desktops, all the bar chart control buttons and sliders are on the same horizontal row.
 2. For tablets, the buttons remain on the same row, but both the slider inputs move to separate rows so that there are three rows.
-3. For smartphones all the controls options occupy a separate row.
+3. For smartphones all the control options occupy a separate row which will total 5 rows.
 
 ##### Bar Chart Generation and Array Slider
 - Upon visiting the webpage, a bar chart is generated with 10 bars. 
 - Across all platforms the width to fit the numbers of bars is adjusted to fit all of the bars on one horizontal row.
 - Testing two ways to generate a bar chart:
     - The generate bars button creates a new graph with the fixed number of bars with random heights. The chart is centered on the screen.
-    - The array slider varys the number of bars from a minimum of 5 up to a maximum of 100 bars as expected. It creates a new chart and adds or removes bars based on the direction of sliding the button. Inspecting the chart shows the max and min bars possible is correct.
+    - The array slider varies the number of bars from a minimum of 5 up to a maximum of 100 bars as expected. It creates a new chart and adds or removes bars based on the direction of sliding the button. Inspecting the chart shows the max and min bars possible is correct.
     - Moving the slider to the left decreases the bars and sliding it to the right increases the number of bars.
     - Using the Jquery command $('#arraySize').val() in the browsers console to check that the correct values are being set when changing the slider.
     - Used the Jquery command $('.single-bar').length to also check the number of divs / bars created is correct.
-    - The bar chart remains centered on the screen throughtout varying the number of bars.
+    - The bar chart remains centered on the screen throughout varying the number of bars.
 - The responsiveness of the chart has been tested on various screen sizes. An example of the testing is below. 
     - When changing the screen size, the bars width should adjust as the screen size is changing in order to keep all the bars centered and on the same row.
     - When the generate bars button or the array slider is pressed the bar chart fits into one row for that screen size as expected. 
@@ -166,6 +167,7 @@ As a Student or Individual studying  programming & algorithms I would like:
 - When the sorting animations are playing the buttons are disabled except for the pause button so glitches when the speed and generate bars button do not occur.
 - Tested that when the chart is in a sorted state, the start button remains as a start button and does not change to pause and disable the other buttons.
 - Tested that when the algorithm finishes sorting the last timeout enables the buttons and changes the button from a pause button back to a start button.
+- Tested pausing the current running algorithm and changing it to a different algorithm will start the new algorithm sorting animations if the start button is pressed.
     <div><br/></div>
     <div align="center">
     <img src="/assets/images/start-stop.gif" alt="Testing Bar Chart">
@@ -184,7 +186,7 @@ As a Student or Individual studying  programming & algorithms I would like:
     - The code and the algorithm information are changed from hidden to visible for the chosen algorithm.
     - The algorithms code and information that are not selected remain hidden.
     - Prism highlights the code like an IDE and makes the code more readable and user friendly.
-    - The algorithm information shows a brief introduction to the algorithm, the algorithm steps it takes to perform its sort and finally a hint is offered for the space and time complexity analysis as the answer can be found in the quiz.
+    - The algorithm information shows a brief introduction to the algorithm, the algorithm steps it takes to perform its sort and finally a hint is offered for the space and time complexity analysis as the answer can be found in the quiz and entices the user to try the quiz.
     - The code font size is adjusted for smaller screen resolutions so as to try and fit it to the screen as much as possible without folding the lines of code.
 - The correct algorithm runs and can visually be identified when the start sorting button is pressed.
 - Swapping between algorithms many times behaves as expected.
@@ -221,13 +223,13 @@ As a Student or Individual studying  programming & algorithms I would like:
 
 #### Quiz
 ##### Device Specific Layout Changes
-1. On Laptops, desktops and tablets the question choices appear two per row upto a maximum of two rows and two columns.
-2. For smartphones, they are displayed on separate rows upto a max of 4 rows.
+1. On Laptops, desktops and tablets the question choices appear two per row up to a maximum of two rows and two columns.
+2. For smartphones, they are displayed on separate rows up to a max of 4 rows.
 3. The buttons adjust sizes based on the screen resolution.
 
 ##### Quiz Navigation & User Input
 - Quiz Navigation
-    - The take quiz button appears when the algoritm is selected.
+    - The take quiz button appears when the algorithm is selected.
     - The take quiz button opens up the drop down tab that contains the quiz. 
     - A question alongside multiple choices are presented to the user.
     - Confirmed the correct questions and choices are loaded for each algorithm and each question.
@@ -236,7 +238,7 @@ As a Student or Individual studying  programming & algorithms I would like:
     - Pressing the previous button goes to the previous question until the first question where nothing happens if previous is clicked.
     - The question number tracker updates correctly on using the question navigation buttons.
 - User Input
-    - Each question question is tested along side the correct and incorrect choices.
+    - Each question is tested along side the correct and incorrect choices.
     - The correct modal displays whether you chose the correct/incorrect answer.
     - The questions choices highlight a different color to display the correct (green) and incorrect (red) answers.
     - The answer explanation button appears when a question has been answered.
@@ -261,7 +263,7 @@ As a Student or Individual studying  programming & algorithms I would like:
     <img src="/assets/images/testing-images/quiz-completion.gif" alt="quiz completion testing">
     </div>
 - Quiz Run Through
-    - Confirmed that running through the quiz and select the answers to give scores of 0%, 60% and 100% are correct.
+    - Confirmed that running through the quiz and select the answers to give scores of 0%, 20%, 40%, 60%, 80% and 100% are correct.
     - The quiz gets reset correctly and starting a new quiz resets the score.
 #### Footer
 - The footer contains the credit information along with a github icon.
@@ -269,23 +271,23 @@ As a Student or Individual studying  programming & algorithms I would like:
 
 #### Further Testing
 - I asked friends and family to test and interact with the site on their own devices which included ipads, iphones and samsung phones.
-- Tested myself on a physical devices laptop, desktop, ipad, samsung phone, iphone.
+- Tested myself on physical devices laptop, desktop, ipad, samsung phone, iphone.
 ### Bugs and Issues Resolved
-- First few versions of bubble sort and trying to change the bar charts heights to perform sorting was difficult. The animation happened 
+- First few versions of bubble sort and trying to change the bars heights to perform sorting was difficult. The animation happened 
   all at once at the end of the function, or with the set timeout function the heights were not updated fast enough for the sorting algorithm and maybe only one or two 
   bars swapped back and forth. 
   
   I found some information that helped me from [stackoverflow](https://stackoverflow.com/questions/48184493/update-element-with-ajax-dont-affect-until-for-loop-end/48184577). 
   The divs were not updating till end of the loop and if I updated them with a timeout function it bugged out because the sort order was messed up so I decided to group animations in to an array.
 
-- Struggled to change the colors to show the two current bars currently be getting compared in the algorithm. Initially tried to change the colors with set time out delays before the 
+- Struggled to change the colors to show the two current bars currently  getting compared in the algorithm. Initially tried to change the colors with set time out delays before the 
   the heights of the bars were swapped during the same loop iteration, but this caused delay/ asynchronous issues were multiple bar colors were being changed. 
   
   My solution was to instead have the color change animations happen as part of the animation 
   array which would be in its own loop iteration. This solved that issue.
-- For the merge sort algorithm, the auxilary array was a copy of the barsArray but it was not a deep copy and had all references to the objects inside the barsArray which 
-  broke the algorithm. I tried to fix this by making the array a const but it did not work so instead I generated the auxilary with the bars array in the same loop.
-- The pause feature required reseting all timeouts which required the playAnimations function to be remade. I got some help with changing the playanimations function to a recursive loop so the pause feature could be implemented here [stackoverflow](https://stackoverflow.com/questions/29173956/start-and-stop-loop-in-javascript-with-start-and-stop-button).
+- For the merge sort algorithm, the auxiliary array was a copy of the barsArray but it was not a deep copy and had all references to the objects inside the barsArray which 
+  broke the algorithm. I tried to fix this by making the array a const but it did not work so instead I generated the auxiliary with the bars array in the same loop.
+- The pause feature required resetting all timeouts which required the playAnimations function to be remade. I got some help with changing the playanimations function to a recursive loop so the pause feature could be implemented here [stackoverflow](https://stackoverflow.com/questions/29173956/start-and-stop-loop-in-javascript-with-start-and-stop-button).
 - Pushing the timeouts to an array did not seem to work when clearing them, but the window.clearTimeouts does seem to work which I found from [stackoverflow](https://stackoverflow.com/questions/8860188/javascript-clear-all-timeouts).
 - Initially I tried to just shift the swapAnimations array and pass the animation to play, but with timeouts some animations might have got lost. I made an animationsPlayed array instead to find out which animation has been played last 
   so when unpaused we go back to the correct animation.
@@ -299,14 +301,15 @@ As a Student or Individual studying  programming & algorithms I would like:
 - The jquery slim version did not have the fadein and fadeout functions when I used them which gave me an error. Found information on this at [stackoverflow](https://stackoverflow.com/questions/58863934/getting-fadein-is-not-a-function-although-i-did-add-jquery-to-my-html-file)
 - To pause the carousel in the html I found to use data-interval: false here [stackoverflow](https://stackoverflow.com/questions/14977392/bootstrap-carousel-remove-auto-slide)
 - Wanted my tutorial anchor to open my modal, I was missing data-toggle="modal" and found it out from [stackoverflow](https://stackoverflow.com/questions/31250364/how-can-i-use-an-anchor-tag-to-open-a-modal-page)
-- Was getting "undefined $" error when setting up some jamine tests. The problem was the order of which some of the scripts were being added the the spec-runner.html file.
-- Was getting load/set Fixtures function undefined also and this question helped me solve it as it was again problems with the order adding scripts from [stackoverflow](https://stackoverflow.com/questions/24531674/jasmine-jquery-loadfixtures-is-not-defined).
+- Was getting "undefined $" error when setting up some jasmine tests. The problem was the order of which some of the scripts were being added to the spec-runner.html file.
+- Was getting load/set Fixtures function undefined and this question helped me solve it as it was again problems with the order adding scripts from [stackoverflow](https://stackoverflow.com/questions/24531674/jasmine-jquery-loadfixtures-is-not-defined).
 - Adding the bar-charting.js and quiz-generation.js into jasmine testing was causing issues because I had a document ready function being called and other functions being called in them which caused errors when testing. Got this information that helped me figure out what was causing the errors from [stackoverflow](https://stackoverflow.com/questions/8734168/preventing-document-ready-function-while-unit-testing). Added an if clause that checks if a bar-chart exists and it fixed this.
 - Fixed an error related to favicons not loading as I did not have any.  Got some information on them at [w3](https://www.w3.org/2005/10/howto-favicon).
 - Fixed a bug where the user can change the speed by disabling buttons when the algorithm is running.
 - Fixed a bug where the user can change the array size by disabling buttons when the algorithm is running.
 - Fixed a bug where the user can click the generate bars button by disabling buttons when the algorithm is running.
 - My Mentor helped me fix a bug where changing the screen size would cause the bars to fold on to the next row and pointed me to the right solution. I found information on resize  listeners here [stackoverflow](https://stackoverflow.com/questions/641857/javascript-window-resize-event)
+- Fixed a bug when pausing the current algorithm and changing it to a different one, the old algorithm would still run as the swap animations array did not update. 
 #### Unsolved Bugs
 1. Zooming in on chrome causes the bar chart to fold bars to next rows
 2. Discovered that the swapping heights chart jitter bug is only fixed for bubble sort and occurs in merge sort and quick sort.
