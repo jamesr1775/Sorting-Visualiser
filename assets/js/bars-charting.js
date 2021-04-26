@@ -1,6 +1,7 @@
 
 // Variables
 let currentSortAlgorithm = "None";
+let lastSortAlgorithm = "None";
 let screenHeightMultiplier = 0.5;
 let screenWidthMultiplier = 0.5;
 let swapAnimations = [];
@@ -142,7 +143,7 @@ function loop(swapAnimations, swapAnimationsIdx) {
 }
 
 /**
- * checkIfSorted() returns a boolean as to wheter the chart is sorted and the bars have updated their
+ * checkIfSorted() returns a boolean as to whether the chart is sorted and the bars have updated their
  * colors to the correct position color.
  **/
 function checkIfSorted(){
@@ -164,7 +165,7 @@ function checkIfSorted(){
 /**
  * Start Sorting button pressed will retrieve an array of animations from 
  * the currently selected algorithm. Once started the button can be used
- * to pause the animations. If no algorith is selected it will show
+ * to pause the animations. If no algorithm is selected it will show
  * the error modal
  **/
 $('#sortBars').click(function() {
@@ -173,15 +174,19 @@ $('#sortBars').click(function() {
     let swapAnimationsIdx = 0;
     if(currentSortAlgorithm != "None"){
         // Check if we have animations to play otherwise get them for the selected algorithm.
-        if(swapAnimations.length === 0){
+        if(swapAnimations.length === 0 || lastSortAlgorithm != currentSortAlgorithm){
+            unpaused = true
             if(currentSortAlgorithm === "bubble-sort"){
                 swapAnimations = bubbleSortAlgorithm();
+                lastSortAlgorithm = currentSortAlgorithm
             }
             else if(currentSortAlgorithm === "merge-sort"){
                 swapAnimations = mergeSortAlgorithm();
+                lastSortAlgorithm = currentSortAlgorithm
             }
             else if(currentSortAlgorithm ==="quick-sort"){
                 swapAnimations = quickSortAlgorithm();
+                lastSortAlgorithm = currentSortAlgorithm
             }
             else{
                 event.preventDefault();

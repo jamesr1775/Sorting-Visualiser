@@ -87,6 +87,7 @@ describe('TS_006_Quiz_Generation', function() {
                         }`)
 
     });
+    
     it('TC_001_Add_BubbleSort_Set_Questions', function() {
         let currentQuestions = getCurrentQuestionsStruct("bubble-sort")
         addQuizQuestionsToHtml("bubble-sort")

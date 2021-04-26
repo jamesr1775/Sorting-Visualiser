@@ -1,34 +1,34 @@
 
 // source code
-function mergeSortHelper(array, leftIdx, rightIdx, auxilaryArray){
+function mergeSortHelper(array, leftIdx, rightIdx, auxiliaryArray){
   if (leftIdx === rightIdx) return;
   let midIdx = Math.floor((leftIdx + rightIdx)/2)
-  mergeSortHelper(auxilaryArray, leftIdx, midIdx, array)
-  mergeSortHelper(auxilaryArray, midIdx + 1, rightIdx, array)
-  doMerge(array, leftIdx, midIdx, rightIdx, auxilaryArray)
+  mergeSortHelper(auxiliaryArray, leftIdx, midIdx, array)
+  mergeSortHelper(auxiliaryArray, midIdx + 1, rightIdx, array)
+  doMerge(array, leftIdx, midIdx, rightIdx, auxiliaryArray)
 }
 
-function doMerge(array, leftIdx, midIdx, rightIdx, auxilaryArray){
+function doMerge(array, leftIdx, midIdx, rightIdx, auxiliaryArray){
   let i = leftIdx
   let k = leftIdx
   let j = midIdx + 1
   while(i <= midIdx && j <= rightIdx){
-    if (auxilaryArray[i] <= auxilaryArray[j]){
-      array[k] = auxilaryArray[i]
+    if (auxiliaryArray[i] <= auxiliaryArray[j]){
+      array[k] = auxiliaryArray[i]
       i++
     }else{
-       array[k] = auxilaryArray[j]
+       array[k] = auxiliaryArray[j]
       j++
     }
     k++
   }
   while(i <= midIdx){
-    array[k] = auxilaryArray[i]
+    array[k] = auxiliaryArray[i]
     i++
     k++
   }
   while(j <= rightIdx){
-    array[k] = auxilaryArray[j]
+    array[k] = auxiliaryArray[j]
     j++
     k++
   }
@@ -38,8 +38,8 @@ function mergeSort(array){
   if(array.length <= 1) return array;
   let leftIdx = 0;
   let rightIdx = array.length - 1;
-  let auxilaryArray = array.slice();
-  mergeSortHelper(array, leftIdx, rightIdx, auxilaryArray);
+  let auxiliaryArray = array.slice();
+  mergeSortHelper(array, leftIdx, rightIdx, auxiliaryArray);
   return array;
 }
 

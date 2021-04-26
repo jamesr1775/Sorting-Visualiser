@@ -30,7 +30,7 @@ let allQuestions = {
             },
     mergeSort:{    
                 questions: ["What is the average time complexity of the merge sort algorithm with an array of length <em>n</em>?",
-                            "What is the space complexity of the merge sort algorithm with an array of length <em>n</em> that uses an auxilary array?",
+                            "What is the space complexity of the merge sort algorithm with an array of length <em>n</em> that uses an auxiliary array?",
                             "The best case time complexity for merge sort algorithm is <em>O(n)</em>?",
                             "Merge sort was invented in 1945 by who:",
                             "Is merge sort preferred to sort arrays instead of linked lists?"

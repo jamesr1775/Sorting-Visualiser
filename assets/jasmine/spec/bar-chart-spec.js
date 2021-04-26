@@ -10,6 +10,7 @@ describe('TS_004_Generate_Bar_Chart', function() {
             </div>
         `)
     });
+
     it('TC_001_Generate_Bars', function() {
         let expected_number_of_bars = '10'
         generateBarChart();
@@ -18,7 +19,6 @@ describe('TS_004_Generate_Bar_Chart', function() {
         }
         expect($("#arraySize").val()).toEqual(expected_number_of_bars);
     });
-
     it('TC_002_Generate_Bars_Slider_Change', function() {
 
         let max_bars = 100
@@ -112,6 +112,7 @@ describe('TS_005_Setup_Algorithms', function() {
                         }`)
 
     });
+    
     it('TC_001_AddCodeToHtml_Bubble_Sort_Code', function() {
         let expectedCode = getBubbleSortCodeString()
         addCodeToHtml()

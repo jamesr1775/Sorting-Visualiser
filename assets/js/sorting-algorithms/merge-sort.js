@@ -4,24 +4,24 @@
  * implements the divide and conquer approach to sort the bars array.
  * Algorithm steps are tracked and the animations array is populated.
  **/
-function mergeSortAlgorithmHelper(array, leftIdx, rightIdx, auxilaryArray, animations, finalDoMerge){
+function mergeSortAlgorithmHelper(array, leftIdx, rightIdx, auxiliaryArray, animations, finalDoMerge){
     // Base case for recursion to end.
     if (leftIdx === rightIdx){
         return;
     }
 
     let midIdx = Math.floor((leftIdx + rightIdx)/2)
-    // Arrays divided in to two sub arrays. Auxilary array and array will be swapped on each recursive call.
-    mergeSortAlgorithmHelper(auxilaryArray, leftIdx, midIdx, array, animations, false);
-    mergeSortAlgorithmHelper(auxilaryArray, midIdx + 1, rightIdx, array, animations, false);
+    // Arrays divided in to two sub arrays. auxiliary array and array will be swapped on each recursive call.
+    mergeSortAlgorithmHelper(auxiliaryArray, leftIdx, midIdx, array, animations, false);
+    mergeSortAlgorithmHelper(auxiliaryArray, midIdx + 1, rightIdx, array, animations, false);
     // Final do merge call to merge the two sub arrays sorted above into one array that is sorted.
-    doMerge(array, leftIdx, midIdx, rightIdx, auxilaryArray, animations, finalDoMerge);
+    doMerge(array, leftIdx, midIdx, rightIdx, auxiliaryArray, animations, finalDoMerge);
 }
 
 /**
  * doMerge() does all the heavy lifting of swapping values in the arrays.
  **/
-function doMerge(array, leftIdx, midIdx, rightIdx, auxilaryArray, animations, finalDoMerge){
+function doMerge(array, leftIdx, midIdx, rightIdx, auxiliaryArray, animations, finalDoMerge){
     let i = leftIdx;
     let k = leftIdx;
     let j = midIdx + 1;
@@ -29,28 +29,28 @@ function doMerge(array, leftIdx, midIdx, rightIdx, auxilaryArray, animations, fi
     while(i <= midIdx && j <= rightIdx){
         // compare left idx value to right idx value of the aux array
         // and make swaps in array until loop exit condition reached.
-        if (auxilaryArray[i][1] <= auxilaryArray[j][1]){
+        if (auxiliaryArray[i][1] <= auxiliaryArray[j][1]){
             // push bar color changes/ swaps to animation array
             // swapAnimations = [[barId, barHeightInteger, swapBars, swapColors, barInFinalPosition],...]
             animations.push(['#bar-' + i, 0, false, true, false]);
-            animations.push(['#bar-' + k, auxilaryArray[i][1], true, false, false]);
+            animations.push(['#bar-' + k, auxiliaryArray[i][1], true, false, false]);
             animations.push(['#bar-' + i, 0, false, false, false]);
             if(finalDoMerge){
                 animations.push(['#bar-' + i, 0, false, false, true]);
             }
-            array[k][1] = auxilaryArray[i][1];
+            array[k][1] = auxiliaryArray[i][1];
             i++;
         }
         else{
             // push bar color changes/ swaps to animation array
             // swapAnimations = [[barId, barHeightInteger, swapBars, swapColors, barInFinalPosition],...]
             animations.push(['#bar-' + j, 0, false, true, false]);
-            animations.push(['#bar-' + k, auxilaryArray[j][1], true, false, false]);
+            animations.push(['#bar-' + k, auxiliaryArray[j][1], true, false, false]);
             animations.push(['#bar-' + j, 0, false, false, false]);
             if(finalDoMerge){
                 animations.push(['#bar-' + j, 0, false, false, true]);
             }
-            array[k][1] = auxilaryArray[j][1];
+            array[k][1] = auxiliaryArray[j][1];
             j++;
         }
         k++;
@@ -60,12 +60,12 @@ function doMerge(array, leftIdx, midIdx, rightIdx, auxilaryArray, animations, fi
     // values in the left half to the array
     while(i <= midIdx){
         animations.push(['#bar-' + i, 0, false, true, false]);
-        animations.push(['#bar-' + k, auxilaryArray[i][1], true, false, false]);
+        animations.push(['#bar-' + k, auxiliaryArray[i][1], true, false, false]);
         animations.push(['#bar-' + i, 0, false, false, false]);
         if(finalDoMerge){
             animations.push(['#bar-' + i, 0, false, false, true]);
         }
-        array[k][1] = auxilaryArray[i][1];
+        array[k][1] = auxiliaryArray[i][1];
         i++;
         k++;
     }
@@ -73,19 +73,19 @@ function doMerge(array, leftIdx, midIdx, rightIdx, auxilaryArray, animations, fi
     // values in the right half to the array
     while(j <= rightIdx){
         animations.push(['#bar-' + j, 0, false, true, false]);
-        animations.push(['#bar-' + k, auxilaryArray[j][1], true, false, false]);
+        animations.push(['#bar-' + k, auxiliaryArray[j][1], true, false, false]);
         animations.push(['#bar-' + j, 0, false, false, false]);
         if(finalDoMerge){
             animations.push(['#bar-' + j, 0, false, false, true]);
         }
-        array[k][1] = auxilaryArray[j][1];
+        array[k][1] = auxiliaryArray[j][1];
         j++;
         k++;
     }
 }
 
 /**
- * mergeSortAlgorithm() sets up for the call to the recursive helper. It creates the array and auxilary array
+ * mergeSortAlgorithm() sets up for the call to the recursive helper. It creates the array and auxiliary array
  * and passed it to the helper function with the initial indexes.
  **/
 function mergeSortAlgorithm(){
@@ -93,13 +93,13 @@ function mergeSortAlgorithm(){
     let rightIdx = document.getElementsByClassName("single-bar").length - 1;
     let barsArray = [];
     let swapAnimations = [];
-    let auxilaryArray = [];
+    let auxiliaryArray = [];
     for(let i=0; i<=rightIdx; i++){
         let bar =  $('#bar-' + i);
         barsArray.push(['#bar-' + i, bar.height()]);
-        auxilaryArray.push(['#bar-' + i, bar.height()]);
+        auxiliaryArray.push(['#bar-' + i, bar.height()]);
     }
-    mergeSortAlgorithmHelper(barsArray, leftIdx, rightIdx, auxilaryArray, swapAnimations, true);
+    mergeSortAlgorithmHelper(barsArray, leftIdx, rightIdx, auxiliaryArray, swapAnimations, true);
     return swapAnimations;
 }
 
@@ -108,35 +108,35 @@ function mergeSortAlgorithm(){
  * Formating(aligning with tabs/spaces) this string will disrupt how its showed currently.
  **/
  function getMergeSortCodeString(){
-    let mergeSortCodeString = `function mergeSortHelper(array, leftIdx, rightIdx, auxilaryArray){
+    let mergeSortCodeString = `function mergeSortHelper(array, leftIdx, rightIdx, auxiliaryArray){
   if (leftIdx === rightIdx) return;
   let midIdx = Math.floor((leftIdx + rightIdx)/2);
-  mergeSortHelper(auxilaryArray, leftIdx, midIdx, array);
-  mergeSortHelper(auxilaryArray, midIdx + 1, rightIdx, array);
-  doMerge(array, leftIdx, midIdx, rightIdx, auxilaryArray);
+  mergeSortHelper(auxiliaryArray, leftIdx, midIdx, array);
+  mergeSortHelper(auxiliaryArray, midIdx + 1, rightIdx, array);
+  doMerge(array, leftIdx, midIdx, rightIdx, auxiliaryArray);
 }
 
-function doMerge(array, leftIdx, midIdx, rightIdx, auxilaryArray){
+function doMerge(array, leftIdx, midIdx, rightIdx, auxiliaryArray){
   let i = leftIdx;
   let k = leftIdx;
   let j = midIdx + 1;
   while(i <= midIdx && j <= rightIdx){
-    if (auxilaryArray[i] <= auxilaryArray[j]){
-      array[k] = auxilaryArray[i];
+    if (auxiliaryArray[i] <= auxiliaryArray[j]){
+      array[k] = auxiliaryArray[i];
       i++;
     }else{
-       array[k] = auxilaryArray[j];
+       array[k] = auxiliaryArray[j];
        j++;
     }
     k++;
   }
   while(i <= midIdx){
-    array[k] = auxilaryArray[i];
+    array[k] = auxiliaryArray[i];
     i++;
     k++;
   }
   while(j <= rightIdx){
-    array[k] = auxilaryArray[j];
+    array[k] = auxiliaryArray[j];
     j++;
     k++;
   }
@@ -146,8 +146,8 @@ function mergeSort(array){
   if(array.length <= 1) return array;
   let leftIdx = 0;
   let rightIdx = array.length - 1;
-  let auxilaryArray = array.slice();
-  mergeSortHelper(array, leftIdx, rightIdx, auxilaryArray);
+  let auxiliaryArray = array.slice();
+  mergeSortHelper(array, leftIdx, rightIdx, auxiliaryArray);
   return array;
 }`;
     return mergeSortCodeString;
