@@ -43,7 +43,7 @@ function generateBarChart(){
         bar.style.height = newHeight + "px";
         bar.style.width = newBarWidth + "px";
     }
-    barChart.setAttribute("style", "min-height:" + (maxHeight + 20) + "px");
+    barChart.setAttribute("style", "min-height:" + (screen.height*screenHeightMultiplier + 20) + "px");
 }
 
 /**

@@ -310,6 +310,8 @@ As a Student or Individual studying  programming & algorithms I would like:
 - Fixed a bug where the user can click the generate bars button by disabling buttons when the algorithm is running.
 - My Mentor helped me fix a bug where changing the screen size would cause the bars to fold on to the next row and pointed me to the right solution. I found information on resize  listeners here [stackoverflow](https://stackoverflow.com/questions/641857/javascript-window-resize-event)
 - Fixed a bug when pausing the current algorithm and changing it to a different one, the old algorithm would still run as the swap animations array did not update. 
+- Zooming in on chrome causes the bar chart to fold bars to next rows has been fixed. The fix for the window resize event fixed this.
+- Fixed a bug where sometimes the bar-charts height was small making the footer move up and creating white space underneath it because all the content was too small to fix to the screen.
+
 #### Unsolved Bugs
-1. Zooming in on chrome causes the bar chart to fold bars to next rows
-2. Discovered that the swapping heights chart jitter bug is only fixed for bubble sort and occurs in merge sort and quick sort.
+1. Discovered that the swapping heights chart jitter bug is only fixed for bubble sort and occurs in merge sort and quick sort.

@@ -558,6 +558,9 @@ footer{
     .instructions-gif{
         height: 230px;
     }
+    #bar-chart{
+        margin-top: 10px;
+    }
 }
 
 /*********** Tablets ***********/
