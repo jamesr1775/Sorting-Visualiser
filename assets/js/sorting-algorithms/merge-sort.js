@@ -158,8 +158,8 @@ function mergeSort(array){
  **/
 function getMergeSortInfoString(){
     let mergeSortInfoString = `<h2 id="algo-header" class="text-center mt-2">Merge Sort Algorithm</h2>
-                                <p>Merge sort is a divide and conquer algorithm that splits up the array of length <em>n</em> in to two sub arrays, and then these two sub arrays in to two additional sub arrays until there are <em>n</em> arrays with one element. 
-                                It will sort these sub arrays and then starting merging two sorted sub arrays back into one array. When the final 2 sub arrays are merged to form the sorted array the algorithm ends.</p>
+                                <p>Merge sort is a divide and conquer algorithm that splits up the array of length <em>n</em> in to two sub arrays, and then these two sub arrays in to two additional sub arrays until there are <em>n</em> arrays with one element. See the steps below for more detail.
+                                </p>
                                 <div class="horizontal-divider"><hr></div>
                                 <h3 class="text-center mt-5">Algorithm Steps</h3>
                                 <ol>

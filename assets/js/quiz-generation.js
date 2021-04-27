@@ -20,8 +20,8 @@ let allQuestions = {
                 answerExplanations: ["Bubble sort iterates over the array of n elements effectively twice. The inner loop does have the optimization of <em>n-i-1</em>                                   iterations but this still equates to a time complexity of O(<em>n</em>)*O(<em>n-i-1</em>) which simplifies to O(<em>n<sup>2</sup></em>)",
                                      "The original array is manipulated in place and only one temporary variable to do the swaps is needed so the space complexity \
                                      is constant O(1)",
-                                     "Another optimization can be added to the algorithm to check if any swaps occured during the first pass through the array. \
-                                     If none occured you can terminate the algorithm as the array is already sorted. Thus the best case time complexity would be <em>n<sup>2</sup></em>",
+                                     "Another optimization can be added to the algorithm to check if any swaps occurred during the first pass through the array. \
+                                     If none occurred you can terminate the algorithm as the array is already sorted. Thus the best case time complexity would be O(<em>n</em>)",
                                      "Bubble sort can be thought to bubble the smallest values to the top of the array, hence sinking sort sinks the largest values to the bottom of the array.",
                                      "In an interview with former Google CEO Eric Schmidt, Barack Obama replied to this question. \
                                      See it <a href='https://youtu.be/m4yVlPqeZwo?t=1398' target='_blank'>here</a>"
@@ -45,8 +45,8 @@ let allQuestions = {
                 answerExplanations: ["For each recursive call to the merge sort recursive helper we are dividing the number of elements we want to sort in to two, \
                                      thus we have <em>log(n)</em> calls to the recursive helper. In each recursive call the do merge function iterates over its array which could be of length <em>n, n/2, n/4 etc.</em> and in time complexity analysis this will simplify to O(<em>n</em>). \
                                      Thus the time complexity of log(n) calls with a loop of length n is O(<em>nlog(n)</em>)",
-                                     "In this algorithm because we create a copy of the original array we at the least have O(<em>n</em>) space complexity. Additionaly because of the recurion we have O(<em>log(n)</em>) calls on the call stack at worst. Thus the total time complexity could be O(<em>n</em>) + O(<em>log(n)</em>). Since the O(<em>n</em>) dominates we can simplify it to that.",
-                                     "The best case, average case and worst case are all the same with a time complexity of O(<em>nlog(n)</em>). We also will divide the array in to two <em>log(n)</em> times and go through those sub array lengths of <em>n, n/2, n/4 etc</em>",
+                                     "In this algorithm because we create a copy of the original array we at the least have O(<em>n</em>) space complexity. Additionally because of the recursion we have O(<em>log(n)</em>) calls on the call stack at worst. Thus the total time complexity could be O(<em>n</em>) + O(<em>log(n)</em>). Since the O(<em>n</em>) dominates we can simplify it to just that.",
+                                     "The best case, average case and worst case are all the same with a time complexity of O(<em>nlog(n)</em>) because it will divide the array in to two <em>log(n)</em> times and go through those sub array lengths of <em>n, n/2, n/4 etc</em> sorting them.",
                                      "John von Neumann invented the algorithm in 1945.",
                                      "Merge sort is considered best for sorting linked lists because it is more efficient then other algorithms such as quick sort which performs poorly for linked lists due to slow random access for this data type."
                                     ],
@@ -67,10 +67,10 @@ let allQuestions = {
                     ],
             correctAnswers: ["option-0", "option-3", "option-0", "option-1", "option-0"], 
             answerExplanations: ["Like merge sort, the goal is to work with sub arrays half the size of the array the quickSortHelper is called on. \
-                                 This on average should give us <em>log(n)</em> arrays to sort. Since the algorithm trys to sorts these arrays of lengths \
+                                 This on average should give us <em>log(n)</em> arrays to sort. Since the algorithm tries to sorts these arrays of lengths \
                                  <em>n, n/2, n/4 etc.</em>) the overall time complexity can be written as O(<em>nlog(n)</em>).",
                                  "The space complexity is O(<em>log(n)</em>). Quick sort algorithm sorts the array in place so no new arrays or sub arrays are needed to store values. Recursion is used however and at most we will have <em>log(n)</em> calls to the quickSortHelper on the stack at a given time.", 
-                                 "The worst case time complexity is O(<em>n<sup>2</sup>). This occurs when the pivot value selected is consistently the largest or smallest number in the array / sub arrays being sorted, thus making the partition return an index of <em>n-1</em> elements to rerun the algorithm on.",
+                                 "The worst case time complexity is O(<em>n<sup>2</sup>). This occurs when the pivot value selected is consistently the largest or smallest number in the array / sub arrays being sorted, thus making the partition return an index of <em>n-1</em> elements to rerun the algorithm on repeatedly.",
                                  "Tony Hoare invented the algorithm in 1959.",
                                  "In 2009, Vladimir Yaroslavskiy proposed a new version of quick sort that uses two pivots. The average time complexity of this algorithm is O(<em>0.8*nlog(n)</em>)."
                                 ],
