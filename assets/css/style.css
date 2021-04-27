@@ -412,6 +412,7 @@ footer{
     height: 400px;
     background-repeat: no-repeat;
     background-size: contain;
+    background-position: center;
     border-radius: 2%;
 }
 .instruction-text{
@@ -510,6 +511,19 @@ footer{
         background: none;
     }
 }
+@media screen and (max-width:500px){
+    .instruction-header{
+        font-size: 20px;
+        padding: 5px;
+    }
+    .instructions-gif{
+        height: 300px;
+    }
+    .instruction-text{
+        font-size: 15px;
+        padding: 10px;
+    }
+}
 @media screen and (max-width:400px){
     #nav-questions-block{
         margin-left: calc(50% - 105px);
@@ -540,6 +554,9 @@ footer{
     #quiz-results-block button{
         width: 100px;
         font-size: 15px;
+    }
+    .instructions-gif{
+        height: 230px;
     }
 }
 
